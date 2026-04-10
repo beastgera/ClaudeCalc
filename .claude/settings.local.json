@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(python:*)",
+      "Bash(where python:*)",
+      "Bash(where python3:*)",
+      "Bash(py -3 --version)",
+      "Bash(py -3 -c \"print\\('ok'\\)\")",
+      "Bash(powershell:*)",
+      "Bash(dotnet build:*)"
+    ]
+  }
+}

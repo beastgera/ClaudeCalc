@@ -1,6 +1,14 @@
 using CraftingCalc.Components;
+using CraftingCalc.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddHttpClient<AlbionPriceService>(client =>
+{
+    client.Timeout = TimeSpan.FromSeconds(30);
+});
+
+builder.Services.AddScoped<CraftingCartService>();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()

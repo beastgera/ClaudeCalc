@@ -1,0 +1,110 @@
+@page "/cart"
+@rendermode InteractiveServer
+@inject CraftingCartService CartService
+@using CraftingCalc.Models
+@using CraftingCalc.Services
+@implements IDisposable
+
+<PageTitle>Crafting Cart</PageTitle>
+
+<div class="cart-layout">
+
+    <div class="cart-header">
+        <h2 class="cart-title">Crafting Cart</h2>
+        @if (CartService.Entries.Count > 0)
+        {
+            <button class="btn btn-outline-danger btn-sm" @onclick="CartService.Clear">Clear All</button>
+        }
+    </div>
+
+    @if (CartService.Entries.Count == 0)
+    {
+        <div class="cart-empty">No items in cart. Add items from the Gear Crafting page.</div>
+    }
+    else
+    {
+        <div class="cart-body">
+
+            <!-- ── PLANNED CRAFTS ── -->
+            <div class="cart-card">
+                <div class="cart-card-title">Planned Crafts</div>
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Item</th>
+                            <th>Tier</th>
+                            <th>Qty</th>
+                            <th>Materials</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var entry in CartService.Entries)
+                        {
+                            <tr>
+                                <td class="cart-item-img-cell">
+                                    <img src="https://render.albiononline.com/v1/item/@entry.ItemApiId"
+                                         class="cart-item-img" alt="@entry.ItemName" />
+                                </td>
+                                <td class="cart-item-name">@entry.ItemName</td>
+                                <td class="cart-tier">@entry.TierLabel</td>
+                                <td class="cart-qty">×@entry.Quantity</td>
+                                <td class="cart-mats-cell">
+                                    <div class="cart-mat-list">
+                                        @foreach (var mat in entry.Materials)
+                                        {
+                                            <span class="cart-mat-chip">
+                                                <img src="https://render.albiononline.com/v1/item/@mat.ApiId"
+                                                     class="cart-mat-chip-img" alt="@mat.Name" />
+                                                @mat.Required×@mat.Name
+                                                @if (mat.Price > 0)
+                                                { <span class="cart-mat-price">@((mat.Price * mat.Required).ToString("N0"))</span> }
+                                            </span>
+                                        }
+                                    </div>
+                                </td>
+                                <td>
+                                    <button class="btn btn-link btn-sm cart-remove" @onclick="() => CartService.Remove(entry.Id)">✕</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ── SHOPPING LIST ── -->
+            <div class="cart-card">
+                <div class="cart-card-title">Shopping List</div>
+                <div class="cart-shopping-grid">
+                    @foreach (var (apiId, name, total, totalCost) in CartService.GetAggregated())
+                    {
+                        var unitPrice = total > 0 && totalCost > 0 ? totalCost / total : 0;
+                        <div class="cart-shop-tile">
+                            <img src="https://render.albiononline.com/v1/item/@apiId"
+                                 class="cart-shop-img" alt="@name" title="@apiId" />
+                            <div class="cart-shop-qty">×@total.ToString("N0")</div>
+                            @if (unitPrice > 0)
+                            {
+                                <div class="cart-shop-unit">@unitPrice.ToString("N0") / unit</div>
+                            }
+                            @if (totalCost > 0)
+                            { <div class="cart-shop-cost">@totalCost.ToString("N0")</div> }
+                            <div class="cart-shop-name">@name</div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>
+
+@code {
+    protected override void OnInitialized() => CartService.OnChange += Refresh;
+
+    private void Refresh() => InvokeAsync(StateHasChanged);
+
+    public void Dispose() => CartService.OnChange -= Refresh;
+}
