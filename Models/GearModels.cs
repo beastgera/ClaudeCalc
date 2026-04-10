@@ -36,6 +36,7 @@ public class CraftingSettings
     public decimal LocationQualityBonus { get; set; } = 0m; // LPB from hideout zone quality (0 if in city)
     public decimal HideoutPowerBonus { get; set; } = 0m;    // LPB from power core (0 if in city)
     public bool IsHideout { get; set; } = false;
+    public decimal BonusCityBonus { get; set; } = 0m;       // LPB from crafting in bonus city (0.15)
 }
 
 public class CraftingRow

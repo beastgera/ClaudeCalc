@@ -383,6 +383,7 @@
             var effectiveLpb = (settings.IsHideout ? 0m : settings.BaseLocalProductionBonus) + settings.BonusDay
                                    + settings.LocationQualityBonus
                                    + settings.HideoutPowerBonus
+                                   + settings.BonusCityBonus
                                    + (settings.UseFocus ? settings.FocusLpb : 0m);
             return effectiveLpb / (1m + effectiveLpb);
         }
@@ -433,6 +434,8 @@
             settings.LocationQualityBonus = 0m;
             settings.HideoutPowerBonus = 0m;
         }
+
+        settings.BonusCityBonus = craftLocation == "BonusCity" ? 0.15m : 0m;
 
         if (craftLocation == "BonusCity" && selectedItem != null)
             settings.CraftCity = selectedItem.BonusCity;
