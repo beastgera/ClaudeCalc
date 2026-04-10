@@ -276,6 +276,17 @@ public static class GearItemDatabase
         new("2H_DAGGERPAIR_CRYSTAL", "Twin Slayers", 16, Leather, 16, Metalbar, "Bridgewatch", "ARTEFACT_2H_DAGGERPAIR_CRYSTAL", "Death-Touched Crystal", 1, null, null, 0, Hunter, 250),
         new("2H_SCYTHE_CRYSTAL", "Crystal Reaper", 12, Planks, 20, Metalbar, "Martlock", "ARTEFACT_2H_SCYTHE_CRYSTAL", "Edged Crystal", 1, null, null, 0, Warrior, 250),
         new("MAIN_MACE_CRYSTAL", "Dreadstorm Monarch", 16, Metalbar, 8, Cloth, "Thetford", "ARTEFACT_MAIN_MACE_CRYSTAL", "Dreadstorm Crystal", 1, null, null, 0, Warrior, 250),
+        new("OFF_SHIELD_CRYSTAL", "Ubreakable Ward", 4, Planks, 4, Metalbar, "Martlock", "ARTEFACT_OFF_SHIELD_CRYSTAL", "Ubreakable Crystal", 1, null, null, 0, Warrior, 250),
+        new("OFF_TOME_CRYSTAL", "Timelocked Grimoire", 4, Cloth, 4, Leather, "Martlock", "ARTEFACT_OFF_TOME_CRYSTAL", "Timelocked Crystal", 1, null, null, 0, Mage, 250),
+        new("OFF_TORCH_CRYSTAL", "Blueflame Torch", 4, Planks, 4, Cloth, "Martlock", "ARTEFACT_OFF_TORCH_CRYSTAL", "Blueflame Crystal", 1, null, null, 0, Hunter, 250),
+        new("2H_BOW_CRYSTAL", "Skystrider Bow", 32, Planks, 0, null, "Lymhurst", "ARTEFACT_2H_BOW_CRYSTAL", "Windborne Crystal", 1, null, null, 0, Hunter, 250),
+        new("2H_DUALCROSSBOW_CRYSTAL", "Arclight Blasters", 20, Planks, 12, Metalbar, "Bridgewatch", "ARTEFACT_2H_DUALCROSSBOW_CRYSTAL", "Arclight Crystal", 1, null, null, 0, Warrior, 250),
+        new("MAIN_CURSEDSTAFF_CRYSTAL", "Rotcaller", 16, Planks, 8, Metalbar, "Bridgewatch", "ARTEFACT_MAIN_CURSEDSTAFF_CRYSTAL", "Rotten Crystal", 1, null, null, 0, Mage, 250),
+        new("MAIN_FIRESTAFF_CRYSTAL", "Flamewalker Staff", 16, Planks, 8, Metalbar, "Thetford", "ARTEFACT_MAIN_FIRESTAFF_CRYSTAL", "Pyreheart Crystal", 1, null, null, 0, Mage, 250),
+        new("MAIN_NATURESTAFF_CRYSTAL", "Forgebark Staff", 16, Planks, 8, Cloth, "Thetford", "ARTEFACT_MAIN_NATURESTAFF_CRYSTAL", "Forged Crystal", 1, null, null, 0, Hunter, 250),
+        new("2H_HAMMER_CRYSTAL", "Truebolt Hammer", 20, Metalbar, 12, Cloth, "Fort Sterling", "ARTEFACT_2H_HAMMER_CRYSTAL", "Crackling Crystal", 1, null, null, 0, Warrior, 250),
+        new("2H_KNUCKLES_CRYSTAL", "Forcepulse Bracers", 20, Leather, 12, Metalbar, "Caerleon", "ARTEFACT_2H_KNUCKLES_CRYSTAL", "Pulsating Crystal", 1, null, null, 0, Warrior, 250),
+        new("2H_SHAPESHIFTER_CRYSTAL", "Stillgalze Staff", 20, Planks, 12, Leather, "Caerleon", "ARTEFACT_2H_SHAPESHIFTER_CRYSTAL", "Serpent Crystal", 1, null, null, 0, Hunter, 250),
     };
 
     // Tier quantity multipliers (T4=1x, T5=2x, T6=4x, T7=8x, T8=16x)
