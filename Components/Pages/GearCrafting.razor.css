@@ -150,6 +150,45 @@
     margin-bottom: 0.7rem;
 }
 
+.gc-info-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: default;
+    font-size: 0.8rem;
+    color: #555;
+    outline: none;
+}
+
+.gc-info-icon:hover .gc-info-tooltip,
+.gc-info-icon:focus .gc-info-tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.gc-info-tooltip {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-4px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    translate: -50%;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 0.45rem 0.65rem;
+    white-space: nowrap;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: #aaa;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
 .gc-card-divider {
     border-top: 1px solid #252525;
     margin: 0.5rem 0;
@@ -331,6 +370,9 @@
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: #555;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
 }
 
 .gc-summary-value {

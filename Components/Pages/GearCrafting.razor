@@ -334,7 +334,13 @@
                             <div class="gc-summary-value cost">@FormatSummary(row.TotalCost)</div>
                         </div>
                         <div class="gc-summary-tile">
-                            <div class="gc-summary-label">Profit</div>
+                            <div class="gc-summary-label">
+                                Profit
+                                <span class="gc-info-icon" tabindex="0">
+                                    &#x24D8;
+                                    <span class="gc-info-tooltip">Calculations do not include journals and station fee.<br/>6.5% market tax included.</span>
+                                </span>
+                            </div>
                             <div class="gc-summary-value @(row.Profit >= 0 ? "profit-pos" : "profit-neg")">@FormatSummary(row.Profit)</div>
                         </div>
                         <div class="gc-summary-tile">

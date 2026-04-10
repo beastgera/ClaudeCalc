@@ -77,6 +77,15 @@ main {
     }
 }
 
+.footer {
+    border-top: 1px solid #222;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    color: #888;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
 #blazor-error-ui {
     color-scheme: light only;
     background: lightyellow;
