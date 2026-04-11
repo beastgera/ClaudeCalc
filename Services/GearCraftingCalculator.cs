@@ -44,8 +44,9 @@ public static class GearCraftingCalculator
         var effectiveMatCost = rawMatCost / (1m + effectiveLpb);
 
         // Artifact cost (not subject to return rate — consumed fully)
+        var art2Qty = string.IsNullOrEmpty(item.Artifact2Id) ? 0 : GearItemDatabase.GetArtifact2Qty(row.Tier);
         var artifactCost = row.ArtifactPrice * item.ArtifactQty
-                         + row.Artifact2Price * item.Artifact2Qty;
+                         + row.Artifact2Price * art2Qty;
 
         row.TotalCost = (effectiveMatCost + artifactCost) * s.Quantity;
 

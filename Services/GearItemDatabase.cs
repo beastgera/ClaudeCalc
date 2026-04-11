@@ -333,8 +333,14 @@ public static class GearItemDatabase
     public static string? GetArtifact2ApiId(GearItem item, int tier)
     {
         if (string.IsNullOrEmpty(item.Artifact2Id)) return null;
-        return $"T{tier}_{item.Artifact2Id}";
+        // Artifact2 tier: odd item tiers use the same tier, even item tiers use tier-1
+        // T4→T3, T5→T5, T6→T5, T7→T7, T8→T7
+        var art2Tier = tier % 2 == 0 ? tier - 1 : tier;
+        return $"T{art2Tier}_{item.Artifact2Id}";
     }
+
+    // Artifact2 qty is tier-dependent: even tiers (T4,T6,T8) need 2, odd tiers (T5,T7) need 1
+    public static int GetArtifact2Qty(int tier) => tier % 2 == 0 ? 2 : 1;
 
     public static readonly string[] Cities =
         ["Thetford", "Fort Sterling", "Bridgewatch", "Lymhurst", "Martlock", "Caerleon", "Brecilien", "Black Market"];

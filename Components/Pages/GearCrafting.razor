@@ -210,6 +210,7 @@
                 var mat2ImgId = !string.IsNullOrEmpty(selectedItem.Mat2Type) ? GearItemDatabase.GetMatApiId(selectedItem.Mat2Type, selectedTier, selectedEnchant) : null;
                 var art1ImgId = GearItemDatabase.GetArtifactApiId(selectedItem, selectedTier);
                 var art2ImgId = GearItemDatabase.GetArtifact2ApiId(selectedItem, selectedTier);
+                var art2Qty = !string.IsNullOrEmpty(selectedItem.Artifact2Id) ? GearItemDatabase.GetArtifact2Qty(selectedTier) : 0;
 
                 <div class="gc-top-row">
                 <div class="gc-card gc-card-prices">
@@ -240,18 +241,25 @@
                         @if (!string.IsNullOrEmpty(selectedItem.ArtifactName))
                         {
                             <div class="gc-price-tile">
-                                <div class="gc-price-tile-imgs">
-                                    @if (art1ImgId != null)
-                                    { <img src="https://render.albiononline.com/v1/item/@art1ImgId" class="gc-price-tile-img" alt="@selectedItem.ArtifactName" title="@selectedItem.ArtifactName" /> }
-                                    @if (art2ImgId != null)
-                                    { <img src="https://render.albiononline.com/v1/item/@art2ImgId" class="gc-price-tile-img" alt="@selectedItem.Artifact2Name" title="@selectedItem.Artifact2Name" /> }
-                                </div>
+                                @if (art1ImgId != null)
+                                { <img src="https://render.albiononline.com/v1/item/@art1ImgId" class="gc-price-tile-img" alt="@selectedItem.ArtifactName" title="@selectedItem.ArtifactName" /> }
                                 <div class="gc-price-tile-name">@selectedItem.ArtifactName</div>
                                 <input type="text" class="gc-pi @(row.ArtifactPriceManual ? "pi-manual" : "")"
                                        value="@FormatPrice(row.ArtifactPrice)" @onchange="e => OnPrice(row, 'C', e)" />
                                 @if (row.ApiArtifactPrice > 0)
                                 { <span class="gc-api-badge">API: @FormatSilver(row.ApiArtifactPrice)</span> }
                             </div>
+                            @if (!string.IsNullOrEmpty(selectedItem.Artifact2Name) && art2ImgId != null)
+                            {
+                                <div class="gc-price-tile">
+                                    <img src="https://render.albiononline.com/v1/item/@art2ImgId" class="gc-price-tile-img" alt="@selectedItem.Artifact2Name" title="@selectedItem.Artifact2Name" />
+                                    <div class="gc-price-tile-name">@selectedItem.Artifact2Name</div>
+                                    <input type="text" class="gc-pi @(row.Artifact2PriceManual ? "pi-manual" : "")"
+                                           value="@FormatPrice(row.Artifact2Price)" @onchange="e => OnPrice(row, 'D', e)" />
+                                    @if (row.ApiArtifact2Price > 0)
+                                    { <span class="gc-api-badge">API: @FormatSilver(row.ApiArtifact2Price)</span> }
+                                </div>
+                            }
                         }
 
                     </div>
@@ -291,8 +299,8 @@
                         {
                             <div class="gc-mat-tile">
                                 <img src="https://render.albiononline.com/v1/item/@art2ImgId" class="gc-mat-tile-img" alt="@selectedItem.Artifact2Name" />
-                                <div class="gc-mat-qty">×@selectedItem.Artifact2Qty</div>
-                                <div class="gc-mat-base">@selectedItem.Artifact2Qty per craft</div>
+                                <div class="gc-mat-qty">×@(art2Qty * settings.Quantity)</div>
+                                <div class="gc-mat-base">@art2Qty per craft</div>
                                 <div class="gc-mat-name">@selectedItem.Artifact2Name</div>
                             </div>
                         }
@@ -460,6 +468,7 @@
             case 'A': row.Mat1Price = val; row.Mat1PriceManual = true; break;
             case 'B': row.Mat2Price = val; row.Mat2PriceManual = true; break;
             case 'C': row.ArtifactPrice = val; row.ArtifactPriceManual = true; break;
+            case 'D': row.Artifact2Price = val; row.Artifact2PriceManual = true; break;
             case 'S': row.SellPrice = val; row.SellPriceManual = true; break;
         }
         if (selectedItem != null)
@@ -503,7 +512,7 @@
                     var id1 = GearItemDatabase.GetArtifactApiId(selectedItem, row.Tier);
                     if (id1 != null && artPrices.TryGetValue(id1, out var p1)) { row.ApiArtifactPrice = p1; if (!row.ArtifactPriceManual) row.ArtifactPrice = p1; }
                     var id2 = GearItemDatabase.GetArtifact2ApiId(selectedItem, row.Tier);
-                    if (id2 != null && artPrices.TryGetValue(id2, out var p2)) row.Artifact2Price = p2;
+                    if (id2 != null && artPrices.TryGetValue(id2, out var p2)) { row.ApiArtifact2Price = p2; if (!row.Artifact2PriceManual) row.Artifact2Price = p2; }
                 }
                 if (!row.SellPriceManual && itemPrices.TryGetValue(row.ItemApiId, out var sp))
                 {
@@ -566,7 +575,7 @@
                 materials.Add(new CartMaterial { ApiId = artId, Name = selectedItem.ArtifactName, Required = selectedItem.ArtifactQty * settings.Quantity, Price = (long)row.ArtifactPrice });
             var art2Id = GearItemDatabase.GetArtifact2ApiId(selectedItem, selectedTier);
             if (art2Id != null && !string.IsNullOrEmpty(selectedItem.Artifact2Name))
-                materials.Add(new CartMaterial { ApiId = art2Id, Name = selectedItem.Artifact2Name, Required = selectedItem.Artifact2Qty * settings.Quantity, Price = (long)row.Artifact2Price });
+                materials.Add(new CartMaterial { ApiId = art2Id, Name = selectedItem.Artifact2Name, Required = GearItemDatabase.GetArtifact2Qty(selectedTier) * settings.Quantity, Price = (long)row.Artifact2Price });
         }
 
         Cart.Add(new CartEntry

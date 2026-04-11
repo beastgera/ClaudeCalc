@@ -54,6 +54,7 @@ public class CraftingRow
     public decimal ArtifactPrice { get; set; }
     public bool ArtifactPriceManual { get; set; }
     public decimal Artifact2Price { get; set; }
+    public bool Artifact2PriceManual { get; set; }
     public decimal SellPrice { get; set; }
     public bool SellPriceManual { get; set; }
 
@@ -69,6 +70,7 @@ public class CraftingRow
     public decimal ApiMat1Price { get; set; }
     public decimal ApiMat2Price { get; set; }
     public decimal ApiArtifactPrice { get; set; }
+    public decimal ApiArtifact2Price { get; set; }
     public Dictionary<string, long> ItemCityPrices { get; set; } = [];
 
     public bool IsLoading { get; set; }
