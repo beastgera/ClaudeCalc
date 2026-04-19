@@ -35,6 +35,7 @@ public static class GearCraftingCalculator
         var effectiveLpb = (s.IsHideout ? 0m : s.BaseLocalProductionBonus) + s.BonusDay
                                + s.LocationQualityBonus
                                + s.HideoutPowerBonus
+                               + s.BonusCityBonus
                                + (s.UseFocus ? s.FocusLpb : 0m);
 
         // Material cost before return rate
