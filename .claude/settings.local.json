@@ -8,7 +8,9 @@
       "Bash(py -3 --version)",
       "Bash(py -3 -c \"print\\('ok'\\)\")",
       "Bash(powershell:*)",
-      "Bash(dotnet build:*)"
+      "Bash(dotnet build:*)",
+      "WebFetch(domain:wiki.albiononline.com)",
+      "WebFetch(domain:albiononline2d.com)"
     ]
   }
 }

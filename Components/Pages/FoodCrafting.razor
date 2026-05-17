@@ -1,0 +1,597 @@
+@page "/food-crafting"
+@rendermode InteractiveServer
+@inject AlbionPriceService PriceService
+@inject CraftingCartService Cart
+@using CraftingCalc.Models
+@using CraftingCalc.Services
+
+<PageTitle>Food Crafting - not tested/refined might be wrong</PageTitle>
+
+<div class="gc-layout">
+
+    <!-- ═══════════════════════════════════════════════
+         LEFT PANEL — Configuration
+    ═══════════════════════════════════════════════ -->
+    <aside class="gc-config">
+
+        <!-- Item search -->
+        <div class="gc-field" style="position:relative">
+            <label class="gc-label">Food Item</label>
+            <input type="text" class="form-control form-control-sm" placeholder="Search food..."
+                   @bind="searchText" @bind:event="oninput"
+                   @onfocus="() => showDropdown = true"
+                   @onblur="HideDropdownDelayed" />
+            @if (showDropdown && filteredItems.Any())
+            {
+                <div class="gc-dropdown">
+                    @foreach (var item in filteredItems.Take(20))
+                    {
+                        <div class="gc-dropdown-item" @onmousedown="() => SelectItem(item)">@item.Name</div>
+                    }
+                </div>
+            }
+        </div>
+
+        <!-- Item image -->
+        <div class="gc-image-box">
+            @if (selectedItem != null && row != null)
+            {
+                <span class="gc-image-label">T@(selectedItem.Tier) — @selectedItem.Name</span>
+                <div class="gc-image-placeholder">
+                    <img src="https://render.albiononline.com/v1/item/@row.ItemApiId" alt="@selectedItem.Name" class="gc-item-img" />
+                </div>
+            }
+            else
+            {
+                <div class="gc-image-placeholder empty">
+                    <span class="text-muted small">No item selected</span>
+                </div>
+            }
+        </div>
+
+        <!-- Enchantment selector -->
+        @if (selectedBaseItem != null && FoodItemDatabase.IsEnchantable(selectedBaseItem.ApiId))
+        {
+            <div class="gc-field">
+                <label class="gc-label">Enchantment</label>
+                <div class="btn-group btn-group-sm w-100">
+                    @foreach (var lvl in new[] { 0, 1, 2, 3 })
+                    {
+                        var l = lvl;
+                        <button type="button"
+                                class="btn @(selectedEnchantLevel == l ? "btn-primary" : "btn-outline-secondary")"
+                                @onclick="() => SelectEnchantLevel(l)">
+                            @(l == 0 ? "Base" : $".{l}")
+                        </button>
+                    }
+                </div>
+            </div>
+        }
+
+        <div class="gc-divider"></div>
+
+        <!-- Quantity + Focus -->
+        <div class="gc-row">
+            <div class="gc-field gc-field-narrow">
+                <label class="gc-label">Quantity</label>
+                <input type="number" class="form-control form-control-sm" min="1" max="9999"
+                       @bind="settings.Quantity" @bind:after="Recalc" />
+            </div>
+            <div class="gc-field gc-field-check">
+                <label class="gc-label">&nbsp;</label>
+                <div class="form-check mt-1">
+                    <input class="form-check-input" type="checkbox" id="useFocusFood" @bind="settings.UseFocus" @bind:after="Recalc" />
+                    <label class="form-check-label gc-label" for="useFocusFood">Use Focus</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Craft Location -->
+        <div class="gc-field">
+            <label class="gc-label">Craft Location</label>
+            <select class="form-select form-select-sm"
+                    value="@craftLocation"
+                    @onchange="OnCraftLocationChange">
+                <option value="City">City</option>
+                <option value="BonusCity">@BonusCityLabel</option>
+                <option value="Hideout">Hideout</option>
+            </select>
+        </div>
+
+        <!-- Hideout sub-options -->
+        @if (craftLocation == "Hideout")
+        {
+            <div class="gc-row">
+                <div class="gc-field">
+                    <label class="gc-label">Zone Quality</label>
+                    <select class="form-select form-select-sm"
+                            value="@hideoutZoneLevel"
+                            @onchange="e => { hideoutZoneLevel = int.Parse(e.Value!.ToString()!); ApplyCraftLocation(); }">
+                        @for (var i = 1; i <= 6; i++)
+                        {
+                            var lvl = i;
+                            <option value="@lvl">Level @lvl (+@((int)(ZoneLpb[lvl] * 100))%)</option>
+                        }
+                    </select>
+                </div>
+                <div class="gc-field">
+                    <label class="gc-label">Hideout Power</label>
+                    <select class="form-select form-select-sm"
+                            value="@hideoutPowerLevel"
+                            @onchange="e => { hideoutPowerLevel = int.Parse(e.Value!.ToString()!); ApplyCraftLocation(); }">
+                        @for (var i = 1; i <= 9; i++)
+                        {
+                            var lvl = i;
+                            <option value="@lvl">Level @lvl (+@(HideoutPowerLpb[lvl] * 100)%)</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        }
+
+        <!-- Daily Bonus -->
+        <div class="gc-field">
+            <label class="gc-label">Daily Bonus</label>
+            <div class="btn-group btn-group-sm w-100">
+                @foreach (var (bonus, label) in new[] { (0m, "Off"), (0.10m, "+10%"), (0.20m, "+20%") })
+                {
+                    var b = bonus; var l = label;
+                    <button type="button"
+                            class="btn @(settings.BonusDay == b ? "btn-warning" : "btn-outline-secondary")"
+                            @onclick="() => { settings.BonusDay = b; Recalc(); }">
+                        @l
+                    </button>
+                }
+            </div>
+        </div>
+
+        <div class="gc-return-rate">
+            <span class="gc-label">Effective Return Rate</span>
+            <span class="gc-rr-value">@($"{EffectiveReturnRate * 100:F2}%")</span>
+        </div>
+
+        <div class="gc-divider"></div>
+
+        <!-- Load prices button -->
+        <button class="btn btn-primary btn-sm w-100" @onclick="LoadPrices"
+                disabled="@(isLoading || selectedItem == null)">
+            @if (isLoading) { <span class="spinner-border spinner-border-sm me-1"></span> }
+            Load Prices from API
+        </button>
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="text-danger small mt-1">@errorMessage</div>
+        }
+
+        <button class="btn btn-success btn-sm w-100 mt-1" @onclick="AddToCart"
+                disabled="@(selectedItem == null)">
+            + Add to Cart
+        </button>
+        @if (cartAdded)
+        {
+            <div class="text-success small mt-1">Added to cart.</div>
+        }
+
+    </aside>
+
+    <!-- ═══════════════════════════════════════════════
+         RIGHT PANEL — Cards
+    ═══════════════════════════════════════════════ -->
+    <div class="gc-sheet">
+        @if (selectedItem == null || row == null)
+        {
+            <div class="gc-empty">Select a food item to begin.</div>
+        }
+        else
+        {
+            <div class="gc-top-row">
+            <div class="gc-card gc-card-prices">
+                <div class="gc-card-title">Prices</div>
+                <div class="gc-price-tiles">
+
+                    <div class="gc-price-tile">
+                        <img src="https://render.albiononline.com/v1/item/@selectedItem.Mat1.ApiId" class="gc-price-tile-img" alt="@selectedItem.Mat1.Name" title="@selectedItem.Mat1.Name" />
+                        <div class="gc-price-tile-name">@selectedItem.Mat1.Name</div>
+                        <input type="text" class="gc-pi @(row.Mat1PriceManual ? "pi-manual" : "")"
+                               value="@FormatPrice(row.Mat1Price)" @onchange="e => OnPrice('A', e)" />
+                        @if (row.ApiMat1Price > 0)
+                        { <span class="gc-api-badge">API: @FormatSilver(row.ApiMat1Price)</span> }
+                    </div>
+
+                    @if (selectedItem.Mat2 != null)
+                    {
+                        <div class="gc-price-tile">
+                            <img src="https://render.albiononline.com/v1/item/@selectedItem.Mat2.ApiId" class="gc-price-tile-img" alt="@selectedItem.Mat2.Name" title="@selectedItem.Mat2.Name" />
+                            <div class="gc-price-tile-name">@selectedItem.Mat2.Name</div>
+                            <input type="text" class="gc-pi @(row.Mat2PriceManual ? "pi-manual" : "")"
+                                   value="@FormatPrice(row.Mat2Price)" @onchange="e => OnPrice('B', e)" />
+                            @if (row.ApiMat2Price > 0)
+                            { <span class="gc-api-badge">API: @FormatSilver(row.ApiMat2Price)</span> }
+                        </div>
+                    }
+
+                    @if (selectedItem.Mat3 != null)
+                    {
+                        <div class="gc-price-tile">
+                            <img src="https://render.albiononline.com/v1/item/@selectedItem.Mat3.ApiId" class="gc-price-tile-img" alt="@selectedItem.Mat3.Name" title="@selectedItem.Mat3.Name" />
+                            <div class="gc-price-tile-name">@selectedItem.Mat3.Name</div>
+                            <input type="text" class="gc-pi @(row.Mat3PriceManual ? "pi-manual" : "")"
+                                   value="@FormatPrice(row.Mat3Price)" @onchange="e => OnPrice('C', e)" />
+                            @if (row.ApiMat3Price > 0)
+                            { <span class="gc-api-badge">API: @FormatSilver(row.ApiMat3Price)</span> }
+                        </div>
+                    }
+
+                    @if (selectedItem.Mat4 != null)
+                    {
+                        <div class="gc-price-tile">
+                            <img src="https://render.albiononline.com/v1/item/@selectedItem.Mat4.ApiId" class="gc-price-tile-img" alt="@selectedItem.Mat4.Name" title="@selectedItem.Mat4.Name" />
+                            <div class="gc-price-tile-name">@selectedItem.Mat4.Name</div>
+                            <input type="text" class="gc-pi @(row.Mat4PriceManual ? "pi-manual" : "")"
+                                   value="@FormatPrice(row.Mat4Price)" @onchange="e => OnPrice('D', e)" />
+                            @if (row.ApiMat4Price > 0)
+                            { <span class="gc-api-badge">API: @FormatSilver(row.ApiMat4Price)</span> }
+                        </div>
+                    }
+
+                    @if (selectedItem.RequiredSauce != null)
+                    {
+                        <div class="gc-price-tile">
+                            <img src="https://render.albiononline.com/v1/item/@selectedItem.RequiredSauce.ApiId" class="gc-price-tile-img" alt="@selectedItem.RequiredSauce.Name" title="@selectedItem.RequiredSauce.Name" />
+                            <div class="gc-price-tile-name">@selectedItem.RequiredSauce.Name</div>
+                            <input type="text" class="gc-pi @(row.SaucePriceManual ? "pi-manual" : "")"
+                                   value="@FormatPrice(row.SaucePrice)" @onchange="e => OnPrice('E', e)" />
+                            @if (row.ApiSaucePrice > 0)
+                            { <span class="gc-api-badge">API: @FormatSilver(row.ApiSaucePrice)</span> }
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+            <div class="gc-card gc-card-mats">
+                <div class="gc-card-title">Required Materials</div>
+                <div class="gc-mats-grid">
+
+                    <div class="gc-mat-tile">
+                        <img src="https://render.albiononline.com/v1/item/@selectedItem.Mat1.ApiId" class="gc-mat-tile-img" alt="@selectedItem.Mat1.Name" />
+                        <div class="gc-mat-qty">×@row.Mat1Required</div>
+                        <div class="gc-mat-base">@selectedItem.Mat1.Qty per craft</div>
+                        <div class="gc-mat-name">@selectedItem.Mat1.Name</div>
+                    </div>
+
+                    @if (selectedItem.Mat2 != null && row.Mat2Required > 0)
+                    {
+                        <div class="gc-mat-tile">
+                            <img src="https://render.albiononline.com/v1/item/@selectedItem.Mat2.ApiId" class="gc-mat-tile-img" alt="@selectedItem.Mat2.Name" />
+                            <div class="gc-mat-qty">×@row.Mat2Required</div>
+                            <div class="gc-mat-base">@selectedItem.Mat2.Qty per craft</div>
+                            <div class="gc-mat-name">@selectedItem.Mat2.Name</div>
+                        </div>
+                    }
+
+                    @if (selectedItem.Mat3 != null && row.Mat3Required > 0)
+                    {
+                        <div class="gc-mat-tile">
+                            <img src="https://render.albiononline.com/v1/item/@selectedItem.Mat3.ApiId" class="gc-mat-tile-img" alt="@selectedItem.Mat3.Name" />
+                            <div class="gc-mat-qty">×@row.Mat3Required</div>
+                            <div class="gc-mat-base">@selectedItem.Mat3.Qty per craft</div>
+                            <div class="gc-mat-name">@selectedItem.Mat3.Name</div>
+                        </div>
+                    }
+
+                    @if (selectedItem.Mat4 != null && row.Mat4Required > 0)
+                    {
+                        <div class="gc-mat-tile">
+                            <img src="https://render.albiononline.com/v1/item/@selectedItem.Mat4.ApiId" class="gc-mat-tile-img" alt="@selectedItem.Mat4.Name" />
+                            <div class="gc-mat-qty">×@row.Mat4Required</div>
+                            <div class="gc-mat-base">@selectedItem.Mat4.Qty per craft</div>
+                            <div class="gc-mat-name">@selectedItem.Mat4.Name</div>
+                        </div>
+                    }
+
+                    @if (selectedItem.RequiredSauce != null && row.SauceRequired > 0)
+                    {
+                        <div class="gc-mat-tile">
+                            <img src="https://render.albiononline.com/v1/item/@selectedItem.RequiredSauce.ApiId" class="gc-mat-tile-img" alt="@selectedItem.RequiredSauce.Name" />
+                            <div class="gc-mat-qty">×@row.SauceRequired</div>
+                            <div class="gc-mat-base">@selectedItem.RequiredSauce.Qty per craft</div>
+                            <div class="gc-mat-name">@selectedItem.RequiredSauce.Name</div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+            <div class="gc-card gc-card-sell">
+                <div class="gc-card-title">Sell Price <span class="gc-api-badge ms-1">×@selectedItem.OutputQty per craft</span></div>
+                <div class="gc-sell-row">
+                    <span class="gc-sell-label">Price</span>
+                    <input type="text" class="gc-pi @(row.SellPriceManual ? "pi-manual" : "")"
+                           value="@FormatPrice(row.SellPrice)" @onchange="e => OnPrice('S', e)" />
+                </div>
+                @if (row.ItemCityPrices.Count > 0)
+                {
+                    <div class="gc-city-prices">
+                        @foreach (var (city, price) in row.ItemCityPrices.OrderBy(kv => kv.Key))
+                        {
+                            <div class="gc-city-pair @(city == settings.SellItemCity ? "gc-city-selected" : "")">
+                                <span class="gc-city-name">@city</span>
+                                <span class="gc-city-price">@FormatPrice(price)</span>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="gc-city-prices-empty">Load prices to see city data</div>
+                }
+            </div>
+            </div>
+
+            <div class="gc-card gc-summary-card">
+                <div class="gc-card-title">Summary</div>
+                <div class="gc-summary-grid">
+                    <div class="gc-summary-tile">
+                        <div class="gc-summary-label">Total Cost</div>
+                        <div class="gc-summary-value cost">@FormatSummary(row.TotalCost)</div>
+                    </div>
+                    <div class="gc-summary-tile">
+                        <div class="gc-summary-label">
+                            Profit
+                            <span class="gc-info-icon" tabindex="0">
+                                &#x24D8;
+                                <span class="gc-info-tooltip">Calculations do not include journals and station fee.<br/>6.5% market tax included.</span>
+                            </span>
+                        </div>
+                        <div class="gc-summary-value @(row.Profit >= 0 ? "profit-pos" : "profit-neg")">@FormatSummary(row.Profit)</div>
+                    </div>
+                    <div class="gc-summary-tile">
+                        <div class="gc-summary-label">Gain</div>
+                        <div class="gc-summary-value @(row.Gain >= 0 ? "profit-pos" : "profit-neg")">@($"{row.Gain * 100:F1}%")</div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+
+@code {
+    private static readonly decimal[] ZoneLpb         = [0m, 0.01m, 0.06m, 0.11m, 0.16m, 0.21m, 0.26m];
+    private static readonly decimal[] HideoutPowerLpb = [0m, 0.0m, 0.098m, 0.185m, 0.263m, 0.33m, 0.388m, 0.445m, 0.493m, 0.56m];
+
+    private CraftingSettings settings = new() { ItemQuality = 1 };
+    private FoodItem? selectedItem;
+    private FoodItem? selectedBaseItem;
+    private int selectedEnchantLevel;
+    private FoodCraftingRow? row;
+    private bool isLoading;
+    private bool cartAdded;
+    private string errorMessage = "";
+    private string searchText = "";
+    private bool showDropdown;
+    private string craftLocation = "City";
+    private int hideoutZoneLevel = 1;
+    private int hideoutPowerLevel = 1;
+
+    private decimal EffectiveReturnRate
+    {
+        get
+        {
+            var effectiveLpb = (settings.IsHideout ? 0m : settings.BaseLocalProductionBonus)
+                             + settings.BonusDay
+                             + settings.LocationQualityBonus
+                             + settings.HideoutPowerBonus
+                             + settings.BonusCityBonus
+                             + (settings.UseFocus ? settings.FocusLpb : 0m);
+            return effectiveLpb / (1m + effectiveLpb);
+        }
+    }
+
+    private string BonusCityLabel =>
+        selectedItem != null ? $"Bonus City ({selectedItem.BonusCity})" : "Bonus City";
+
+    private IEnumerable<FoodItem> filteredItems
+    {
+        get
+        {
+            var baseItems = FoodItemDatabase.Items.Where(i => i.EnchantmentLevel == 0);
+            return string.IsNullOrWhiteSpace(searchText)
+                ? baseItems
+                : baseItems.Where(i =>
+                    i.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+                    i.ApiId.Contains(searchText, StringComparison.OrdinalIgnoreCase));
+        }
+    }
+
+    private void SelectItem(FoodItem item)
+    {
+        selectedBaseItem  = item;
+        selectedEnchantLevel = 0;
+        selectedItem = item;
+        searchText = item.Name;
+        showDropdown = false;
+        row = FoodCraftingCalculator.BuildRow(item);
+        Recalc();
+    }
+
+    private void SelectEnchantLevel(int level)
+    {
+        if (selectedBaseItem == null) return;
+        var variant = FoodItemDatabase.GetVariant(selectedBaseItem.ApiId, level);
+        if (variant == null) return;
+        selectedEnchantLevel = level;
+        selectedItem = variant;
+        row = FoodCraftingCalculator.BuildRow(variant);
+        ApplyCraftLocation();
+    }
+
+    private async Task HideDropdownDelayed()
+    {
+        await Task.Delay(150);
+        showDropdown = false;
+    }
+
+    private void OnCraftLocationChange(ChangeEventArgs e)
+    {
+        craftLocation = e.Value?.ToString() ?? "City";
+        ApplyCraftLocation();
+    }
+
+    private void ApplyCraftLocation()
+    {
+        if (craftLocation == "Hideout")
+        {
+            settings.IsHideout = true;
+            settings.LocationQualityBonus = ZoneLpb[Math.Clamp(hideoutZoneLevel, 1, 6)];
+            settings.HideoutPowerBonus    = HideoutPowerLpb[Math.Clamp(hideoutPowerLevel, 1, 9)];
+        }
+        else
+        {
+            settings.IsHideout = false;
+            settings.LocationQualityBonus = 0m;
+            settings.HideoutPowerBonus    = 0m;
+        }
+
+        settings.BonusCityBonus = craftLocation == "BonusCity" ? 0.15m : 0m;
+
+        if (craftLocation == "BonusCity" && selectedItem != null)
+            settings.CraftCity = selectedItem.BonusCity;
+        else if (craftLocation == "City")
+            settings.CraftCity = settings.SellItemCity;
+
+        Recalc();
+    }
+
+    private void Recalc()
+    {
+        if (selectedItem == null || row == null) return;
+        FoodCraftingCalculator.Calculate(row, selectedItem, settings);
+    }
+
+    private void OnPrice(char field, ChangeEventArgs e)
+    {
+        if (row == null || selectedItem == null) return;
+        var raw = e.Value?.ToString()?.Replace(",", "").Replace(" ", "") ?? "";
+        if (!decimal.TryParse(raw, out var val)) return;
+        switch (field)
+        {
+            case 'A': row.Mat1Price = val; row.Mat1PriceManual = true; break;
+            case 'B': row.Mat2Price = val; row.Mat2PriceManual = true; break;
+            case 'C': row.Mat3Price = val; row.Mat3PriceManual = true; break;
+            case 'D': row.Mat4Price = val; row.Mat4PriceManual = true; break;
+            case 'E': row.SaucePrice = val; row.SaucePriceManual = true; break;
+            case 'S': row.SellPrice = val; row.SellPriceManual = true; break;
+        }
+        FoodCraftingCalculator.Calculate(row, selectedItem, settings);
+    }
+
+    private async Task LoadPrices()
+    {
+        if (selectedItem == null || row == null) return;
+        isLoading = true;
+        errorMessage = "";
+        StateHasChanged();
+
+        try
+        {
+            var (matIds, itemIds, artifactIds) = FoodCraftingCalculator.GetRequiredApiIds(selectedItem);
+
+            var result = await PriceService.FetchAllForCraftAsync(
+                matIds, itemIds, artifactIds,
+                FoodItemDatabase.GetPreferredCityForMat,
+                settings.SellItemCity, settings.BuyArtifactCity,
+                settings.UseBuyOrder, settings.ItemQuality);
+
+            if (result.MatPrices.TryGetValue(selectedItem.Mat1.ApiId, out var p1))
+            { row.ApiMat1Price = p1; if (!row.Mat1PriceManual) row.Mat1Price = p1; }
+
+            if (selectedItem.Mat2 != null && result.MatPrices.TryGetValue(selectedItem.Mat2.ApiId, out var p2))
+            { row.ApiMat2Price = p2; if (!row.Mat2PriceManual) row.Mat2Price = p2; }
+
+            if (selectedItem.Mat3 != null && result.MatPrices.TryGetValue(selectedItem.Mat3.ApiId, out var p3))
+            { row.ApiMat3Price = p3; if (!row.Mat3PriceManual) row.Mat3Price = p3; }
+
+            if (selectedItem.Mat4 != null && result.MatPrices.TryGetValue(selectedItem.Mat4.ApiId, out var p4))
+            { row.ApiMat4Price = p4; if (!row.Mat4PriceManual) row.Mat4Price = p4; }
+
+            if (selectedItem.RequiredSauce != null && result.MatPrices.TryGetValue(selectedItem.RequiredSauce.ApiId, out var ps))
+            { row.ApiSaucePrice = ps; if (!row.SaucePriceManual) row.SaucePrice = ps; }
+
+            if (!row.SellPriceManual && result.ItemBestPrices.TryGetValue(row.ItemApiId, out var sp))
+            { row.SellPrice = sp; row.ApiSellPrice = sp; }
+
+            if (result.ItemCityPrices.TryGetValue(row.ItemApiId, out var cityPrices))
+                row.ItemCityPrices = cityPrices;
+
+            row.PricesLoadedAt = DateTime.Now;
+            Recalc();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"API error: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private async Task AddToCart()
+    {
+        if (selectedItem == null || row == null) return;
+
+        var materials = new List<CartMaterial>
+        {
+            new() { ApiId = selectedItem.Mat1.ApiId, Name = selectedItem.Mat1.Name, Required = row.Mat1Required, Price = (long)row.Mat1Price }
+        };
+
+        if (selectedItem.Mat2 != null && row.Mat2Required > 0)
+            materials.Add(new() { ApiId = selectedItem.Mat2.ApiId, Name = selectedItem.Mat2.Name, Required = row.Mat2Required, Price = (long)row.Mat2Price });
+
+        if (selectedItem.Mat3 != null && row.Mat3Required > 0)
+            materials.Add(new() { ApiId = selectedItem.Mat3.ApiId, Name = selectedItem.Mat3.Name, Required = row.Mat3Required, Price = (long)row.Mat3Price });
+
+        if (selectedItem.Mat4 != null && row.Mat4Required > 0)
+            materials.Add(new() { ApiId = selectedItem.Mat4.ApiId, Name = selectedItem.Mat4.Name, Required = row.Mat4Required, Price = (long)row.Mat4Price });
+
+        if (selectedItem.RequiredSauce != null && row.SauceRequired > 0)
+            materials.Add(new() { ApiId = selectedItem.RequiredSauce.ApiId, Name = selectedItem.RequiredSauce.Name, Required = row.SauceRequired, Price = (long)row.SaucePrice });
+
+        Cart.Add(new CartEntry
+        {
+            ItemName  = selectedItem.Name,
+            ItemApiId = selectedItem.ApiId,
+            Tier      = selectedItem.Tier,
+            Enchant   = selectedItem.EnchantmentLevel,
+            Quantity  = settings.Quantity,
+            Materials = materials
+        });
+
+        cartAdded = true;
+        StateHasChanged();
+        await Task.Delay(2000);
+        cartAdded = false;
+    }
+
+    private static string FormatSilver(decimal v)
+    {
+        if (v == 0) return "—";
+        var abs  = Math.Abs(v);
+        var sign = v < 0 ? "-" : "";
+        return abs >= 1_000_000 ? $"{sign}{abs / 1_000_000:F2}M"
+             : abs >= 1_000     ? $"{sign}{abs / 1_000:F2}k"
+             :                    $"{sign}{abs:F2}";
+    }
+
+    private static string FormatPrice(decimal v) =>
+        v == 0 ? "" : ((long)v).ToString("N0");
+
+    private static string FormatSummary(decimal v)
+    {
+        if (v == 0) return "—";
+        var sign = v < 0 ? "-" : "";
+        return $"{sign}{Math.Abs(v):N0}";
+    }
+}

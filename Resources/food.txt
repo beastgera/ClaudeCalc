@@ -1,0 +1,7121 @@
+﻿[
+  {
+    "@uniquename": "T1_MEAL_GRILLEDFISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "1",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "15",
+      "@time": "0.01",
+      "craftresource": {
+        "@uniquename": "T1_FISHCHOPS",
+        "@count": "10"
+      }
+    },
+    "enchantments": null
+  },
+  {
+    "@uniquename": "T1_MEAL_SEAWEEDSALAD",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "1",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "4",
+      "@time": "0.01",
+      "craftresource": {
+        "@uniquename": "T1_SEAWEED",
+        "@count": "10"
+      }
+    },
+    "enchantments": null
+  },
+  {
+    "@uniquename": "T1_MEAL_SOUP",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "56",
+      "@time": "0.257",
+      "craftresource": {
+        "@uniquename": "T1_CARROT",
+        "@count": "16"
+      }
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "500",
+          "@consumespell": "FOOD_HEALTH_REG_P2",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "78",
+            "@time": "0.257",
+            "craftresource": [
+              {
+                "@uniquename": "T1_CARROT",
+                "@count": "16"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "600",
+          "@consumespell": "FOOD_HEALTH_REG_P3",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "123",
+            "@time": "0.257",
+            "craftresource": [
+              {
+                "@uniquename": "T1_CARROT",
+                "@count": "16"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "700",
+          "@consumespell": "FOOD_HEALTH_REG_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "256",
+            "@time": "0.257",
+            "craftresource": [
+              {
+                "@uniquename": "T1_CARROT",
+                "@count": "16"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "1"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T3_MEAL_SOUP",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "168",
+      "@time": "0.84",
+      "craftresource": {
+        "@uniquename": "T3_WHEAT",
+        "@count": "48"
+      }
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "700",
+          "@consumespell": "FOOD_HEALTH_REG_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "235",
+            "@time": "0.84",
+            "craftresource": [
+              {
+                "@uniquename": "T3_WHEAT",
+                "@count": "48"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_HEALTH_REG_P5",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "368",
+            "@time": "0.84",
+            "craftresource": [
+              {
+                "@uniquename": "T3_WHEAT",
+                "@count": "48"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_HEALTH_REG_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "769",
+            "@time": "0.84",
+            "craftresource": [
+              {
+                "@uniquename": "T3_WHEAT",
+                "@count": "48"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T5_MEAL_SOUP",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "504",
+      "@time": "2.52",
+      "craftresource": {
+        "@uniquename": "T5_CABBAGE",
+        "@count": "144"
+      }
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_HEALTH_REG_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "704",
+            "@time": "2.52",
+            "craftresource": [
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "144"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_HEALTH_REG_P7",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "1105",
+            "@time": "2.52",
+            "craftresource": [
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "144"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_HEALTH_REG_P8",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "2306",
+            "@time": "2.52",
+            "craftresource": [
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "144"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T1_MEAL_SOUP_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "77",
+      "@time": "0.0353",
+      "craftresource": [
+        {
+          "@uniquename": "T3_FISH_FRESHWATER_SWAMP_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T1_CARROT",
+          "@count": "2"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "500",
+          "@consumespell": "FOOD_FISH_HEALTH_REG_P2",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "144",
+            "@time": "0.0353",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_SWAMP_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_CARROT",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "600",
+          "@consumespell": "FOOD_FISH_HEALTH_REG_P3",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "278",
+            "@time": "0.0353",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_SWAMP_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_CARROT",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "700",
+          "@consumespell": "FOOD_FISH_HEALTH_REG_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "678",
+            "@time": "0.0353",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_SWAMP_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_CARROT",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T3_MEAL_SOUP_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "231",
+      "@time": "0.115",
+      "craftresource": [
+        {
+          "@uniquename": "T5_FISH_FRESHWATER_SWAMP_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T3_WHEAT",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "T3_COMFREY",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "T3_MEAT",
+          "@count": "2"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "700",
+          "@consumespell": "FOOD_FISH_HEALTH_REG_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "432",
+            "@time": "0.115",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_SWAMP_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_WHEAT",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T3_COMFREY",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T3_MEAT",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_FISH_HEALTH_REG_P5",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "832",
+            "@time": "0.115",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_SWAMP_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_WHEAT",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T3_COMFREY",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T3_MEAT",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_FISH_HEALTH_REG_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "2033",
+            "@time": "0.115",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_SWAMP_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_WHEAT",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T3_COMFREY",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T3_MEAT",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T5_MEAL_SOUP_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "672",
+      "@time": "0.334",
+      "craftresource": [
+        {
+          "@uniquename": "T7_FISH_FRESHWATER_SWAMP_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T5_CABBAGE",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "T5_TEASEL",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "T5_MEAT",
+          "@count": "6"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_FISH_HEALTH_REG_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "1272",
+            "@time": "0.334",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_SWAMP_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T5_TEASEL",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T5_MEAT",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "27"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_FISH_HEALTH_REG_P7",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "2473",
+            "@time": "0.334",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_SWAMP_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T5_TEASEL",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T5_MEAT",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "27"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_FISH_HEALTH_REG_P8",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "6076",
+            "@time": "0.334",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_SWAMP_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T5_TEASEL",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T5_MEAT",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "27"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T2_MEAL_SALAD",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "56",
+      "@time": "0.257",
+      "craftresource": [
+        {
+          "@uniquename": "T2_BEAN",
+          "@count": "8"
+        },
+        {
+          "@uniquename": "T1_CARROT",
+          "@count": "8"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "600",
+          "@consumespell": "FOOD_CRAFTING_P2",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "78",
+            "@time": "0.257",
+            "craftresource": [
+              {
+                "@uniquename": "T2_BEAN",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T1_CARROT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "700",
+          "@consumespell": "FOOD_CRAFTING_P3",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "123",
+            "@time": "0.257",
+            "craftresource": [
+              {
+                "@uniquename": "T2_BEAN",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T1_CARROT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_CRAFTING_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "256",
+            "@time": "0.257",
+            "craftresource": [
+              {
+                "@uniquename": "T2_BEAN",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T1_CARROT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "1"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T4_MEAL_SALAD",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "168",
+      "@time": "0.84",
+      "craftresource": [
+        {
+          "@uniquename": "T4_TURNIP",
+          "@count": "24"
+        },
+        {
+          "@uniquename": "T3_WHEAT",
+          "@count": "24"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_CRAFTING_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "235",
+            "@time": "0.84",
+            "craftresource": [
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T3_WHEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_CRAFTING_P5",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "368",
+            "@time": "0.84",
+            "craftresource": [
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T3_WHEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_CRAFTING_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "769",
+            "@time": "0.84",
+            "craftresource": [
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T3_WHEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T6_MEAL_SALAD",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "504",
+      "@time": "2.52",
+      "craftresource": [
+        {
+          "@uniquename": "T6_POTATO",
+          "@count": "72"
+        },
+        {
+          "@uniquename": "T5_CABBAGE",
+          "@count": "72"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_CRAFTING_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "704",
+            "@time": "2.52",
+            "craftresource": [
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_CRAFTING_P7",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "1105",
+            "@time": "2.52",
+            "craftresource": [
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_CRAFTING_P8",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "2306",
+            "@time": "2.52",
+            "craftresource": [
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T2_MEAL_SALAD_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "77",
+      "@time": "0.0353",
+      "craftresource": [
+        {
+          "@uniquename": "T3_FISH_SALTWATER_ALL_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T2_BEAN",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T2_AGARIC",
+          "@count": "1"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "600",
+          "@consumespell": "FOOD_FISH_CRAFTING_P2",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "144",
+            "@time": "0.0353",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_SALTWATER_ALL_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T2_BEAN",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T2_AGARIC",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "700",
+          "@consumespell": "FOOD_FISH_CRAFTING_P3",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "278",
+            "@time": "0.0353",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_SALTWATER_ALL_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T2_BEAN",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T2_AGARIC",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_FISH_CRAFTING_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "678",
+            "@time": "0.0353",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_SALTWATER_ALL_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T2_BEAN",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T2_AGARIC",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T4_MEAL_SALAD_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "231",
+      "@time": "0.115",
+      "craftresource": [
+        {
+          "@uniquename": "T5_FISH_SALTWATER_ALL_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T4_TURNIP",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "T4_BURDOCK",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "T4_MEAT",
+          "@count": "2"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_FISH_CRAFTING_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "432",
+            "@time": "0.115",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_SALTWATER_ALL_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T4_BURDOCK",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T4_MEAT",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_FISH_CRAFTING_P5",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "832",
+            "@time": "0.115",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_SALTWATER_ALL_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T4_BURDOCK",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T4_MEAT",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_FISH_CRAFTING_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "2033",
+            "@time": "0.115",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_SALTWATER_ALL_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T4_BURDOCK",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T4_MEAT",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T6_MEAL_SALAD_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "672",
+      "@time": "0.334",
+      "craftresource": [
+        {
+          "@uniquename": "T7_FISH_SALTWATER_ALL_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T6_POTATO",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "T6_FOXGLOVE",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "T6_MEAT",
+          "@count": "6"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_FISH_CRAFTING_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "1272",
+            "@time": "0.334",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_SALTWATER_ALL_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T6_FOXGLOVE",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T6_MEAT",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "27"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_FISH_CRAFTING_P7",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "2473",
+            "@time": "0.334",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_SALTWATER_ALL_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T6_FOXGLOVE",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T6_MEAT",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "27"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_FISH_CRAFTING_P8",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "6076",
+            "@time": "0.334",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_SALTWATER_ALL_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T6_FOXGLOVE",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T6_MEAT",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "27"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T3_MEAL_PIE",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "53",
+      "@time": "0.26",
+      "craftresource": [
+        {
+          "@uniquename": "T3_WHEAT",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "T3_FLOUR",
+          "@count": "4"
+        },
+        {
+          "@uniquename": "T3_MEAT",
+          "@count": "8"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "700",
+          "@consumespell": "FOOD_LOAD_GATHER_P2",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "75",
+            "@time": "0.26",
+            "craftresource": [
+              {
+                "@uniquename": "T3_WHEAT",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T3_FLOUR",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T3_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_LOAD_GATHER_P3",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "120",
+            "@time": "0.26",
+            "craftresource": [
+              {
+                "@uniquename": "T3_WHEAT",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T3_FLOUR",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T3_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_LOAD_GATHER_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "253",
+            "@time": "0.26",
+            "craftresource": [
+              {
+                "@uniquename": "T3_WHEAT",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T3_FLOUR",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T3_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "1"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T5_MEAL_PIE",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "180",
+      "@time": "0.887",
+      "craftresource": [
+        {
+          "@uniquename": "T5_CABBAGE",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "T3_FLOUR",
+          "@count": "12"
+        },
+        {
+          "@uniquename": "T5_MEAT",
+          "@count": "24"
+        },
+        {
+          "@uniquename": "T4_MILK",
+          "@count": "6"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_LOAD_GATHER_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "246",
+            "@time": "0.887",
+            "craftresource": [
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T3_FLOUR",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T5_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T4_MILK",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_LOAD_GATHER_P5",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "380",
+            "@time": "0.887",
+            "craftresource": [
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T3_FLOUR",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T5_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T4_MILK",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_LOAD_GATHER_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "780",
+            "@time": "0.887",
+            "craftresource": [
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T3_FLOUR",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T5_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T4_MILK",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T7_MEAL_PIE",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "540",
+      "@time": "2.663",
+      "craftresource": [
+        {
+          "@uniquename": "T7_CORN",
+          "@count": "18"
+        },
+        {
+          "@uniquename": "T3_FLOUR",
+          "@count": "36"
+        },
+        {
+          "@uniquename": "T7_MEAT",
+          "@count": "72"
+        },
+        {
+          "@uniquename": "T6_MILK",
+          "@count": "18"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_LOAD_GATHER_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "739",
+            "@time": "2.663",
+            "craftresource": [
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "T3_FLOUR",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T6_MILK",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_LOAD_GATHER_P7",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "1140",
+            "@time": "2.663",
+            "craftresource": [
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "T3_FLOUR",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T6_MILK",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1300",
+          "@consumespell": "FOOD_LOAD_GATHER_P8",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "2341",
+            "@time": "2.663",
+            "craftresource": [
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "T3_FLOUR",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T6_MILK",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T3_MEAL_PIE_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "81",
+      "@time": "0.04",
+      "craftresource": [
+        {
+          "@uniquename": "T3_FISH_FRESHWATER_MOUNTAIN_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T3_FLOUR",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T3_EGG",
+          "@count": "1"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "700",
+          "@consumespell": "FOOD_FISH_LOAD_GATHER_P2",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "147",
+            "@time": "0.04",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_MOUNTAIN_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_FLOUR",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_EGG",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_FISH_LOAD_GATHER_P3",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "281",
+            "@time": "0.04",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_MOUNTAIN_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_FLOUR",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_EGG",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_FISH_LOAD_GATHER_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "681",
+            "@time": "0.04",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_MOUNTAIN_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_FLOUR",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_EGG",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T5_MEAL_PIE_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "225",
+      "@time": "0.1123",
+      "craftresource": [
+        {
+          "@uniquename": "T5_FISH_FRESHWATER_MOUNTAIN_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T5_CABBAGE",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "T5_TEASEL",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "T5_EGG",
+          "@count": "2"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_FISH_LOAD_GATHER_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "425",
+            "@time": "0.1123",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_MOUNTAIN_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T5_TEASEL",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_FISH_LOAD_GATHER_P5",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "825",
+            "@time": "0.1123",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_MOUNTAIN_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T5_TEASEL",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_FISH_LOAD_GATHER_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "2026",
+            "@time": "0.1123",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_MOUNTAIN_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T5_TEASEL",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T7_MEAL_PIE_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "672",
+      "@time": "0.334",
+      "craftresource": [
+        {
+          "@uniquename": "T7_FISH_FRESHWATER_MOUNTAIN_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T7_CORN",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "T7_MULLEIN",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "T7_MEAT",
+          "@count": "6"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_FISH_LOAD_GATHER_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "1272",
+            "@time": "0.334",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_MOUNTAIN_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T7_MULLEIN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "27"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_FISH_LOAD_GATHER_P7",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "2473",
+            "@time": "0.334",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_MOUNTAIN_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T7_MULLEIN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "27"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1300",
+          "@consumespell": "FOOD_FISH_LOAD_GATHER_P8",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "6076",
+            "@time": "0.334",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_MOUNTAIN_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T7_MULLEIN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "27"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T3_MEAL_OMELETTE",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "52",
+      "@time": "0.257",
+      "craftresource": [
+        {
+          "@uniquename": "T3_WHEAT",
+          "@count": "4"
+        },
+        {
+          "@uniquename": "T3_MEAT",
+          "@count": "8"
+        },
+        {
+          "@uniquename": "T3_EGG",
+          "@count": "2"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "700",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_P2",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "74",
+            "@time": "0.257",
+            "craftresource": [
+              {
+                "@uniquename": "T3_WHEAT",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T3_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T3_EGG",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_P3",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "118",
+            "@time": "0.257",
+            "craftresource": [
+              {
+                "@uniquename": "T3_WHEAT",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T3_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T3_EGG",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "252",
+            "@time": "0.257",
+            "craftresource": [
+              {
+                "@uniquename": "T3_WHEAT",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T3_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T3_EGG",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "1"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T5_MEAL_OMELETTE",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "155",
+      "@time": "0.767",
+      "craftresource": [
+        {
+          "@uniquename": "T5_CABBAGE",
+          "@count": "12"
+        },
+        {
+          "@uniquename": "T5_MEAT",
+          "@count": "24"
+        },
+        {
+          "@uniquename": "T5_EGG",
+          "@count": "6"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "222",
+            "@time": "0.767",
+            "craftresource": [
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T5_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_P5",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "355",
+            "@time": "0.767",
+            "craftresource": [
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T5_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "755",
+            "@time": "0.767",
+            "craftresource": [
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T5_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T7_MEAL_OMELETTE",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "464",
+      "@time": "2.3",
+      "craftresource": [
+        {
+          "@uniquename": "T7_CORN",
+          "@count": "36"
+        },
+        {
+          "@uniquename": "T7_MEAT",
+          "@count": "72"
+        },
+        {
+          "@uniquename": "T5_EGG",
+          "@count": "18"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "665",
+            "@time": "2.3",
+            "craftresource": [
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_P7",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "1065",
+            "@time": "2.3",
+            "craftresource": [
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1300",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_P8",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "2266",
+            "@time": "2.3",
+            "craftresource": [
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T3_MEAL_OMELETTE_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "77",
+      "@time": "0.0387",
+      "craftresource": [
+        {
+          "@uniquename": "T3_FISH_FRESHWATER_STEPPE_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T3_COMFREY",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T3_EGG",
+          "@count": "1"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "700",
+          "@consumespell": "FOOD_FISH_BUFF_CASTSPEED_CDR_P2",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "144",
+            "@time": "0.0387",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_STEPPE_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_COMFREY",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_EGG",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_FISH_BUFF_CASTSPEED_CDR_P3",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "278",
+            "@time": "0.0387",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_STEPPE_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_COMFREY",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_EGG",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_FISH_BUFF_CASTSPEED_CDR_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "678",
+            "@time": "0.0387",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_STEPPE_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_COMFREY",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_EGG",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T5_MEAL_OMELETTE_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "225",
+      "@time": "0.1123",
+      "craftresource": [
+        {
+          "@uniquename": "T5_FISH_FRESHWATER_STEPPE_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T5_CABBAGE",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "T5_TEASEL",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "T5_EGG",
+          "@count": "2"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_FISH_BUFF_CASTSPEED_CDR_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "425",
+            "@time": "0.1123",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_STEPPE_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T5_TEASEL",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_FISH_BUFF_CASTSPEED_CDR_P5",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "825",
+            "@time": "0.1123",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_STEPPE_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T5_TEASEL",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_FISH_BUFF_CASTSPEED_CDR_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "2026",
+            "@time": "0.1123",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_STEPPE_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T5_TEASEL",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T7_MEAL_OMELETTE_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "672",
+      "@time": "0.334",
+      "craftresource": [
+        {
+          "@uniquename": "T7_FISH_FRESHWATER_STEPPE_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T7_CORN",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "T7_MULLEIN",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "T7_MEAT",
+          "@count": "6"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_FISH_BUFF_CASTSPEED_CDR_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "1272",
+            "@time": "0.334",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_STEPPE_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T7_MULLEIN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "27"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_FISH_BUFF_CASTSPEED_CDR_P7",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "2473",
+            "@time": "0.334",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_STEPPE_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T7_MULLEIN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "27"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1300",
+          "@consumespell": "FOOD_FISH_BUFF_CASTSPEED_CDR_P8",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "6076",
+            "@time": "0.334",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_STEPPE_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T7_MULLEIN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "27"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T3_MEAL_OMELETTE_AVALON",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "52",
+      "@time": "0.28",
+      "craftresource": [
+        {
+          "@uniquename": "T4_MILK",
+          "@count": "4"
+        },
+        {
+          "@uniquename": "T3_MEAT",
+          "@count": "8"
+        },
+        {
+          "@uniquename": "T3_EGG",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "QUESTITEM_TOKEN_AVALON",
+          "@maxreturnamount": "0",
+          "@count": "10"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "700",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_AVALON_P2",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "74",
+            "@time": "0.28",
+            "craftresource": [
+              {
+                "@uniquename": "T4_MILK",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T3_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T3_EGG",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "10"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_AVALON_P3",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "118",
+            "@time": "0.28",
+            "craftresource": [
+              {
+                "@uniquename": "T4_MILK",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T3_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T3_EGG",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "10"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_AVALON_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "252",
+            "@time": "0.28",
+            "craftresource": [
+              {
+                "@uniquename": "T4_MILK",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T3_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T3_EGG",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "10"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "1"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T5_MEAL_OMELETTE_AVALON",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "155",
+      "@time": "0.84",
+      "craftresource": [
+        {
+          "@uniquename": "T6_MILK",
+          "@count": "12"
+        },
+        {
+          "@uniquename": "T5_MEAT",
+          "@count": "24"
+        },
+        {
+          "@uniquename": "T5_EGG",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "QUESTITEM_TOKEN_AVALON",
+          "@maxreturnamount": "0",
+          "@count": "30"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_AVALON_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "222",
+            "@time": "0.84",
+            "craftresource": [
+              {
+                "@uniquename": "T6_MILK",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T5_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "30"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_AVALON_P5",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "355",
+            "@time": "0.84",
+            "craftresource": [
+              {
+                "@uniquename": "T6_MILK",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T5_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "30"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_AVALON_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "755",
+            "@time": "0.84",
+            "craftresource": [
+              {
+                "@uniquename": "T6_MILK",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T5_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "30"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T7_MEAL_OMELETTE_AVALON",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "464",
+      "@time": "2.517",
+      "craftresource": [
+        {
+          "@uniquename": "T8_MILK",
+          "@count": "36"
+        },
+        {
+          "@uniquename": "T7_MEAT",
+          "@count": "72"
+        },
+        {
+          "@uniquename": "T5_EGG",
+          "@count": "18"
+        },
+        {
+          "@uniquename": "QUESTITEM_TOKEN_AVALON",
+          "@maxreturnamount": "0",
+          "@count": "90"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_AVALON_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "665",
+            "@time": "2.517",
+            "craftresource": [
+              {
+                "@uniquename": "T8_MILK",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "90"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_AVALON_P7",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "1065",
+            "@time": "2.517",
+            "craftresource": [
+              {
+                "@uniquename": "T8_MILK",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "90"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1300",
+          "@consumespell": "FOOD_BUFF_CASTSPEED_CDR_AVALON_P8",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "2266",
+            "@time": "2.517",
+            "craftresource": [
+              {
+                "@uniquename": "T8_MILK",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T5_EGG",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "90"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T4_MEAL_STEW",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "61",
+      "@time": "0.303",
+      "craftresource": [
+        {
+          "@uniquename": "T4_TURNIP",
+          "@count": "4"
+        },
+        {
+          "@uniquename": "T4_BREAD",
+          "@count": "4"
+        },
+        {
+          "@uniquename": "T4_MEAT",
+          "@count": "8"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_BUFF_DMG_P2",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "84",
+            "@time": "0.303",
+            "craftresource": [
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_BUFF_DMG_P3",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "128",
+            "@time": "0.303",
+            "craftresource": [
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_BUFF_DMG_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "262",
+            "@time": "0.303",
+            "craftresource": [
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "1"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T6_MEAL_STEW",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "184",
+      "@time": "0.907",
+      "craftresource": [
+        {
+          "@uniquename": "T6_POTATO",
+          "@count": "12"
+        },
+        {
+          "@uniquename": "T4_BREAD",
+          "@count": "12"
+        },
+        {
+          "@uniquename": "T6_MEAT",
+          "@count": "24"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_BUFF_DMG_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "251",
+            "@time": "0.907",
+            "craftresource": [
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_BUFF_DMG_P5",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "384",
+            "@time": "0.907",
+            "craftresource": [
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_BUFF_DMG_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "785",
+            "@time": "0.907",
+            "craftresource": [
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T8_MEAL_STEW",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "551",
+      "@time": "2.723",
+      "craftresource": [
+        {
+          "@uniquename": "T8_PUMPKIN",
+          "@count": "36"
+        },
+        {
+          "@uniquename": "T4_BREAD",
+          "@count": "36"
+        },
+        {
+          "@uniquename": "T8_MEAT",
+          "@count": "72"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_BUFF_DMG_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "752",
+            "@time": "2.723",
+            "craftresource": [
+              {
+                "@uniquename": "T8_PUMPKIN",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1300",
+          "@consumespell": "FOOD_BUFF_DMG_P7",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "1152",
+            "@time": "2.723",
+            "craftresource": [
+              {
+                "@uniquename": "T8_PUMPKIN",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1400",
+          "@consumespell": "FOOD_BUFF_DMG_P8",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "2353",
+            "@time": "2.723",
+            "craftresource": [
+              {
+                "@uniquename": "T8_PUMPKIN",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T4_MEAL_STEW_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "77",
+      "@time": "0.0387",
+      "craftresource": [
+        {
+          "@uniquename": "T3_FISH_FRESHWATER_FOREST_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T4_TURNIP",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T4_BURDOCK",
+          "@count": "1"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_FISH_BUFF_DMG_P2",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "144",
+            "@time": "0.0387",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_FOREST_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_BURDOCK",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_FISH_BUFF_DMG_P3",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "278",
+            "@time": "0.0387",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_FOREST_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_BURDOCK",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_FISH_BUFF_DMG_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "678",
+            "@time": "0.0387",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_FOREST_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_BURDOCK",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T6_MEAL_STEW_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "225",
+      "@time": "0.1123",
+      "craftresource": [
+        {
+          "@uniquename": "T5_FISH_FRESHWATER_FOREST_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T6_POTATO",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "T6_FOXGLOVE",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "T6_MILK",
+          "@count": "2"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_FISH_BUFF_DMG_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "425",
+            "@time": "0.1123",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_FOREST_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T6_FOXGLOVE",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T6_MILK",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_FISH_BUFF_DMG_P5",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "825",
+            "@time": "0.1123",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_FOREST_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T6_FOXGLOVE",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T6_MILK",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_FISH_BUFF_DMG_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "2026",
+            "@time": "0.1123",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_FOREST_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T6_FOXGLOVE",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T6_MILK",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T8_MEAL_STEW_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "652",
+      "@time": "0.326",
+      "craftresource": [
+        {
+          "@uniquename": "T7_FISH_FRESHWATER_FOREST_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T8_PUMPKIN",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "T8_YARROW",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "T8_MILK",
+          "@count": "6"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_FISH_BUFF_DMG_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "1253",
+            "@time": "0.326",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_FOREST_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T8_PUMPKIN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T8_YARROW",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T8_MILK",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "27"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1300",
+          "@consumespell": "FOOD_FISH_BUFF_DMG_P7",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "2454",
+            "@time": "0.326",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_FOREST_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T8_PUMPKIN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T8_YARROW",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T8_MILK",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "27"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1400",
+          "@consumespell": "FOOD_FISH_BUFF_DMG_P8",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "6056",
+            "@time": "0.326",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_FOREST_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T8_PUMPKIN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T8_YARROW",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T8_MILK",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "27"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T4_MEAL_STEW_AVALON",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "58",
+      "@time": "0.313",
+      "craftresource": [
+        {
+          "@uniquename": "T1_CARROT",
+          "@count": "4"
+        },
+        {
+          "@uniquename": "T4_TURNIP",
+          "@count": "4"
+        },
+        {
+          "@uniquename": "T4_MEAT",
+          "@count": "8"
+        },
+        {
+          "@uniquename": "QUESTITEM_TOKEN_AVALON",
+          "@maxreturnamount": "0",
+          "@count": "10"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_BUFF_DMG_AVALON_P2",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "81",
+            "@time": "0.313",
+            "craftresource": [
+              {
+                "@uniquename": "T1_CARROT",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "10"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_BUFF_DMG_AVALON_P3",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "125",
+            "@time": "0.313",
+            "craftresource": [
+              {
+                "@uniquename": "T1_CARROT",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "10"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_BUFF_DMG_AVALON_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "259",
+            "@time": "0.313",
+            "craftresource": [
+              {
+                "@uniquename": "T1_CARROT",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "10"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "1"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T6_MEAL_STEW_AVALON",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "176",
+      "@time": "0.943",
+      "craftresource": [
+        {
+          "@uniquename": "T5_CABBAGE",
+          "@count": "12"
+        },
+        {
+          "@uniquename": "T6_POTATO",
+          "@count": "12"
+        },
+        {
+          "@uniquename": "T6_MEAT",
+          "@count": "24"
+        },
+        {
+          "@uniquename": "QUESTITEM_TOKEN_AVALON",
+          "@maxreturnamount": "0",
+          "@count": "30"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_BUFF_DMG_AVALON_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "243",
+            "@time": "0.943",
+            "craftresource": [
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "30"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_BUFF_DMG_AVALON_P5",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "376",
+            "@time": "0.943",
+            "craftresource": [
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "30"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_BUFF_DMG_AVALON_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "777",
+            "@time": "0.943",
+            "craftresource": [
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "30"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T8_MEAL_STEW_AVALON",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "528",
+      "@time": "2.833",
+      "craftresource": [
+        {
+          "@uniquename": "T7_CORN",
+          "@count": "36"
+        },
+        {
+          "@uniquename": "T8_PUMPKIN",
+          "@count": "36"
+        },
+        {
+          "@uniquename": "T8_MEAT",
+          "@count": "72"
+        },
+        {
+          "@uniquename": "QUESTITEM_TOKEN_AVALON",
+          "@maxreturnamount": "0",
+          "@count": "90"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_BUFF_DMG_AVALON_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "728",
+            "@time": "2.833",
+            "craftresource": [
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_PUMPKIN",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "90"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1300",
+          "@consumespell": "FOOD_BUFF_DMG_AVALON_P7",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "1128",
+            "@time": "2.833",
+            "craftresource": [
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_PUMPKIN",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "90"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1400",
+          "@consumespell": "FOOD_BUFF_DMG_AVALON_P8",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "2329",
+            "@time": "2.833",
+            "craftresource": [
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_PUMPKIN",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "90"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T4_MEAL_SANDWICH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "55",
+      "@time": "0.27",
+      "craftresource": [
+        {
+          "@uniquename": "T4_BREAD",
+          "@count": "4"
+        },
+        {
+          "@uniquename": "T4_MEAT",
+          "@count": "8"
+        },
+        {
+          "@uniquename": "T4_BUTTER",
+          "@count": "2"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_BUFF_MAXHP_P2",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "77",
+            "@time": "0.27",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T4_BUTTER",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_BUFF_MAXHP_P3",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "122",
+            "@time": "0.27",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T4_BUTTER",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_BUFF_MAXHP_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "255",
+            "@time": "0.27",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T4_BUTTER",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "1"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T6_MEAL_SANDWICH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "165",
+      "@time": "0.81",
+      "craftresource": [
+        {
+          "@uniquename": "T4_BREAD",
+          "@count": "12"
+        },
+        {
+          "@uniquename": "T6_MEAT",
+          "@count": "24"
+        },
+        {
+          "@uniquename": "T6_BUTTER",
+          "@count": "6"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_BUFF_MAXHP_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "231",
+            "@time": "0.81",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T6_BUTTER",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_BUFF_MAXHP_P5",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "365",
+            "@time": "0.81",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T6_BUTTER",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_BUFF_MAXHP_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "765",
+            "@time": "0.81",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T6_BUTTER",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T8_MEAL_SANDWICH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "494",
+      "@time": "2.433",
+      "craftresource": [
+        {
+          "@uniquename": "T4_BREAD",
+          "@count": "36"
+        },
+        {
+          "@uniquename": "T8_MEAT",
+          "@count": "72"
+        },
+        {
+          "@uniquename": "T8_BUTTER",
+          "@count": "18"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_BUFF_MAXHP_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "694",
+            "@time": "2.433",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T8_BUTTER",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1300",
+          "@consumespell": "FOOD_BUFF_MAXHP_P7",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "1094",
+            "@time": "2.433",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T8_BUTTER",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1400",
+          "@consumespell": "FOOD_BUFF_MAXHP_P8",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "2295",
+            "@time": "2.433",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T8_BUTTER",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T4_MEAL_SANDWICH_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "81",
+      "@time": "0.04",
+      "craftresource": [
+        {
+          "@uniquename": "T3_FISH_FRESHWATER_HIGHLANDS_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T4_TURNIP",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T4_BUTTER",
+          "@count": "1"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_FISH_BUFF_MAXHP_P2",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "147",
+            "@time": "0.04",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_HIGHLANDS_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_BUTTER",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_FISH_BUFF_MAXHP_P3",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "281",
+            "@time": "0.04",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_HIGHLANDS_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_BUTTER",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_FISH_BUFF_MAXHP_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "681",
+            "@time": "0.04",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_HIGHLANDS_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_TURNIP",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_BUTTER",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T6_MEAL_SANDWICH_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "231",
+      "@time": "0.115",
+      "craftresource": [
+        {
+          "@uniquename": "T5_FISH_FRESHWATER_HIGHLANDS_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T6_POTATO",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "T6_FOXGLOVE",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "T6_BUTTER",
+          "@count": "2"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_FISH_BUFF_MAXHP_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "432",
+            "@time": "0.115",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_HIGHLANDS_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T6_FOXGLOVE",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T6_BUTTER",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_FISH_BUFF_MAXHP_P5",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "832",
+            "@time": "0.115",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_HIGHLANDS_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T6_FOXGLOVE",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T6_BUTTER",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_FISH_BUFF_MAXHP_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "2033",
+            "@time": "0.115",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_HIGHLANDS_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T6_POTATO",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T6_FOXGLOVE",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T6_BUTTER",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T8_MEAL_SANDWICH_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "672",
+      "@time": "0.334",
+      "craftresource": [
+        {
+          "@uniquename": "T7_FISH_FRESHWATER_HIGHLANDS_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T8_PUMPKIN",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "T8_YARROW",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "T8_BUTTER",
+          "@count": "6"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_FISH_BUFF_MAXHP_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "1272",
+            "@time": "0.334",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_HIGHLANDS_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T8_PUMPKIN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T8_YARROW",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T8_BUTTER",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "27"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1300",
+          "@consumespell": "FOOD_FISH_BUFF_MAXHP_P7",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "2473",
+            "@time": "0.334",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_HIGHLANDS_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T8_PUMPKIN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T8_YARROW",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T8_BUTTER",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "27"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1400",
+          "@consumespell": "FOOD_FISH_BUFF_MAXHP_P8",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "6076",
+            "@time": "0.334",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_HIGHLANDS_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T8_PUMPKIN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T8_YARROW",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T8_BUTTER",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "27"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T4_MEAL_SANDWICH_AVALON",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "55",
+      "@time": "0.293",
+      "craftresource": [
+        {
+          "@uniquename": "T4_BREAD",
+          "@count": "4"
+        },
+        {
+          "@uniquename": "T4_MEAT",
+          "@count": "8"
+        },
+        {
+          "@uniquename": "T4_BUTTER",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "QUESTITEM_TOKEN_AVALON",
+          "@maxreturnamount": "0",
+          "@count": "10"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_BUFF_MAXHP_AVALON_P2",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "77",
+            "@time": "0.293",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T4_BUTTER",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "10"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_BUFF_MAXHP_AVALON_P3",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "122",
+            "@time": "0.293",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T4_BUTTER",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "10"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_BUFF_MAXHP_AVALON_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "255",
+            "@time": "0.293",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T4_BUTTER",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "10"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "1"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T6_MEAL_SANDWICH_AVALON",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "165",
+      "@time": "0.883",
+      "craftresource": [
+        {
+          "@uniquename": "T4_BREAD",
+          "@count": "12"
+        },
+        {
+          "@uniquename": "T6_MEAT",
+          "@count": "24"
+        },
+        {
+          "@uniquename": "T6_BUTTER",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "QUESTITEM_TOKEN_AVALON",
+          "@maxreturnamount": "0",
+          "@count": "30"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_BUFF_MAXHP_AVALON_P4",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "231",
+            "@time": "0.883",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T6_BUTTER",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "30"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_BUFF_MAXHP_AVALON_P5",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "365",
+            "@time": "0.883",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T6_BUTTER",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "30"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_BUFF_MAXHP_AVALON_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "765",
+            "@time": "0.883",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T6_BUTTER",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "30"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T8_MEAL_SANDWICH_AVALON",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "494",
+      "@time": "2.65",
+      "craftresource": [
+        {
+          "@uniquename": "T4_BREAD",
+          "@count": "36"
+        },
+        {
+          "@uniquename": "T8_MEAT",
+          "@count": "72"
+        },
+        {
+          "@uniquename": "T8_BUTTER",
+          "@count": "18"
+        },
+        {
+          "@uniquename": "QUESTITEM_TOKEN_AVALON",
+          "@maxreturnamount": "0",
+          "@count": "90"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_BUFF_MAXHP_AVALON_P6",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "694",
+            "@time": "2.65",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T8_BUTTER",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "90"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1300",
+          "@consumespell": "FOOD_BUFF_MAXHP_AVALON_P7",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "1094",
+            "@time": "2.65",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T8_BUTTER",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "90"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1400",
+          "@consumespell": "FOOD_BUFF_MAXHP_AVALON_P8",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "2295",
+            "@time": "2.65",
+            "craftresource": [
+              {
+                "@uniquename": "T4_BREAD",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T8_BUTTER",
+                "@count": "18"
+              },
+              {
+                "@uniquename": "QUESTITEM_TOKEN_AVALON",
+                "@maxreturnamount": "0",
+                "@count": "90"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T3_MEAL_ROAST",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "58",
+      "@time": "0.29",
+      "craftresource": [
+        {
+          "@uniquename": "T3_MEAT",
+          "@count": "8"
+        },
+        {
+          "@uniquename": "T2_BEAN",
+          "@count": "4"
+        },
+        {
+          "@uniquename": "T4_MILK",
+          "@count": "4"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "700",
+          "@consumespell": "FOOD_BUFF_LIFESTEAL_P2",
+          "@nutrition": "98",
+          "@weight": "1.31",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "81",
+            "@time": "0.29",
+            "craftresource": [
+              {
+                "@uniquename": "T3_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T2_BEAN",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_MILK",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_BUFF_LIFESTEAL_P3",
+          "@nutrition": "98",
+          "@weight": "1.31",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "125",
+            "@time": "0.29",
+            "craftresource": [
+              {
+                "@uniquename": "T3_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T2_BEAN",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_MILK",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "1"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_BUFF_LIFESTEAL_P4",
+          "@nutrition": "98",
+          "@weight": "1.31",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "259",
+            "@time": "0.29",
+            "craftresource": [
+              {
+                "@uniquename": "T3_MEAT",
+                "@count": "8"
+              },
+              {
+                "@uniquename": "T2_BEAN",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T4_MILK",
+                "@count": "4"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "10"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "1"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T5_MEAL_ROAST",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "176",
+      "@time": "0.873",
+      "craftresource": [
+        {
+          "@uniquename": "T5_MEAT",
+          "@count": "24"
+        },
+        {
+          "@uniquename": "T5_CABBAGE",
+          "@count": "12"
+        },
+        {
+          "@uniquename": "T6_MILK",
+          "@count": "12"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_BUFF_LIFESTEAL_P4",
+          "@nutrition": "295",
+          "@weight": "3.28",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "243",
+            "@time": "0.873",
+            "craftresource": [
+              {
+                "@uniquename": "T5_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_MILK",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_BUFF_LIFESTEAL_P5",
+          "@nutrition": "295",
+          "@weight": "3.28",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "376",
+            "@time": "0.873",
+            "craftresource": [
+              {
+                "@uniquename": "T5_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_MILK",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_BUFF_LIFESTEAL_P6",
+          "@nutrition": "295",
+          "@weight": "3.28",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "777",
+            "@time": "0.873",
+            "craftresource": [
+              {
+                "@uniquename": "T5_MEAT",
+                "@count": "24"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T6_MILK",
+                "@count": "12"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "30"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T7_MEAL_ROAST",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@amountcrafted": "10",
+      "@forcesinglecraft": "false",
+      "@craftingfocus": "528",
+      "@time": "2.617",
+      "craftresource": [
+        {
+          "@uniquename": "T7_MEAT",
+          "@count": "72"
+        },
+        {
+          "@uniquename": "T7_CORN",
+          "@count": "36"
+        },
+        {
+          "@uniquename": "T8_MILK",
+          "@count": "36"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_BUFF_LIFESTEAL_P6",
+          "@nutrition": "886",
+          "@weight": "7.85",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "728",
+            "@time": "2.617",
+            "craftresource": [
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_MILK",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_BUFF_LIFESTEAL_P7",
+          "@nutrition": "886",
+          "@weight": "7.85",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "1128",
+            "@time": "2.617",
+            "craftresource": [
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_MILK",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1300",
+          "@consumespell": "FOOD_BUFF_LIFESTEAL_P8",
+          "@nutrition": "886",
+          "@weight": "7.85",
+          "craftingrequirements": {
+            "@amountcrafted": "10",
+            "@craftingfocus": "2329",
+            "@time": "2.617",
+            "craftresource": [
+              {
+                "@uniquename": "T7_MEAT",
+                "@count": "72"
+              },
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T8_MILK",
+                "@count": "36"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "90"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T3_MEAL_ROAST_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "77",
+      "@time": "0.0387",
+      "craftresource": [
+        {
+          "@uniquename": "T3_FISH_FRESHWATER_AVALON_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T3_COMFREY",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T4_MILK",
+          "@count": "1"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "700",
+          "@consumespell": "FOOD_FISH_BUFF_LIFESTEAL_P2",
+          "@nutrition": "124",
+          "@weight": "1.74",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "144",
+            "@time": "0.0387",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_AVALON_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_COMFREY",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_MILK",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "800",
+          "@consumespell": "FOOD_FISH_BUFF_LIFESTEAL_P3",
+          "@nutrition": "124",
+          "@weight": "1.74",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "278",
+            "@time": "0.0387",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_AVALON_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_COMFREY",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_MILK",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "3"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_FISH_BUFF_LIFESTEAL_P4",
+          "@nutrition": "124",
+          "@weight": "1.74",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "678",
+            "@time": "0.0387",
+            "craftresource": [
+              {
+                "@uniquename": "T3_FISH_FRESHWATER_AVALON_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T3_COMFREY",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T4_MILK",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "3"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "3"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T5_MEAL_ROAST_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "225",
+      "@time": "0.1123",
+      "craftresource": [
+        {
+          "@uniquename": "T5_FISH_FRESHWATER_AVALON_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T5_CABBAGE",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "T5_TEASEL",
+          "@count": "2"
+        },
+        {
+          "@uniquename": "T6_MILK",
+          "@count": "2"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "900",
+          "@consumespell": "FOOD_FISH_BUFF_LIFESTEAL_P4",
+          "@nutrition": "362",
+          "@weight": "4.21",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "425",
+            "@time": "0.1123",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_AVALON_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T5_TEASEL",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T6_MILK",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1000",
+          "@consumespell": "FOOD_FISH_BUFF_LIFESTEAL_P5",
+          "@nutrition": "362",
+          "@weight": "4.21",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "825",
+            "@time": "0.1123",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_AVALON_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T5_TEASEL",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T6_MILK",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "9"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_FISH_BUFF_LIFESTEAL_P6",
+          "@nutrition": "362",
+          "@weight": "4.21",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "2026",
+            "@time": "0.1123",
+            "craftresource": [
+              {
+                "@uniquename": "T5_FISH_FRESHWATER_AVALON_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T5_CABBAGE",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T5_TEASEL",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T6_MILK",
+                "@count": "2"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "9"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "9"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@uniquename": "T7_MEAL_ROAST_FISH",
+    "craftingrequirements": {
+      "@silver": "0",
+      "@forcesinglecraft": "false",
+      "@amountcrafted": "1",
+      "@craftingfocus": "652",
+      "@time": "0.326",
+      "craftresource": [
+        {
+          "@uniquename": "T7_FISH_FRESHWATER_AVALON_RARE",
+          "@count": "1"
+        },
+        {
+          "@uniquename": "T7_CORN",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "T7_MULLEIN",
+          "@count": "6"
+        },
+        {
+          "@uniquename": "T8_MILK",
+          "@count": "6"
+        }
+      ]
+    },
+    "enchantments": {
+      "enchantment": [
+        {
+          "@enchantmentlevel": "1",
+          "@abilitypower": "186",
+          "@dummyitempower": "1100",
+          "@consumespell": "FOOD_FISH_BUFF_LIFESTEAL_P6",
+          "@nutrition": "1056",
+          "@weight": "9.78",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "1253",
+            "@time": "0.326",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_AVALON_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T7_MULLEIN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T8_MILK",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL1",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL1",
+              "@count": "27"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "2",
+          "@abilitypower": "186",
+          "@dummyitempower": "1200",
+          "@consumespell": "FOOD_FISH_BUFF_LIFESTEAL_P7",
+          "@nutrition": "1056",
+          "@weight": "9.78",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "2454",
+            "@time": "0.326",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_AVALON_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T7_MULLEIN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T8_MILK",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL2",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL2",
+              "@count": "27"
+            }
+          }
+        },
+        {
+          "@enchantmentlevel": "3",
+          "@abilitypower": "186",
+          "@dummyitempower": "1300",
+          "@consumespell": "FOOD_FISH_BUFF_LIFESTEAL_P8",
+          "@nutrition": "1056",
+          "@weight": "9.78",
+          "craftingrequirements": {
+            "@amountcrafted": "1",
+            "@craftingfocus": "6056",
+            "@time": "0.326",
+            "craftresource": [
+              {
+                "@uniquename": "T7_FISH_FRESHWATER_AVALON_RARE",
+                "@count": "1"
+              },
+              {
+                "@uniquename": "T7_CORN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T7_MULLEIN",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T8_MILK",
+                "@count": "6"
+              },
+              {
+                "@uniquename": "T1_FISHSAUCE_LEVEL3",
+                "@count": "27"
+              }
+            ]
+          },
+          "upgraderequirements": {
+            "upgraderesource": {
+              "@uniquename": "T1_FISHSAUCE_LEVEL3",
+              "@count": "27"
+            }
+          }
+        }
+      ]
+    }
+  }
+]
