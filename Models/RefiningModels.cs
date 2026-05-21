@@ -13,10 +13,10 @@ public class RefiningSettings
     public RawResourceType ResourceType { get; set; } = RawResourceType.Wood;
     public int TargetTier { get; set; } = 6;
     public int TargetEnchant { get; set; } = 0;
-    public int Quantity { get; set; } = 100;
+    public int Quantity { get; set; } = 1;
     public string City { get; set; } = "Caerleon";
     public bool UseBuyOrder { get; set; } = false;
-    public decimal GlobalDiscount { get; set; } = 0m; // -1 .. 1 (fraction off base fee; negative = surcharge)
+    public decimal GlobalDiscount { get; set; } = -0.156m; // -1 .. 1 (fraction off base fee; negative = surcharge)
     public decimal StationFeePer100Nutrition { get; set; } = 0m; // silver per 100 nutrition charged by the station
 
     // Optional source override: when both set, the calc starts from this exact node
