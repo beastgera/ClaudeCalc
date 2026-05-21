@@ -1,0 +1,387 @@
+/* ───────────────────────────────────────────
+   Refining page — layout mirrors GearCrafting
+─────────────────────────────────────────── */
+.rf-layout {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1rem;
+    height: calc(100vh - 64px);
+    overflow: hidden;
+}
+
+.rf-config {
+    flex: 0 0 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding-right: 0.25rem;
+}
+
+.rf-label {
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 2px;
+    display: block;
+}
+
+.rf-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.rf-field-check {
+    padding: 4px 0;
+}
+
+.rf-divider {
+    border-top: 1px solid #2a2a2a;
+    margin: 0.25rem 0;
+}
+
+.rf-image-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.rf-image-label {
+    font-size: 0.75rem;
+    color: #aaa;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rf-image-placeholder {
+    width: 100%;
+    height: 110px;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rf-item-img {
+    max-width: 100%;
+    max-height: 100px;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.rf-loaded-at {
+    font-size: 0.7rem;
+    color: #555;
+    text-align: center;
+    margin-top: 4px;
+}
+
+/* ───────────────────────────────────────────
+   Right panel
+─────────────────────────────────────────── */
+.rf-sheet {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    overflow-y: auto;
+}
+
+.rf-card {
+    background: #141414;
+    border: 1px solid #252525;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+}
+
+.rf-card-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #555;
+    margin-bottom: 0.7rem;
+}
+
+.rf-empty {
+    color: #555;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.85rem;
+}
+
+.rf-muted {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+.rf-fee-breakdown {
+    color: #555;
+    font-size: 0.72rem;
+    margin: 0 4px;
+}
+
+/* ───────────────────────────────────────────
+   Cheapest path summary
+─────────────────────────────────────────── */
+.rf-path-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 0.75rem;
+}
+
+.rf-path-source,
+.rf-path-step {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 6px 10px;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #ddd;
+}
+
+.rf-path-step-direct {
+    background: #1a2a1a;
+    border-color: #2a4a2a;
+}
+
+.rf-tag {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+.rf-tag-source {
+    background: #1a2a4a;
+    color: #89b4fa;
+}
+
+.rf-tag-step {
+    background: #3a2a4a;
+    color: #cba6f7;
+}
+
+.rf-tag-direct {
+    background: #1a3a1a;
+    color: #a6e3a1;
+}
+
+.rf-summary-grid {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.rf-summary-tile {
+    flex: 1;
+    min-width: 130px;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.rf-summary-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #555;
+}
+
+.rf-summary-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #e8eaf6;
+    font-variant-numeric: tabular-nums;
+}
+
+.rf-summary-value.cost {
+    color: #f9e2af;
+}
+
+.profit-pos { color: #a6e3a1; }
+.profit-neg { color: #f38ba8; }
+
+/* ───────────────────────────────────────────
+   Resource grid
+─────────────────────────────────────────── */
+.rf-grid-wrapper {
+    overflow-x: auto;
+}
+
+.rf-grid {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 4px;
+    font-size: 0.78rem;
+}
+
+.rf-grid th {
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 6px;
+    text-align: center;
+}
+
+.rf-grid-tier {
+    text-align: right !important;
+    color: #aaa !important;
+    background: transparent;
+}
+
+.rf-grid-cell {
+    background: #1a1a1a;
+    border: 1px solid #252525;
+    border-radius: 6px;
+    padding: 6px 6px;
+    min-width: 84px;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+.rf-grid-cell:hover {
+    background: #1f1f1f;
+}
+
+.rf-cell-target {
+    background: #2a2a1a !important;
+    border-color: #5a5a2a !important;
+    box-shadow: 0 0 0 1px #f9e2af inset;
+}
+
+.rf-cell-source {
+    background: #1a2a3a !important;
+    border-color: #2a4a6a !important;
+    box-shadow: 0 0 0 1px #89b4fa inset;
+}
+
+.rf-cell-path {
+    background: #1f1a2e !important;
+    border-color: #3a2a5a !important;
+}
+
+.rf-cell-market {
+    margin-bottom: 4px;
+}
+
+.rf-cell-cheapest {
+    text-align: right;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.rf-cheap-direct { color: #a6e3a1; }
+.rf-cheap-trans  { color: #cba6f7; }
+.rf-cheap-none   { color: #444; }
+
+.rf-pi {
+    width: 100%;
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-radius: 3px;
+    color: #ddd;
+    font-size: 0.78rem;
+    padding: 2px 5px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.rf-pi:focus {
+    outline: none;
+    border-color: #89b4fa;
+    background: #1a1a2e;
+}
+
+.rf-pi.pi-manual {
+    border-color: #f38ba8;
+    color: #f38ba8;
+}
+
+/* ───────────────────────────────────────────
+   Grid legend
+─────────────────────────────────────────── */
+.rf-grid-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.6rem;
+    font-size: 0.72rem;
+    color: #666;
+    align-items: center;
+}
+
+.rf-grid-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rf-legend-swatch {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    border: 1px solid #2a2a2a;
+}
+
+.rf-legend-text {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ───────────────────────────────────────────
+   Tooltip (info icon)
+─────────────────────────────────────────── */
+.rf-info-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: default;
+    font-size: 0.8rem;
+    color: #555;
+    margin-left: 4px;
+    outline: none;
+}
+
+.rf-info-icon:hover .rf-info-tooltip,
+.rf-info-icon:focus .rf-info-tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.rf-info-tooltip {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-4px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 0;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 0.45rem 0.65rem;
+    font-size: 0.72rem;
+    color: #aaa;
+    width: 220px;
+    z-index: 10;
+    text-transform: none;
+    letter-spacing: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}

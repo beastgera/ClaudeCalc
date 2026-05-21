@@ -1,0 +1,507 @@
+@page "/transmuting"
+@rendermode InteractiveServer
+@inject AlbionPriceService PriceService
+@using System.Globalization
+@using CraftingCalc.Models
+@using CraftingCalc.Services
+
+<PageTitle>Transmuting — Cheapest Raw Resource</PageTitle>
+
+<div class="rf-layout">
+
+    <!-- ═══════════════════════════════════════════════
+         LEFT PANEL — Configuration
+    ═══════════════════════════════════════════════ -->
+    <aside class="rf-config">
+
+        <!-- Resource type -->
+        <div class="rf-field">
+            <label class="rf-label">Resource</label>
+            <div class="btn-group btn-group-sm w-100">
+                @foreach (var type in Enum.GetValues<RawResourceType>())
+                {
+                    var t = type;
+                    <button type="button"
+                            class="btn @(settings.ResourceType == t ? "btn-primary" : "btn-outline-secondary")"
+                            @onclick="() => SelectResource(t)">
+                        @RawResourceDatabase.GetDisplayName(t)
+                    </button>
+                }
+            </div>
+        </div>
+
+        <!-- Resource image -->
+        <div class="rf-image-box">
+            <span class="rf-image-label">@grid.GetNode(settings.TargetTier, settings.TargetEnchant)?.TierLabel @RawResourceDatabase.GetDisplayName(settings.ResourceType)</span>
+            <div class="rf-image-placeholder">
+                <img src="https://render.albiononline.com/v1/item/@RawResourceDatabase.GetApiId(settings.ResourceType, settings.TargetTier, settings.TargetEnchant)"
+                     alt="@settings.ResourceType" class="rf-item-img" />
+            </div>
+        </div>
+
+        <!-- Target Tier -->
+        <div class="rf-field">
+            <label class="rf-label">Target Tier</label>
+            <div class="btn-group btn-group-sm w-100">
+                @for (var t = RawResourceDatabase.MinTier; t <= RawResourceDatabase.MaxTier; t++)
+                {
+                    var tier = t;
+                    <button type="button"
+                            class="btn @(settings.TargetTier == tier ? "btn-primary" : "btn-outline-secondary")"
+                            @onclick="() => { settings.TargetTier = tier; Recalc(); }">
+                        @($"T{tier}")
+                    </button>
+                }
+            </div>
+        </div>
+
+        <!-- Target Enchantment -->
+        <div class="rf-field">
+            <label class="rf-label">Enchantment</label>
+            <div class="btn-group btn-group-sm w-100">
+                @for (var e = RawResourceDatabase.MinEnchant; e <= RawResourceDatabase.MaxEnchant; e++)
+                {
+                    var ench = e;
+                    <button type="button"
+                            class="btn @(settings.TargetEnchant == ench ? "btn-primary" : "btn-outline-secondary")"
+                            @onclick="() => { settings.TargetEnchant = ench; Recalc(); }">
+                        @(ench == 0 ? "Base" : $".{ench}")
+                    </button>
+                }
+            </div>
+        </div>
+
+        <div class="rf-divider"></div>
+
+        <!-- Source Override -->
+        <div class="rf-field">
+            <label class="rf-label">
+                Source Override
+                <span class="rf-info-icon" tabindex="0">
+                    &#x24D8;
+                    <span class="rf-info-tooltip">Force the path to start from a specific node. If that node has no market price, 1 silver is assumed.</span>
+                </span>
+            </label>
+            <div class="btn-group btn-group-sm w-100">
+                <button type="button"
+                        class="btn @(!settings.HasForcedSource ? "btn-primary" : "btn-outline-secondary")"
+                        @onclick="ClearSourceOverride">Auto</button>
+                @for (var t = RawResourceDatabase.MinTier; t <= RawResourceDatabase.MaxTier; t++)
+                {
+                    var tier = t;
+                    <button type="button"
+                            class="btn @(settings.StartTier == tier ? "btn-primary" : "btn-outline-secondary")"
+                            @onclick="() => SetSourceTier(tier)">
+                        @($"T{tier}")
+                    </button>
+                }
+            </div>
+        </div>
+
+        @if (settings.HasForcedSource)
+        {
+            <div class="rf-field">
+                <label class="rf-label">Source Enchant</label>
+                <div class="btn-group btn-group-sm w-100">
+                    @for (var e = RawResourceDatabase.MinEnchant; e <= RawResourceDatabase.MaxEnchant; e++)
+                    {
+                        var ench = e;
+                        <button type="button"
+                                class="btn @(settings.StartEnchant == ench ? "btn-primary" : "btn-outline-secondary")"
+                                @onclick="() => { settings.StartEnchant = ench; Recalc(); }">
+                            @(ench == 0 ? "Base" : $".{ench}")
+                        </button>
+                    }
+                </div>
+            </div>
+        }
+
+        <div class="rf-divider"></div>
+
+        <!-- Quantity -->
+        <div class="rf-field">
+            <label class="rf-label">Quantity</label>
+            <input type="number" class="form-control form-control-sm" min="1" max="999999"
+                   @bind="settings.Quantity" @bind:after="Recalc" />
+        </div>
+
+        <!-- City for prices -->
+        <div class="rf-field">
+            <label class="rf-label">Price City</label>
+            <select class="form-select form-select-sm"
+                    value="@settings.City"
+                    @onchange="OnCityChange">
+                @foreach (var city in GearItemDatabase.Cities)
+                {
+                    <option value="@city">@city</option>
+                }
+            </select>
+        </div>
+
+        <!-- Buy Order toggle -->
+        <div class="rf-field rf-field-check">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="useBuyOrderRf"
+                       @bind="settings.UseBuyOrder" @bind:after="OnBuyOrderChange" />
+                <label class="form-check-label rf-label" for="useBuyOrderRf">Use Buy Order</label>
+            </div>
+        </div>
+
+        <!-- Global Discount -->
+        <div class="rf-field">
+            <label class="rf-label">
+                Global Discount (%)
+                <span class="rf-info-icon" tabindex="0">
+                    &#x24D8;
+                    <span class="rf-info-tooltip">Adjusts every transmute silver fee by this percentage. Positive = discount, negative = surcharge.</span>
+                </span>
+            </label>
+            <input type="number" class="form-control form-control-sm" min="-100" max="100" step="1"
+                   value="@DiscountPercentText"
+                   @onchange="OnDiscountChange" />
+        </div>
+
+        <!-- Station Fee per 100 Nutrition -->
+        <div class="rf-field">
+            <label class="rf-label">
+                Station Fee / 100 Nutrition
+                <span class="rf-info-icon" tabindex="0">
+                    &#x24D8;
+                    <span class="rf-info-tooltip">Silver charged by the transmute station per 100 nutrition consumed. Added on top of the silver fee.</span>
+                </span>
+            </label>
+            <input type="number" class="form-control form-control-sm" min="0" step="1"
+                   value="@StationFeeText"
+                   @onchange="OnStationFeeChange" />
+        </div>
+
+        <div class="rf-divider"></div>
+
+        <!-- Load Prices Button -->
+        <button class="btn btn-primary btn-sm w-100" @onclick="LoadPrices" disabled="@isLoading">
+            @if (isLoading) { <span class="spinner-border spinner-border-sm me-1"></span> }
+            Load Prices from API
+        </button>
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="text-danger small mt-1">@errorMessage</div>
+        }
+        @if (pricesLoadedAt != null)
+        {
+            <div class="rf-loaded-at">Loaded @pricesLoadedAt.Value.ToString("HH:mm:ss")</div>
+        }
+
+    </aside>
+
+    <!-- ═══════════════════════════════════════════════
+         RIGHT PANEL — Results
+    ═══════════════════════════════════════════════ -->
+    <div class="rf-sheet">
+
+        <!-- Cheapest path card -->
+        <div class="rf-card rf-card-path">
+            <div class="rf-card-title">Cheapest Path → @grid.GetNode(settings.TargetTier, settings.TargetEnchant)?.TierLabel @RawResourceDatabase.GetDisplayName(settings.ResourceType)</div>
+            @if (!path.Found)
+            {
+                <div class="rf-empty">No path available — load prices or enter at least one market price below.</div>
+            }
+            else
+            {
+                <div class="rf-path-summary">
+                    <div class="rf-path-source">
+                        <span class="rf-tag rf-tag-source">Source</span>
+                        <strong>@path.SourceLabel @RawResourceDatabase.GetDisplayName(settings.ResourceType)</strong>
+                        <span class="rf-muted">@FormatPrice(path.SourceUnitPrice) silver/unit @@ @settings.City</span>
+                    </div>
+
+                    @if (path.IsDirectBuy)
+                    {
+                        <div class="rf-path-step rf-path-step-direct">
+                            <span class="rf-tag rf-tag-direct">Direct buy — no transmute needed</span>
+                        </div>
+                    }
+                    else
+                    {
+                        @foreach (var step in path.Steps)
+                        {
+                            <div class="rf-path-step">
+                                <span class="rf-tag rf-tag-step">@step.Kind</span>
+                                <span>@step.FromLabel → @step.ToLabel</span>
+                                <span class="rf-muted">
+                                    fee @FormatPrice(step.FeePerUnit)
+                                    @if (step.StationFeePerUnit > 0)
+                                    {
+                                        <span class="rf-fee-breakdown">(@FormatPrice(step.SilverFeePerUnit) silver + @FormatPrice(step.StationFeePerUnit) station)</span>
+                                    }
+                                    → @FormatPrice(step.RunningUnitCost) /unit
+                                </span>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <div class="rf-summary-grid">
+                    <div class="rf-summary-tile">
+                        <div class="rf-summary-label">Unit Cost</div>
+                        <div class="rf-summary-value cost">@FormatPrice(path.UnitCost)</div>
+                    </div>
+                    <div class="rf-summary-tile">
+                        <div class="rf-summary-label">Total (× @settings.Quantity)</div>
+                        <div class="rf-summary-value cost">@FormatPrice(path.TotalCost)</div>
+                    </div>
+                    @if (path.DirectBuyUnitCost > 0 && !path.IsDirectBuy)
+                    {
+                        <div class="rf-summary-tile">
+                            <div class="rf-summary-label">Direct Buy</div>
+                            <div class="rf-summary-value">@FormatPrice(path.DirectBuyTotalCost)</div>
+                        </div>
+                        <div class="rf-summary-tile">
+                            <div class="rf-summary-label">Savings</div>
+                            <div class="rf-summary-value profit-pos">@FormatPrice(path.Savings)</div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+        <!-- Resource grid view -->
+        <div class="rf-card">
+            <div class="rf-card-title">All Nodes — Market Price &amp; Cheapest Cost</div>
+            <div class="rf-grid-wrapper">
+                <table class="rf-grid">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            @for (var e = RawResourceDatabase.MinEnchant; e <= RawResourceDatabase.MaxEnchant; e++)
+                            {
+                                <th>@(e == 0 ? "Base" : $".{e}")</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (var t = RawResourceDatabase.MaxTier; t >= RawResourceDatabase.MinTier; t--)
+                        {
+                            var tier = t;
+                            <tr>
+                                <th class="rf-grid-tier">@($"T{tier}")</th>
+                                @for (var e = RawResourceDatabase.MinEnchant; e <= RawResourceDatabase.MaxEnchant; e++)
+                                {
+                                    var ench = e;
+                                    var node = grid.GetNode(tier, ench);
+                                    var isTarget = tier == settings.TargetTier && ench == settings.TargetEnchant;
+                                    var inPath = IsNodeOnPath(tier, ench);
+                                    var isSource = path.Found && tier == path.SourceTier && ench == path.SourceEnchant;
+                                    var cls = "rf-grid-cell";
+                                    if (isTarget) cls += " rf-cell-target";
+                                    else if (isSource) cls += " rf-cell-source";
+                                    else if (inPath) cls += " rf-cell-path";
+                                    <td class="@cls" @onclick="() => SelectTarget(tier, ench)" title="Click to set as target">
+                                        @if (node != null)
+                                        {
+                                            <div class="rf-cell-market">
+                                                <input type="text" class="rf-pi @(node.ManualPrice ? "pi-manual" : "")"
+                                                       value="@FormatInput(node.MarketPrice)"
+                                                       @onclick:stopPropagation
+                                                       @onchange="ev => OnCellPrice(tier, ench, ev)" />
+                                            </div>
+                                            <div class="rf-cell-cheapest">
+                                                @if (node.HasCheapest)
+                                                {
+                                                    @if (node.CheapestIsDirectBuy)
+                                                    {
+                                                        <span class="rf-cheap-direct" title="Direct market buy">@FormatPrice(node.CheapestUnitCost)</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        var srcLabel = node.CheapestFromEnchant == 0 ? $"T{node.CheapestFromTier}" : $"T{node.CheapestFromTier}.{node.CheapestFromEnchant}";
+                                                        <span class="rf-cheap-trans" title="Transmute from @srcLabel">↗ @FormatPrice(node.CheapestUnitCost)</span>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <span class="rf-cheap-none">—</span>
+                                                }
+                                            </div>
+                                        }
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="rf-grid-legend">
+                    <span><span class="rf-legend-swatch rf-cell-target"></span> target</span>
+                    <span><span class="rf-legend-swatch rf-cell-source"></span> source</span>
+                    <span><span class="rf-legend-swatch rf-cell-path"></span> on path</span>
+                    <span><span class="rf-legend-text rf-cheap-direct">value</span> direct buy</span>
+                    <span><span class="rf-legend-text rf-cheap-trans">↗ value</span> via transmute</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@code {
+    private RefiningSettings settings = new();
+    private RefiningGrid grid = RefiningCalculator.BuildGrid(RawResourceType.Wood);
+    private RefiningPath path = new();
+    private bool isLoading;
+    private string errorMessage = "";
+    private DateTime? pricesLoadedAt;
+    private HashSet<(int t, int e)> pathNodes = new();
+
+    protected override void OnInitialized()
+    {
+        settings.City = RawResourceDatabase.GetPreferredCity(settings.ResourceType);
+        Recalc();
+    }
+
+    private void SelectResource(RawResourceType type)
+    {
+        settings.ResourceType = type;
+        settings.City = RawResourceDatabase.GetPreferredCity(type);
+        grid = RefiningCalculator.BuildGrid(type);
+        pricesLoadedAt = null;
+        Recalc();
+    }
+
+    private void SelectTarget(int tier, int enchant)
+    {
+        settings.TargetTier = tier;
+        settings.TargetEnchant = enchant;
+        Recalc();
+    }
+
+    private void ClearSourceOverride()
+    {
+        settings.StartTier = null;
+        settings.StartEnchant = null;
+        Recalc();
+    }
+
+    private void SetSourceTier(int tier)
+    {
+        settings.StartTier = tier;
+        settings.StartEnchant ??= 0;
+        Recalc();
+    }
+
+    private void OnCityChange(ChangeEventArgs e)
+    {
+        settings.City = e.Value?.ToString() ?? settings.City;
+        // Re-pick prices from cached city data
+        foreach (var node in grid.Nodes)
+        {
+            if (node.ManualPrice) continue;
+            node.MarketPrice = node.CityPrices.GetValueOrDefault(settings.City, 0);
+        }
+        Recalc();
+    }
+
+    private void OnBuyOrderChange()
+    {
+        // toggle only affects next API load; recompute with current data
+        Recalc();
+    }
+
+    private string DiscountPercentText =>
+        ((int)Math.Round(settings.GlobalDiscount * 100m)).ToString(CultureInfo.InvariantCulture);
+
+    private string StationFeeText =>
+        settings.StationFeePer100Nutrition.ToString(CultureInfo.InvariantCulture);
+
+    private void OnDiscountChange(ChangeEventArgs e)
+    {
+        var raw = e.Value?.ToString()?.Replace(',', '.') ?? "";
+        if (decimal.TryParse(raw, NumberStyles.Number, CultureInfo.InvariantCulture, out var pct))
+        {
+            settings.GlobalDiscount = Math.Clamp(pct, -100m, 100m) / 100m;
+            Recalc();
+        }
+    }
+
+    private void OnStationFeeChange(ChangeEventArgs e)
+    {
+        var raw = e.Value?.ToString()?.Replace(',', '.') ?? "";
+        if (decimal.TryParse(raw, NumberStyles.Number, CultureInfo.InvariantCulture, out var val) && val >= 0m)
+        {
+            settings.StationFeePer100Nutrition = val;
+            Recalc();
+        }
+    }
+
+    private void OnCellPrice(int tier, int enchant, ChangeEventArgs e)
+    {
+        var node = grid.GetNode(tier, enchant);
+        if (node == null) return;
+        var raw = e.Value?.ToString()?.Replace(",", "").Replace(" ", "") ?? "";
+        if (long.TryParse(raw, out var val) && val >= 0)
+        {
+            node.MarketPrice = val;
+            node.ManualPrice = val > 0;
+        }
+        else if (string.IsNullOrWhiteSpace(raw))
+        {
+            node.MarketPrice = 0;
+            node.ManualPrice = false;
+        }
+        Recalc();
+    }
+
+    private void Recalc()
+    {
+        path = RefiningCalculator.Calculate(grid, settings);
+        pathNodes = new HashSet<(int, int)>();
+        if (path.Found)
+        {
+            pathNodes.Add((path.SourceTier, path.SourceEnchant));
+            foreach (var step in path.Steps) pathNodes.Add((step.ToTier, step.ToEnchant));
+        }
+    }
+
+    private bool IsNodeOnPath(int tier, int enchant) => pathNodes.Contains((tier, enchant));
+
+    private async Task LoadPrices()
+    {
+        isLoading = true;
+        errorMessage = "";
+        StateHasChanged();
+        try
+        {
+            var ids = grid.Nodes.Select(n => n.ApiId).ToList();
+            var pricesPerCity = await PriceService.FetchRawResourcePricesAsync(ids, settings.UseBuyOrder);
+
+            foreach (var node in grid.Nodes)
+            {
+                if (pricesPerCity.TryGetValue(node.ApiId, out var cityDict))
+                {
+                    node.CityPrices = cityDict;
+                    var cityPrice = cityDict.GetValueOrDefault(settings.City, 0);
+                    node.ApiMarketPrice = cityPrice;
+                    if (!node.ManualPrice) node.MarketPrice = cityPrice;
+                }
+                else
+                {
+                    node.CityPrices = new();
+                    node.ApiMarketPrice = 0;
+                    if (!node.ManualPrice) node.MarketPrice = 0;
+                }
+            }
+
+            pricesLoadedAt = DateTime.Now;
+            Recalc();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"API error: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private static string FormatPrice(long v) => v <= 0 ? "—" : v.ToString("N0");
+    private static string FormatInput(long v) => v <= 0 ? "" : v.ToString("N0");
+}

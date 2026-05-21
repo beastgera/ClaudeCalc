@@ -110,4 +110,36 @@ public class AlbionPriceService(HttpClient http)
         }
         return result;
     }
+
+    /// <summary>
+    /// Refining tab: fetch prices for raw resources across all cities so the
+    /// caller can pick a city or compare. Returns itemId → city → price.
+    /// </summary>
+    public async Task<Dictionary<string, Dictionary<string, long>>> FetchRawResourcePricesAsync(
+        IEnumerable<string> ids,
+        bool useBuyOrder,
+        int quality = 1)
+    {
+        var idList = ids.Distinct().ToList();
+        if (idList.Count == 0) return new();
+
+        var idsParam  = string.Join(",", idList);
+        var locsParam = string.Join(",", GearItemDatabase.Cities.Select(Uri.EscapeDataString));
+        var url       = $"{BaseUrl}/{idsParam}?locations={locsParam}";
+
+        var entries = await http.GetFromJsonAsync<List<AlbionMarketEntry>>(url) ?? [];
+        var idSet   = idList.ToHashSet();
+        var result  = new Dictionary<string, Dictionary<string, long>>();
+
+        foreach (var entry in entries.Where(e => idSet.Contains(e.ItemId) && e.Quality == quality))
+        {
+            var price = useBuyOrder ? entry.BuyPriceMax : entry.SellPriceMin;
+            if (price <= 0) continue;
+
+            if (!result.TryGetValue(entry.ItemId, out var cityDict))
+                result[entry.ItemId] = cityDict = new Dictionary<string, long>();
+            cityDict[entry.City] = price;
+        }
+        return result;
+    }
 }
