@@ -9,9 +9,11 @@ namespace CraftingCalc.Services;
 ///
 /// DP recurrence: cost[t,e] = min(
 ///     market[t,e],
-///     cost[t-1,e] + fee[t,e],     (tier-up transmute, only if t >= 5)
-///     cost[t,e-1] + fee[t,e]      (enchant-up transmute, only if e >= 1)
+///     cost[t-1,e] + tierUpFee[t,e],     (tier-up transmute, only if t >= 5)
+///     cost[t,e-1] + enchantUpFee[t,e]   (enchant-up transmute, only if e >= 1)
 /// )
+/// Tier-up and enchant-up charge different fees onto the same enchanted
+/// destination, so each edge is priced with its own operation.
 /// Since the graph is a DAG with edges going up-and-right, evaluating in
 /// (tier, enchant) ascending order is enough — no Dijkstra needed.
 /// </summary>
@@ -80,15 +82,14 @@ public static class RefiningCalculator
                 // The cell still serves as a source for downstream transmute candidates.
                 if (!forced && node.ManualPrice) continue;
 
-                var fee = TransmuteFeeDatabase.GetTotalFee(t, e, settings.GlobalDiscount, settings.StationFeePer100Nutrition);
-                if (TransmuteFeeDatabase.GetBaseFee(t, e) == 0) continue; // T2/T3 nodes are not transmute destinations
-
                 // Tier-up: source = (t-1, e), only valid when (t-1) >= TransmuteMinTier
                 if (t - 1 >= RawResourceDatabase.TransmuteMinTier)
                 {
                     var src = grid.GetNode(t - 1, e);
                     if (src is { CheapestUnitCost: < long.MaxValue })
                     {
+                        var fee = TransmuteFeeDatabase.GetTotalFee(
+                            TransmuteOp.TierUp, t, e, settings.GlobalDiscount, settings.StationFeePer100Nutrition);
                         var candidate = SafeAdd(src.CheapestUnitCost, fee);
                         if (candidate < node.CheapestUnitCost)
                         {
@@ -106,6 +107,8 @@ public static class RefiningCalculator
                     var src = grid.GetNode(t, e - 1);
                     if (src is { CheapestUnitCost: < long.MaxValue })
                     {
+                        var fee = TransmuteFeeDatabase.GetTotalFee(
+                            TransmuteOp.EnchantUp, t, e, settings.GlobalDiscount, settings.StationFeePer100Nutrition);
                         var candidate = SafeAdd(src.CheapestUnitCost, fee);
                         if (candidate < node.CheapestUnitCost)
                         {
@@ -164,7 +167,8 @@ public static class RefiningCalculator
         {
             var from = chain[i - 1];
             var to = chain[i];
-            var silver  = TransmuteFeeDatabase.GetEffectiveSilverFee(to.Tier, to.Enchant, settings.GlobalDiscount);
+            var op = from.Tier != to.Tier ? TransmuteOp.TierUp : TransmuteOp.EnchantUp;
+            var silver  = TransmuteFeeDatabase.GetEffectiveSilverFee(op, to.Tier, to.Enchant, settings.GlobalDiscount);
             var station = TransmuteFeeDatabase.GetStationFee(to.Tier, to.Enchant, settings.StationFeePer100Nutrition);
             running = SafeAdd(running, silver + station);
             path.Steps.Add(new TransmuteStep
