@@ -1,0 +1,664 @@
+@page "/refining"
+@rendermode InteractiveServer
+@inject AlbionPriceService PriceService
+@using System.Globalization
+@using CraftingCalc.Models
+@using CraftingCalc.Services
+
+<PageTitle>Refining — Material Calculator</PageTitle>
+
+<div class="mr-layout">
+
+    <!-- ═══════════════════════════════════════════════
+         LEFT PANEL — Configuration
+    ═══════════════════════════════════════════════ -->
+    <aside class="mr-config">
+
+        <!-- Resource type -->
+        <div class="mr-field">
+            <label class="mr-label">Material</label>
+            <div class="btn-group btn-group-sm w-100">
+                @foreach (var type in Enum.GetValues<RawResourceType>())
+                {
+                    var t = type;
+                    <button type="button"
+                            class="btn @(settings.ResourceType == t ? "btn-primary" : "btn-outline-secondary")"
+                            @onclick="() => SelectResource(t)">
+                        @MaterialRefiningDatabase.GetRefinedDisplayName(t)
+                    </button>
+                }
+            </div>
+        </div>
+
+        <!-- Refined image -->
+        <div class="mr-image-box">
+            <span class="mr-image-label">@grid.GetNode(settings.TargetTier, settings.TargetEnchant)?.TierLabel @MaterialRefiningDatabase.GetRefinedDisplayName(settings.ResourceType)</span>
+            <div class="mr-image-placeholder">
+                <img src="https://render.albiononline.com/v1/item/@MaterialRefiningDatabase.GetRefinedApiId(settings.ResourceType, settings.TargetTier, settings.TargetEnchant)"
+                     alt="refined" class="mr-item-img" />
+            </div>
+        </div>
+
+        <!-- Target Tier -->
+        <div class="mr-field">
+            <label class="mr-label">Target Tier</label>
+            <div class="btn-group btn-group-sm w-100">
+                @for (var t = MaterialRefiningDatabase.MinTier; t <= MaterialRefiningDatabase.MaxTier; t++)
+                {
+                    var tier = t;
+                    <button type="button"
+                            class="btn @(settings.TargetTier == tier ? "btn-primary" : "btn-outline-secondary")"
+                            @onclick="() => SetTargetTier(tier)">
+                        @($"T{tier}")
+                    </button>
+                }
+            </div>
+        </div>
+
+        <!-- Target Enchantment -->
+        <div class="mr-field">
+            <label class="mr-label">Enchantment</label>
+            <div class="btn-group btn-group-sm w-100">
+                @for (var e = MaterialRefiningDatabase.MinEnchant; e <= MaterialRefiningDatabase.MaxEnchant; e++)
+                {
+                    var ench = e;
+                    <button type="button"
+                            class="btn @(settings.TargetEnchant == ench ? "btn-primary" : "btn-outline-secondary")"
+                            @onclick="() => { settings.TargetEnchant = ench; Recalc(); }">
+                        @(ench == 0 ? "Base" : $".{ench}")
+                    </button>
+                }
+            </div>
+        </div>
+
+        <div class="mr-divider"></div>
+
+        <!-- Chain From Tier -->
+        <div class="mr-field">
+            <label class="mr-label">
+                Chain Refine From
+                <span class="mr-info-icon" tabindex="0">&#x24D8;
+                    <span class="mr-info-tooltip">Refine every tier from this point up to the target. Tiers below are bought from the market as refined.</span>
+                </span>
+            </label>
+            <div class="btn-group btn-group-sm w-100">
+                @for (var t = MaterialRefiningDatabase.MinTier; t <= settings.TargetTier; t++)
+                {
+                    var tier = t;
+                    <button type="button"
+                            class="btn @(settings.ChainFromTier == tier ? "btn-primary" : "btn-outline-secondary")"
+                            @onclick="() => { settings.ChainFromTier = tier; Recalc(); }">
+                        @($"T{tier}")
+                    </button>
+                }
+            </div>
+        </div>
+
+        <div class="mr-divider"></div>
+
+        <!-- Quantity -->
+        <div class="mr-field">
+            <label class="mr-label">Quantity</label>
+            <input type="number" class="form-control form-control-sm" min="1" max="999999"
+                   @bind="settings.Quantity" @bind:after="Recalc" />
+        </div>
+
+        <!-- City for prices -->
+        <div class="mr-field">
+            <label class="mr-label">Buy / Sell City</label>
+            <select class="form-select form-select-sm"
+                    value="@settings.City"
+                    @onchange="OnCityChange">
+                @foreach (var city in GearItemDatabase.Cities)
+                {
+                    <option value="@city">@city</option>
+                }
+            </select>
+        </div>
+
+        <!-- Buy Order toggle -->
+        <div class="mr-field mr-field-check">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="useBuyOrderMr"
+                       @bind="settings.UseBuyOrder" @bind:after="Recalc" />
+                <label class="form-check-label mr-label" for="useBuyOrderMr">Use Buy Order</label>
+            </div>
+        </div>
+
+        <div class="mr-divider"></div>
+
+        <!-- Refine Location -->
+        <div class="mr-field">
+            <label class="mr-label">Refine Location</label>
+            <select class="form-select form-select-sm"
+                    value="@craftLocation"
+                    @onchange="OnCraftLocationChange">
+                <option value="City">City</option>
+                <option value="BonusCity">Royal City (@MaterialRefiningDatabase.GetRoyalCity(settings.ResourceType))</option>
+            </select>
+        </div>
+
+        <!-- Daily Bonus -->
+        <div class="mr-field">
+            <label class="mr-label">Daily Bonus</label>
+            <div class="btn-group btn-group-sm w-100">
+                @foreach (var (bonus, label) in new[] { (0m, "Off"), (0.10m, "+10%"), (0.20m, "+20%") })
+                {
+                    var b = bonus; var l = label;
+                    <button type="button"
+                            class="btn @(settings.BonusDay == b ? "btn-warning" : "btn-outline-secondary")"
+                            @onclick="() => { settings.BonusDay = b; Recalc(); }">
+                        @l
+                    </button>
+                }
+            </div>
+        </div>
+
+        <!-- Focus -->
+        <div class="mr-field mr-field-check">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="useFocusMr"
+                       @bind="settings.UseFocus" @bind:after="Recalc" />
+                <label class="form-check-label mr-label" for="useFocusMr">
+                    Use Focus (+@((int)(settings.FocusLpb * 100))% LPB)
+                </label>
+            </div>
+        </div>
+
+        <!-- Station Fee per 100 Nutrition -->
+        <div class="mr-field">
+            <label class="mr-label">
+                Station Fee / 100 Nutrition
+                <span class="mr-info-icon" tabindex="0">&#x24D8;
+                    <span class="mr-info-tooltip">Silver charged by the refining station per 100 nutrition consumed.</span>
+                </span>
+            </label>
+            <input type="number" class="form-control form-control-sm" min="0" step="1"
+                   value="@StationFeeText"
+                   @onchange="OnStationFeeChange" />
+        </div>
+
+        <div class="mr-divider"></div>
+
+        <!-- Heart recipe -->
+        <div class="mr-field">
+            <label class="mr-label">
+                Heart Recipe
+                <span class="mr-info-icon" tabindex="0">&#x24D8;
+                    <span class="mr-info-tooltip">Replaces 1 raw resource per refined output with 1 heart. Auto applies the heart per-tier only when its price is lower than that tier's raw price. Not available for .4 enchant.</span>
+                </span>
+            </label>
+            <div class="btn-group btn-group-sm w-100">
+                @foreach (var mode in new[] { HeartMode.Off, HeartMode.Auto, HeartMode.On })
+                {
+                    var m = mode;
+                    <button type="button"
+                            class="btn @(settings.HeartMode == m ? "btn-primary" : "btn-outline-secondary")"
+                            @onclick="() => { settings.HeartMode = m; Recalc(); }"
+                            disabled="@(!MaterialRefiningDatabase.CanUseHeart(settings.TargetEnchant))">
+                        @m.ToString()
+                    </button>
+                }
+            </div>
+            @if (!MaterialRefiningDatabase.CanUseHeart(settings.TargetEnchant))
+            {
+                <small class="mr-muted">Hearts not available for .4 enchant</small>
+            }
+        </div>
+
+        @if (settings.HeartMode != HeartMode.Off && MaterialRefiningDatabase.CanUseHeart(settings.TargetEnchant))
+        {
+            <div class="mr-field">
+                <label class="mr-label">Heart Price (silver)</label>
+                <input type="text" class="form-control form-control-sm"
+                       value="@FormatInput(settings.HeartPrice)"
+                       @onchange="OnHeartPriceChange" />
+            </div>
+        }
+
+        <div class="mr-divider"></div>
+
+        <!-- Effective LPB / Return Rate display -->
+        <div class="mr-rrr-display">
+            <div class="mr-rrr-line">
+                <span class="mr-label">LPB</span>
+                <strong class="mr-rrr-value">@FormatPercent(EffectiveLpb)</strong>
+            </div>
+            <div class="mr-rrr-line">
+                <span class="mr-label">Return Rate</span>
+                <strong class="mr-rrr-value">@FormatPercent(EffectiveRrr)</strong>
+            </div>
+        </div>
+
+        <!-- Load Prices Button -->
+        <button class="btn btn-primary btn-sm w-100" @onclick="LoadPrices" disabled="@isLoading">
+            @if (isLoading) { <span class="spinner-border spinner-border-sm me-1"></span> }
+            Load Prices from API
+        </button>
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="text-danger small mt-1">@errorMessage</div>
+        }
+        @if (pricesLoadedAt != null)
+        {
+            <div class="mr-loaded-at">Loaded @pricesLoadedAt.Value.ToString("HH:mm:ss")</div>
+        }
+
+    </aside>
+
+    <!-- ═══════════════════════════════════════════════
+         RIGHT PANEL — Results
+    ═══════════════════════════════════════════════ -->
+    <div class="mr-sheet">
+
+        <!-- Result summary card -->
+        <div class="mr-card mr-card-path">
+            <div class="mr-card-title">
+                Refine → @grid.GetNode(settings.TargetTier, settings.TargetEnchant)?.TierLabel
+                @MaterialRefiningDatabase.GetRefinedDisplayName(settings.ResourceType)
+            </div>
+
+            @if (!result.Found)
+            {
+                <div class="mr-empty">
+                    No cost path — set raw prices (and lower refined market prices if chaining from above T4) or load prices.
+                </div>
+            }
+            else
+            {
+                <div class="mr-steps">
+                        @foreach (var step in result.Steps)
+                        {
+                            <div class="mr-step">
+                                <span class="mr-tag mr-tag-step">@step.TierLabel</span>
+                                <span class="mr-step-recipe">
+                                    @step.RawCount × @step.TierLabel raw (@FormatPrice(step.RawUnitPrice))
+                                    @if (step.HeartCount > 0)
+                                    {
+                                        <span>+ @step.HeartCount × heart (@FormatPrice(step.HeartUnitPrice))</span>
+                                    }
+                                    @if (step.LowerCount > 0)
+                                    {
+                                        <span>+ @step.LowerCount × @step.LowerLabel @MaterialRefiningDatabase.GetRefinedDisplayName(settings.ResourceType) (@FormatPrice(step.LowerUnitPrice)@(step.LowerFromMarket ? " mkt" : " chain"))</span>
+                                    }
+                                </span>
+                                <span class="mr-muted mr-step-fees">
+                                    @if (step.StationFeePerOutputUnit > 0) { <span>fee @FormatPrice(step.StationFeePerOutputUnit)</span> }
+                                    → @FormatDec(step.CostPerOutputUnit) /unit
+                                </span>
+                            </div>
+                        }
+                </div>
+
+                <div class="mr-summary-grid">
+                    <div class="mr-summary-tile">
+                        <div class="mr-summary-label">Unit Cost</div>
+                        <div class="mr-summary-value cost">@FormatDec(result.UnitCost)</div>
+                    </div>
+                    <div class="mr-summary-tile">
+                        <div class="mr-summary-label">Total (× @settings.Quantity)</div>
+                        <div class="mr-summary-value cost">@FormatDec(result.TotalCost)</div>
+                    </div>
+                    @if (result.SellPriceUnit > 0)
+                    {
+                        <div class="mr-summary-tile">
+                            <div class="mr-summary-label">Sell Price (@settings.City)</div>
+                            <div class="mr-summary-value">@FormatPrice(result.SellPriceUnit)</div>
+                        </div>
+                        <div class="mr-summary-tile">
+                            <div class="mr-summary-label">Profit / Unit</div>
+                            <div class="mr-summary-value @(result.ProfitPerUnit >= 0 ? "profit-pos" : "profit-neg")">@FormatDec(result.ProfitPerUnit)</div>
+                        </div>
+                        <div class="mr-summary-tile">
+                            <div class="mr-summary-label">Total Profit</div>
+                            <div class="mr-summary-value @(result.TotalProfit >= 0 ? "profit-pos" : "profit-neg")">@FormatDec(result.TotalProfit)</div>
+                        </div>
+                        <div class="mr-summary-tile">
+                            <div class="mr-summary-label">ROI</div>
+                            <div class="mr-summary-value @(result.RoiPercent >= 0 ? "profit-pos" : "profit-neg")">@FormatPercent(result.RoiPercent / 100m)</div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+        <!-- T3 input row -->
+        <div class="mr-card">
+            <div class="mr-card-title">T3 @MaterialRefiningDatabase.GetRefinedDisplayName(settings.ResourceType) (input for T4 step)</div>
+            <div class="mr-t3-row">
+                <span class="mr-muted">Market price /unit @@ @settings.City:</span>
+                <input type="text" class="mr-pi @(grid.T3RefinedManualPrice ? "pi-manual" : "")"
+                       value="@FormatInput(grid.T3RefinedMarketPrice)"
+                       @onchange="OnT3RefinedPriceChange" />
+            </div>
+        </div>
+
+        <!-- Single-column grid (T4-T8 rows × target enchant) -->
+        <div class="mr-card">
+            <div class="mr-card-title">
+                Tier Breakdown — @(settings.TargetEnchant == 0 ? "Base" : $".{settings.TargetEnchant}")
+            </div>
+            <div class="mr-grid-wrapper">
+                <table class="mr-grid">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Raw / unit</th>
+                            <th>Refined market / unit</th>
+                            <th>Refined cost / unit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (var t = MaterialRefiningDatabase.MaxTier; t >= MaterialRefiningDatabase.MinTier; t--)
+                        {
+                            var tier = t;
+                            var ench = settings.TargetEnchant;
+                            var node = grid.GetNode(tier, ench);
+                            var isTarget = tier == settings.TargetTier;
+                            var cls = "mr-grid-row";
+                            if (isTarget) cls += " mr-row-target";
+                            <tr class="@cls">
+                                <th class="mr-grid-tier mr-grid-tier-click"
+                                    @onclick="() => SelectTarget(tier, ench)"
+                                    title="Click to set as target">@($"T{tier}")</th>
+                                @if (node != null)
+                                {
+                                    <td class="mr-grid-input-cell">
+                                        <input type="text" class="mr-pi @(node.RawManualPrice ? "pi-manual" : "")"
+                                               value="@FormatInput(node.RawMarketPrice)"
+                                               @onclick:stopPropagation
+                                               @onchange="ev => OnCellRawPrice(tier, ench, ev)" />
+                                    </td>
+                                    <td class="mr-grid-input-cell">
+                                        <input type="text" class="mr-pi @(node.RefinedManualPrice ? "pi-manual" : "")"
+                                               value="@FormatInput(node.RefinedMarketPrice)"
+                                               @onclick:stopPropagation
+                                               @onchange="ev => OnCellRefinedPrice(tier, ench, ev)" />
+                                    </td>
+                                    <td class="mr-grid-display-cell">
+                                        @if (node.EffectiveUnitCost > 0)
+                                        {
+                                            @if (node.EffectiveFromMarket)
+                                            {
+                                                <span class="mr-cheap-direct" title="Direct market buy">@FormatDec(node.EffectiveUnitCost)</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="mr-cheap-chain" title="Chain refined">⚒ @FormatDec(node.EffectiveUnitCost)</span>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span class="mr-cheap-none">—</span>
+                                        }
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="mr-grid-legend">
+                    <span><span class="mr-legend-swatch mr-row-target"></span> target</span>
+                    <span><span class="mr-legend-text mr-cheap-direct">value</span> direct buy</span>
+                    <span><span class="mr-legend-text mr-cheap-chain">⚒ value</span> chain refined</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@code {
+    private MaterialRefiningSettings settings = new();
+    private MaterialRefiningGrid grid = MaterialRefiningCalculator.BuildGrid(RawResourceType.Wood);
+    private MaterialRefiningResult result = new();
+    private bool isLoading;
+    private string errorMessage = "";
+    private DateTime? pricesLoadedAt;
+
+    protected override void OnInitialized()
+    {
+        settings.City = MaterialRefiningDatabase.GetRoyalCity(settings.ResourceType);
+        ApplyCraftLocation();
+    }
+
+    private string craftLocation = "BonusCity";
+
+    private decimal EffectiveLpb => MaterialRefiningDatabase.ComputeLpb(settings);
+    private decimal EffectiveRrr => MaterialRefiningDatabase.LpbToReturnRate(EffectiveLpb);
+
+    private void SelectResource(RawResourceType type)
+    {
+        settings.ResourceType = type;
+        settings.City = MaterialRefiningDatabase.GetRoyalCity(type);
+        grid = MaterialRefiningCalculator.BuildGrid(type);
+        pricesLoadedAt = null;
+        ApplyCraftLocation();
+        Recalc();
+    }
+
+    private void OnCraftLocationChange(ChangeEventArgs e)
+    {
+        craftLocation = e.Value?.ToString() ?? "City";
+        ApplyCraftLocation();
+    }
+
+    private void ApplyCraftLocation()
+    {
+        settings.BonusCityBonus = craftLocation == "BonusCity" ? 0.40m : 0m;
+        Recalc();
+    }
+
+    private void SelectTarget(int tier, int enchant)
+    {
+        settings.TargetTier = tier;
+        settings.TargetEnchant = enchant;
+        if (settings.ChainFromTier > tier) settings.ChainFromTier = tier;
+        Recalc();
+    }
+
+    private void SetTargetTier(int tier)
+    {
+        settings.TargetTier = tier;
+        if (settings.ChainFromTier > tier) settings.ChainFromTier = tier;
+        Recalc();
+    }
+
+    private void OnCityChange(ChangeEventArgs e)
+    {
+        settings.City = e.Value?.ToString() ?? settings.City;
+        // Re-pick from cached city data
+        foreach (var node in grid.Nodes)
+        {
+            if (!node.RefinedManualPrice)
+                node.RefinedMarketPrice = node.RefinedCityPrices.GetValueOrDefault(settings.City, 0);
+            if (!node.RawManualPrice)
+                node.RawMarketPrice = node.RawCityPrices.GetValueOrDefault(settings.City, 0);
+        }
+        if (!grid.T3RefinedManualPrice)
+            grid.T3RefinedMarketPrice = grid.T3RefinedCityPrices.GetValueOrDefault(settings.City, 0);
+        Recalc();
+    }
+
+    private string StationFeeText =>
+        settings.StationFeePer100Nutrition.ToString(CultureInfo.InvariantCulture);
+
+    private void OnStationFeeChange(ChangeEventArgs e)
+    {
+        var raw = e.Value?.ToString()?.Replace(',', '.') ?? "";
+        if (decimal.TryParse(raw, NumberStyles.Number, CultureInfo.InvariantCulture, out var val) && val >= 0m)
+        {
+            settings.StationFeePer100Nutrition = val;
+            Recalc();
+        }
+    }
+
+    private void OnHeartPriceChange(ChangeEventArgs e)
+    {
+        var (val, cleared) = ParsePrice(e.Value?.ToString());
+        if (val.HasValue)
+        {
+            settings.HeartPrice = val.Value;
+            Recalc();
+        }
+        else if (cleared)
+        {
+            settings.HeartPrice = 0;
+            Recalc();
+        }
+    }
+
+    private void OnCellRefinedPrice(int tier, int enchant, ChangeEventArgs e)
+    {
+        var node = grid.GetNode(tier, enchant);
+        if (node == null) return;
+        var (val, cleared) = ParsePrice(e.Value?.ToString());
+        if (val.HasValue)
+        {
+            node.RefinedMarketPrice = val.Value;
+            node.RefinedManualPrice = val.Value > 0;
+            Recalc();
+        }
+        else if (cleared)
+        {
+            node.RefinedMarketPrice = 0;
+            node.RefinedManualPrice = false;
+            Recalc();
+        }
+        // parse failed but not empty → keep existing value silently
+    }
+
+    private void OnCellRawPrice(int tier, int enchant, ChangeEventArgs e)
+    {
+        var node = grid.GetNode(tier, enchant);
+        if (node == null) return;
+        var (val, cleared) = ParsePrice(e.Value?.ToString());
+        if (val.HasValue)
+        {
+            node.RawMarketPrice = val.Value;
+            node.RawManualPrice = val.Value > 0;
+            Recalc();
+        }
+        else if (cleared)
+        {
+            node.RawMarketPrice = 0;
+            node.RawManualPrice = false;
+            Recalc();
+        }
+    }
+
+    private void OnT3RefinedPriceChange(ChangeEventArgs e)
+    {
+        var (val, cleared) = ParsePrice(e.Value?.ToString());
+        if (val.HasValue)
+        {
+            grid.T3RefinedMarketPrice = val.Value;
+            grid.T3RefinedManualPrice = val.Value > 0;
+            Recalc();
+        }
+        else if (cleared)
+        {
+            grid.T3RefinedMarketPrice = 0;
+            grid.T3RefinedManualPrice = false;
+            Recalc();
+        }
+    }
+
+    // Returns (parsed value, was-cleared). On invalid (non-empty) input, both are
+    // (null, false) → caller leaves existing value untouched so user input isn't wiped.
+    private static (long? Value, bool Cleared) ParsePrice(string? input)
+    {
+        if (string.IsNullOrWhiteSpace(input)) return (null, true);
+        var cleaned = input.Replace(",", "").Replace(" ", "").Replace(" ", "");
+        if (decimal.TryParse(cleaned, NumberStyles.Number, CultureInfo.InvariantCulture, out var d) && d >= 0m)
+            return ((long)Math.Round(d), false);
+        return (null, false);
+    }
+
+    private void Recalc()
+    {
+        result = MaterialRefiningCalculator.Calculate(grid, settings);
+    }
+
+    private async Task LoadPrices()
+    {
+        isLoading = true;
+        errorMessage = "";
+        StateHasChanged();
+        try
+        {
+            var refinedIds = grid.Nodes.Select(n => n.RefinedApiId).ToList();
+            refinedIds.Add(grid.T3RefinedApiId);
+            var rawIds = grid.Nodes.Select(n => n.RawApiId).ToList();
+
+            var refinedPrices = await PriceService.FetchRawResourcePricesAsync(refinedIds, settings.UseBuyOrder);
+            var rawPrices = await PriceService.FetchRawResourcePricesAsync(rawIds, settings.UseBuyOrder);
+
+            foreach (var node in grid.Nodes)
+            {
+                if (refinedPrices.TryGetValue(node.RefinedApiId, out var refCity))
+                {
+                    node.RefinedCityPrices = refCity;
+                    var p = refCity.GetValueOrDefault(settings.City, 0);
+                    node.RefinedApiMarketPrice = p;
+                    if (!node.RefinedManualPrice) node.RefinedMarketPrice = p;
+                }
+                else
+                {
+                    node.RefinedCityPrices = new();
+                    node.RefinedApiMarketPrice = 0;
+                    if (!node.RefinedManualPrice) node.RefinedMarketPrice = 0;
+                }
+
+                if (rawPrices.TryGetValue(node.RawApiId, out var rawCity))
+                {
+                    node.RawCityPrices = rawCity;
+                    var p = rawCity.GetValueOrDefault(settings.City, 0);
+                    node.RawApiMarketPrice = p;
+                    if (!node.RawManualPrice) node.RawMarketPrice = p;
+                }
+                else
+                {
+                    node.RawCityPrices = new();
+                    node.RawApiMarketPrice = 0;
+                    if (!node.RawManualPrice) node.RawMarketPrice = 0;
+                }
+            }
+
+            if (refinedPrices.TryGetValue(grid.T3RefinedApiId, out var t3City))
+            {
+                grid.T3RefinedCityPrices = t3City;
+                var p = t3City.GetValueOrDefault(settings.City, 0);
+                grid.T3RefinedApiMarketPrice = p;
+                if (!grid.T3RefinedManualPrice) grid.T3RefinedMarketPrice = p;
+            }
+            else
+            {
+                grid.T3RefinedCityPrices = new();
+                grid.T3RefinedApiMarketPrice = 0;
+                if (!grid.T3RefinedManualPrice) grid.T3RefinedMarketPrice = 0;
+            }
+
+            pricesLoadedAt = DateTime.Now;
+            Recalc();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"API error: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private static string FormatPrice(long v) => v <= 0 ? "—" : v.ToString("N0");
+    private static string FormatInput(long v) => v <= 0 ? "" : v.ToString("N0");
+    private static string FormatDec(decimal v)
+    {
+        if (v == 0m) return "—";
+        var abs = Math.Abs(v);
+        return abs < 1m ? v.ToString("N2") : Math.Round(v).ToString("N0");
+    }
+    private static string FormatPercent(decimal v) => (v * 100m).ToString("0.0") + "%";
+}
