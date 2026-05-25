@@ -26,6 +26,14 @@
     display: block;
 }
 
+.mr-focus-label {
+    font-size: 0.95rem;
+    color: #cfd8e8;
+    margin-bottom: 2px;
+    display: block;
+    font-weight: 600;
+}
+
 .mr-field {
     display: flex;
     flex-direction: column;
@@ -210,6 +218,63 @@
 .mr-tag-direct {
     background: #1a3a1a;
     color: #a6e3a1;
+}
+
+.mr-tag-transmute {
+    background: #2a3a4a;
+    color: #89b4fa;
+}
+
+.mr-step-transmute {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 4px 10px 4px 28px;
+    margin-top: -4px;
+    background: #161a22;
+    border: 1px solid #1f2a3a;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    color: #aab;
+    flex-wrap: wrap;
+}
+
+.mr-raw-cell {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.mr-transmute-btn {
+    flex: 0 0 auto;
+    background: #1a1a2a;
+    border: 1px solid #2a3a4a;
+    color: #6c7a9a;
+    border-radius: 3px;
+    padding: 2px 5px;
+    font-size: 0.7rem;
+    line-height: 1;
+    cursor: pointer;
+    font-variant-numeric: tabular-nums;
+    transition: background 0.1s, color 0.1s, border-color 0.1s;
+}
+
+.mr-transmute-btn:hover {
+    border-color: #89b4fa;
+    color: #cfd8e8;
+}
+
+.mr-transmute-btn.active {
+    background: #1f2a3f;
+    border-color: #89b4fa;
+    color: #89b4fa;
+}
+
+.mr-transmute-btn-block {
+    display: block;
+    width: 100%;
+    margin-top: 4px;
+    text-align: right;
 }
 
 .mr-summary-grid {

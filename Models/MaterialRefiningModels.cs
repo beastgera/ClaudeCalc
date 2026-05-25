@@ -33,12 +33,27 @@ public class MaterialRefiningSettings
     // Auto: per-step, heart is applied when HeartPrice < RawMarketPrice.
     public HeartMode HeartMode { get; set; } = HeartMode.Off;
     public long HeartPrice { get; set; } = 0;
+
+    // Transmute integration — when a raw input can be obtained cheaper by
+    // transmuting from a lower tier/enchant, the chain may opt to use that
+    // path instead of direct buy. GlobalDiscount applies to transmute silver fees
+    // (negative = surcharge, matching the value used on the Transmuting page).
+    // Off by default; Auto picks transmute only when strictly cheaper than direct;
+    // On forces transmute on every node where a path exists.
+    public TransmuteMode TransmuteMode { get; set; } = TransmuteMode.Off;
+    public decimal GlobalDiscount { get; set; } = -0.156m;
 }
 
 public enum HeartMode
 {
     Off,
     Auto,
+    On,
+}
+
+public enum TransmuteMode
+{
+    Off,
     On,
 }
 
@@ -65,9 +80,28 @@ public class MaterialRefiningNode
     public decimal EffectiveUnitCost { get; set; }   // cost the parent chain uses for this node
     public bool EffectiveFromMarket { get; set; }    // true → market price; false → chain refined
 
+    // Transmute alternative for this node's raw input. Cheapest cost is sourced via DP across
+    // the lower-tier/enchant raws of this resource type. Populated by the calculator on each
+    // Recalc (0 when no transmute path is available).
+    public long RawTransmuteUnitCost { get; set; }
+    public int RawTransmuteSourceTier { get; set; } = -1;
+    public int RawTransmuteSourceEnchant { get; set; } = -1;
+    public long RawTransmuteSourcePrice { get; set; }
+    public List<TransmuteStep> RawTransmuteSteps { get; set; } = new();
+
+    // Per-tier toggle: should the chain use the transmute price for this raw?
+    // When RawTransmuteManual is false, the calculator auto-toggles UseRawTransmute
+    // (true when transmute is strictly cheaper than RawMarketPrice).
+    public bool UseRawTransmute { get; set; }
+    public bool RawTransmuteManual { get; set; }
+
     public string TierLabel => Enchant == 0 ? $"T{Tier}" : $"T{Tier}.{Enchant}";
     public bool HasRefinedMarket => RefinedMarketPrice > 0;
     public bool HasRawMarket => RawMarketPrice > 0;
+    public bool HasRawTransmute => RawTransmuteUnitCost > 0;
+    public long EffectiveRawUnitPrice => UseRawTransmute && HasRawTransmute
+        ? RawTransmuteUnitCost
+        : RawMarketPrice;
 }
 
 public class MaterialRefiningStep
@@ -91,8 +125,19 @@ public class MaterialRefiningStep
     public long StationFeePerOutputUnit { get; set; }
     public decimal CostPerOutputUnit { get; set; } // expected cost per 1 refined output unit (after RRR)
 
+    // Transmute details when the raw input for this step is sourced via transmute.
+    // Empty/-1 when raw came from direct market buy.
+    public bool RawFromTransmute { get; set; }
+    public int RawTransmuteSourceTier { get; set; } = -1;
+    public int RawTransmuteSourceEnchant { get; set; } = -1;
+    public long RawTransmuteSourcePrice { get; set; }
+    public List<TransmuteStep> RawTransmuteSteps { get; set; } = new();
+
     public string TierLabel => Enchant == 0 ? $"T{Tier}" : $"T{Tier}.{Enchant}";
     public string LowerLabel => LowerEnchant == 0 ? $"T{LowerTier}" : $"T{LowerTier}.{LowerEnchant}";
+    public string RawTransmuteSourceLabel => RawTransmuteSourceEnchant == 0
+        ? $"T{RawTransmuteSourceTier}"
+        : $"T{RawTransmuteSourceTier}.{RawTransmuteSourceEnchant}";
 }
 
 public class MaterialRefiningResult

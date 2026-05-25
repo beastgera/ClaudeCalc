@@ -14,7 +14,7 @@
     ═══════════════════════════════════════════════ -->
     <aside class="mr-config">
 
-        <!-- Resource type -->
+        <!-- Material -->
         <div class="mr-field">
             <label class="mr-label">Material</label>
             <div class="btn-group btn-group-sm w-100">
@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <!-- Target Enchantment -->
+        <!-- Enchantment -->
         <div class="mr-field">
             <label class="mr-label">Enchantment</label>
             <div class="btn-group btn-group-sm w-100">
@@ -73,114 +73,7 @@
 
         <div class="mr-divider"></div>
 
-        <!-- Chain From Tier -->
-        <div class="mr-field">
-            <label class="mr-label">
-                Chain Refine From
-                <span class="mr-info-icon" tabindex="0">&#x24D8;
-                    <span class="mr-info-tooltip">Refine every tier from this point up to the target. Tiers below are bought from the market as refined.</span>
-                </span>
-            </label>
-            <div class="btn-group btn-group-sm w-100">
-                @for (var t = MaterialRefiningDatabase.MinTier; t <= settings.TargetTier; t++)
-                {
-                    var tier = t;
-                    <button type="button"
-                            class="btn @(settings.ChainFromTier == tier ? "btn-primary" : "btn-outline-secondary")"
-                            @onclick="() => { settings.ChainFromTier = tier; Recalc(); }">
-                        @($"T{tier}")
-                    </button>
-                }
-            </div>
-        </div>
-
-        <div class="mr-divider"></div>
-
-        <!-- Quantity -->
-        <div class="mr-field">
-            <label class="mr-label">Quantity</label>
-            <input type="number" class="form-control form-control-sm" min="1" max="999999"
-                   @bind="settings.Quantity" @bind:after="Recalc" />
-        </div>
-
-        <!-- City for prices -->
-        <div class="mr-field">
-            <label class="mr-label">Buy / Sell City</label>
-            <select class="form-select form-select-sm"
-                    value="@settings.City"
-                    @onchange="OnCityChange">
-                @foreach (var city in GearItemDatabase.Cities)
-                {
-                    <option value="@city">@city</option>
-                }
-            </select>
-        </div>
-
-        <!-- Buy Order toggle -->
-        <div class="mr-field mr-field-check">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="useBuyOrderMr"
-                       @bind="settings.UseBuyOrder" @bind:after="Recalc" />
-                <label class="form-check-label mr-label" for="useBuyOrderMr">Use Buy Order</label>
-            </div>
-        </div>
-
-        <div class="mr-divider"></div>
-
-        <!-- Refine Location -->
-        <div class="mr-field">
-            <label class="mr-label">Refine Location</label>
-            <select class="form-select form-select-sm"
-                    value="@craftLocation"
-                    @onchange="OnCraftLocationChange">
-                <option value="City">City</option>
-                <option value="BonusCity">Royal City (@MaterialRefiningDatabase.GetRoyalCity(settings.ResourceType))</option>
-            </select>
-        </div>
-
-        <!-- Daily Bonus -->
-        <div class="mr-field">
-            <label class="mr-label">Daily Bonus</label>
-            <div class="btn-group btn-group-sm w-100">
-                @foreach (var (bonus, label) in new[] { (0m, "Off"), (0.10m, "+10%"), (0.20m, "+20%") })
-                {
-                    var b = bonus; var l = label;
-                    <button type="button"
-                            class="btn @(settings.BonusDay == b ? "btn-warning" : "btn-outline-secondary")"
-                            @onclick="() => { settings.BonusDay = b; Recalc(); }">
-                        @l
-                    </button>
-                }
-            </div>
-        </div>
-
-        <!-- Focus -->
-        <div class="mr-field mr-field-check">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="useFocusMr"
-                       @bind="settings.UseFocus" @bind:after="Recalc" />
-                <label class="form-check-label mr-label" for="useFocusMr">
-                    Use Focus (+@((int)(settings.FocusLpb * 100))% LPB)
-                </label>
-            </div>
-        </div>
-
-        <!-- Station Fee per 100 Nutrition -->
-        <div class="mr-field">
-            <label class="mr-label">
-                Station Fee / 100 Nutrition
-                <span class="mr-info-icon" tabindex="0">&#x24D8;
-                    <span class="mr-info-tooltip">Silver charged by the refining station per 100 nutrition consumed.</span>
-                </span>
-            </label>
-            <input type="number" class="form-control form-control-sm" min="0" step="1"
-                   value="@StationFeeText"
-                   @onchange="OnStationFeeChange" />
-        </div>
-
-        <div class="mr-divider"></div>
-
-        <!-- Heart recipe -->
+        <!-- Heart Recipe -->
         <div class="mr-field">
             <label class="mr-label">
                 Heart Recipe
@@ -216,18 +109,145 @@
             </div>
         }
 
-        <div class="mr-divider"></div>
-
-        <!-- Effective LPB / Return Rate display -->
-        <div class="mr-rrr-display">
-            <div class="mr-rrr-line">
-                <span class="mr-label">LPB</span>
-                <strong class="mr-rrr-value">@FormatPercent(EffectiveLpb)</strong>
+        <!-- Daily Bonus -->
+        <div class="mr-field">
+            <label class="mr-label">Daily Bonus</label>
+            <div class="btn-group btn-group-sm w-100">
+                @foreach (var (bonus, label) in new[] { (0m, "Off"), (0.10m, "+10%"), (0.20m, "+20%") })
+                {
+                    var b = bonus; var l = label;
+                    <button type="button"
+                            class="btn @(settings.BonusDay == b ? "btn-warning" : "btn-outline-secondary")"
+                            @onclick="() => { settings.BonusDay = b; Recalc(); }">
+                        @l
+                    </button>
+                }
             </div>
+        </div>
+
+        <!-- Focus -->
+        <div class="mr-field mr-field-check">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="useFocusMr"
+                       @bind="settings.UseFocus" @bind:after="Recalc" />
+                <label class="form-check-label mr-focus-label" for="useFocusMr">
+                    Use Focus (+@((int)(settings.FocusLpb * 100))%)
+                </label>
+            </div>
+        </div>
+
+        <!-- Return Rate breakdown -->
+        <div class="mr-rrr-display">
             <div class="mr-rrr-line">
                 <span class="mr-label">Return Rate</span>
                 <strong class="mr-rrr-value">@FormatPercent(EffectiveRrr)</strong>
             </div>
+        </div>
+
+        <div class="mr-divider"></div>
+
+        <!-- Station Fee per 100 Nutrition -->
+        <div class="mr-field">
+            <label class="mr-label">
+                Station Fee / 100 Nutrition
+                <span class="mr-info-icon" tabindex="0">&#x24D8;
+                    <span class="mr-info-tooltip">Silver charged by the refining/transmute station per 100 nutrition consumed. Applies to both operations.</span>
+                </span>
+            </label>
+            <input type="number" class="form-control form-control-sm" min="0" step="1"
+                   value="@StationFeeText"
+                   @onchange="OnStationFeeChange" />
+        </div>
+
+        <!-- Use Transmutation -->
+        <div class="mr-field">
+            <label class="mr-label">
+                Use Transmutation
+                <span class="mr-info-icon" tabindex="0">&#x24D8;
+                    <span class="mr-info-tooltip">When On, each tier's raw input can be sourced via transmute from a cheaper tier/enchant. A per-enchant raw price table appears below for manual price entry.</span>
+                </span>
+            </label>
+            <div class="btn-group btn-group-sm w-100">
+                @foreach (var mode in new[] { TransmuteMode.Off, TransmuteMode.On })
+                {
+                    var m = mode;
+                    <button type="button"
+                            class="btn @(settings.TransmuteMode == m ? "btn-primary" : "btn-outline-secondary")"
+                            @onclick="() => { settings.TransmuteMode = m; Recalc(); }">
+                        @m.ToString()
+                    </button>
+                }
+            </div>
+        </div>
+
+        @if (settings.TransmuteMode == TransmuteMode.On)
+        {
+            <!-- Transmute Global Discount -->
+            <div class="mr-field">
+                <label class="mr-label">
+                    Transmute Discount (%)
+                    <span class="mr-info-icon" tabindex="0">&#x24D8;
+                        <span class="mr-info-tooltip">Adjusts every transmute silver fee by this percentage. Positive = discount, negative = surcharge.</span>
+                    </span>
+                </label>
+                <input type="number" class="form-control form-control-sm" min="-100" max="100" step="0.1"
+                       value="@DiscountPercentText"
+                       @onchange="OnDiscountChange" />
+            </div>
+        }
+
+        <div class="mr-divider"></div>
+
+        <!-- Chain From Tier -->
+        <div class="mr-field">
+            <label class="mr-label">
+                Chain Refine From
+                <span class="mr-info-icon" tabindex="0">&#x24D8;
+                    <span class="mr-info-tooltip">Refine every tier from this point up to the target. Tiers below are bought from the market as refined.</span>
+                </span>
+            </label>
+            <div class="btn-group btn-group-sm w-100">
+                @for (var t = MaterialRefiningDatabase.MinTier; t <= settings.TargetTier; t++)
+                {
+                    var tier = t;
+                    <button type="button"
+                            class="btn @(settings.ChainFromTier == tier ? "btn-primary" : "btn-outline-secondary")"
+                            @onclick="() => { settings.ChainFromTier = tier; Recalc(); }">
+                        @($"T{tier}")
+                    </button>
+                }
+            </div>
+        </div>
+
+        <!-- Quantity -->
+        <div class="mr-field">
+            <label class="mr-label">Quantity</label>
+            <input type="number" class="form-control form-control-sm" min="1" max="999999"
+                   @bind="settings.Quantity" @bind:after="Recalc" />
+        </div>
+
+        <!-- City for prices -->
+        <div class="mr-field">
+            <label class="mr-label">Buy / Sell City</label>
+            <select class="form-select form-select-sm"
+                    value="@settings.City"
+                    @onchange="OnCityChange">
+                @foreach (var city in GearItemDatabase.Cities)
+                {
+                    <option value="@city">@city</option>
+                }
+            </select>
+        </div>
+
+        <!-- Refine Location -->
+        <div class="mr-field">
+            <label class="mr-label">Refine Location</label>
+            <select class="form-select form-select-sm"
+                    value="@craftLocation"
+                    @onchange="OnCraftLocationChange">
+                <option value="City">City</option>
+                <option value="BonusCity">Royal City (@MaterialRefiningDatabase.GetRoyalCity(settings.ResourceType))</option>
+            </select>
         </div>
 
         <!-- Load Prices Button -->
@@ -272,7 +292,7 @@
                             <div class="mr-step">
                                 <span class="mr-tag mr-tag-step">@step.TierLabel</span>
                                 <span class="mr-step-recipe">
-                                    @step.RawCount × @step.TierLabel raw (@FormatPrice(step.RawUnitPrice))
+                                    @step.RawCount × @step.TierLabel raw (@FormatPrice(step.RawUnitPrice)@(step.RawFromTransmute ? " ↗" : ""))
                                     @if (step.HeartCount > 0)
                                     {
                                         <span>+ @step.HeartCount × heart (@FormatPrice(step.HeartUnitPrice))</span>
@@ -287,6 +307,19 @@
                                     → @FormatDec(step.CostPerOutputUnit) /unit
                                 </span>
                             </div>
+                            @if (step.RawFromTransmute && step.RawTransmuteSteps.Count > 0)
+                            {
+                                <div class="mr-step-transmute">
+                                    <span class="mr-tag mr-tag-transmute">↗ raw</span>
+                                    <span class="mr-step-recipe">
+                                        from <strong>@step.RawTransmuteSourceLabel</strong> @MaterialRefiningDatabase.GetRefinedDisplayName(settings.ResourceType).ToLower().TrimEnd('s') raw (@FormatPrice(step.RawTransmuteSourcePrice))
+                                        @foreach (var ts in step.RawTransmuteSteps)
+                                        {
+                                            <span> → @ts.ToLabel (fee @FormatPrice(ts.FeePerUnit))</span>
+                                        }
+                                    </span>
+                                </div>
+                            }
                         }
                 </div>
 
@@ -364,10 +397,22 @@
                                 @if (node != null)
                                 {
                                     <td class="mr-grid-input-cell">
-                                        <input type="text" class="mr-pi @(node.RawManualPrice ? "pi-manual" : "")"
-                                               value="@FormatInput(node.RawMarketPrice)"
-                                               @onclick:stopPropagation
-                                               @onchange="ev => OnCellRawPrice(tier, ench, ev)" />
+                                        <div class="mr-raw-cell">
+                                            <input type="text" class="mr-pi @(node.RawManualPrice ? "pi-manual" : "")"
+                                                   value="@FormatInput(node.RawMarketPrice)"
+                                                   @onclick:stopPropagation
+                                                   @onchange="ev => OnCellRawPrice(tier, ench, ev)" />
+                                            @if (node.HasRawTransmute)
+                                            {
+                                                <button type="button"
+                                                        class="mr-transmute-btn @(node.UseRawTransmute ? "active" : "")"
+                                                        title="@TransmuteTooltip(node)"
+                                                        @onclick:stopPropagation
+                                                        @onclick="() => ToggleRawTransmute(tier, ench)">
+                                                    ↗ @FormatPrice(node.RawTransmuteUnitCost)
+                                                </button>
+                                            }
+                                        </div>
                                     </td>
                                     <td class="mr-grid-input-cell">
                                         <input type="text" class="mr-pi @(node.RefinedManualPrice ? "pi-manual" : "")"
@@ -404,6 +449,66 @@
                 </div>
             </div>
         </div>
+
+        @if (settings.TransmuteMode == TransmuteMode.On)
+        {
+            <!-- Cross-enchant raw price grid for transmute pathing -->
+            <div class="mr-card">
+                <div class="mr-card-title">
+                    Raw @RawResourceDatabase.GetDisplayName(settings.ResourceType) Prices — All Enchants
+                </div>
+                <div class="mr-grid-wrapper">
+                    <table class="mr-grid">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                @for (var e = MaterialRefiningDatabase.MinEnchant; e <= MaterialRefiningDatabase.MaxEnchant; e++)
+                                {
+                                    <th>@(e == 0 ? "Base" : $".{e}")</th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (var t = MaterialRefiningDatabase.MaxTier; t >= MaterialRefiningDatabase.MinTier; t--)
+                            {
+                                var tier = t;
+                                <tr class="mr-grid-row">
+                                    <th class="mr-grid-tier">@($"T{tier}")</th>
+                                    @for (var e = MaterialRefiningDatabase.MinEnchant; e <= MaterialRefiningDatabase.MaxEnchant; e++)
+                                    {
+                                        var ench = e;
+                                        var node = grid.GetNode(tier, ench);
+                                        <td class="mr-grid-input-cell">
+                                            @if (node != null)
+                                            {
+                                                <div class="mr-raw-cell">
+                                                    <input type="text" class="mr-pi @(node.RawManualPrice ? "pi-manual" : "")"
+                                                           value="@FormatInput(node.RawMarketPrice)"
+                                                           @onchange="ev => OnCellRawPrice(tier, ench, ev)" />
+                                                </div>
+                                                @if (node.HasRawTransmute)
+                                                {
+                                                    <button type="button"
+                                                            class="mr-transmute-btn mr-transmute-btn-block @(node.UseRawTransmute ? "active" : "")"
+                                                            title="@TransmuteTooltip(node)"
+                                                            @onclick="() => ToggleRawTransmute(tier, ench)">
+                                                        ↗ @FormatPrice(node.RawTransmuteUnitCost)
+                                                    </button>
+                                                }
+                                            }
+                                        </td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="mr-grid-legend">
+                        <span><span class="mr-legend-text mr-cheap-direct">value</span> direct buy</span>
+                        <span><span class="mr-legend-text mr-tag-transmute" style="padding: 2px 6px; border-radius: 3px;">↗ value</span> via transmute (click to toggle)</span>
+                    </div>
+                </div>
+            </div>
+        }
 
     </div>
 </div>
@@ -543,6 +648,38 @@
         {
             node.RawMarketPrice = 0;
             node.RawManualPrice = false;
+            Recalc();
+        }
+    }
+
+    private void ToggleRawTransmute(int tier, int enchant)
+    {
+        var node = grid.GetNode(tier, enchant);
+        if (node == null || !node.HasRawTransmute) return;
+        node.UseRawTransmute = !node.UseRawTransmute;
+        node.RawTransmuteManual = true;
+        Recalc();
+    }
+
+    private string TransmuteTooltip(MaterialRefiningNode node)
+    {
+        if (!node.HasRawTransmute) return "";
+        var src = node.RawTransmuteSourceEnchant == 0
+            ? $"T{node.RawTransmuteSourceTier}"
+            : $"T{node.RawTransmuteSourceTier}.{node.RawTransmuteSourceEnchant}";
+        var state = node.UseRawTransmute ? "Using transmute" : "Click to use transmute";
+        return $"{state} from {src} ({FormatPrice(node.RawTransmuteUnitCost)} silver/unit)";
+    }
+
+    private string DiscountPercentText =>
+        Math.Round(settings.GlobalDiscount * 100m, 2).ToString(CultureInfo.InvariantCulture);
+
+    private void OnDiscountChange(ChangeEventArgs e)
+    {
+        var raw = e.Value?.ToString()?.Replace(',', '.') ?? "";
+        if (decimal.TryParse(raw, NumberStyles.Number, CultureInfo.InvariantCulture, out var pct))
+        {
+            settings.GlobalDiscount = Math.Clamp(pct, -100m, 100m) / 100m;
             Recalc();
         }
     }
