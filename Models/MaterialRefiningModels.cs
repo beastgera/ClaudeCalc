@@ -31,8 +31,8 @@ public class MaterialRefiningSettings
     // Heart recipe — replaces 1 raw with 1 heart per refined output.
     // Not available for enchant 4. Applies to every chain step (when its enchant allows it).
     // Auto: per-step, heart is applied when HeartPrice < RawMarketPrice.
-    public HeartMode HeartMode { get; set; } = HeartMode.Off;
-    public long HeartPrice { get; set; } = 0;
+    public HeartMode HeartMode { get; set; } = HeartMode.Auto;
+    public long HeartPrice { get; set; } = 31000;
 
     // Transmute integration — when a raw input can be obtained cheaper by
     // transmuting from a lower tier/enchant, the chain may opt to use that
