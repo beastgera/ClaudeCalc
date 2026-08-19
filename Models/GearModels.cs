@@ -37,6 +37,16 @@ public class CraftingSettings
     public decimal HideoutPowerBonus { get; set; } = 0m;    // LPB from power core (0 if in city)
     public bool IsHideout { get; set; } = false;
     public decimal BonusCityBonus { get; set; } = 0m;       // LPB from crafting in bonus city (0.15)
+    public bool BlackMarketMode { get; set; } = false;      // Single-craft outcome distribution
+}
+
+public class CraftingOutcome
+{
+    public int Mat1Qty { get; set; }
+    public int Mat2Qty { get; set; }
+    public decimal TotalCost { get; set; }
+    public decimal Profit { get; set; }
+    public decimal Probability { get; set; }
 }
 
 public class CraftingRow
@@ -75,6 +85,8 @@ public class CraftingRow
 
     public bool IsLoading { get; set; }
     public DateTime? PricesLoadedAt { get; set; }
+
+    public List<CraftingOutcome> Outcomes { get; set; } = [];
 }
 
 public class AlbionMarketEntry

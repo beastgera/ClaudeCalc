@@ -65,6 +65,49 @@ public static class GearCraftingCalculator
         // Net mats consumed (purchased qty minus what gets returned)
         row.Mat1Required = (int)Math.Ceiling(mat1BaseQty * s.Quantity / (1m + effectiveLpb));
         row.Mat2Required = (int)Math.Ceiling(mat2BaseQty * s.Quantity / (1m + effectiveLpb));
+
+        row.Outcomes = s.BlackMarketMode
+            ? BuildOutcomes(row, item, s, effectiveLpb, artifactCost)
+            : [];
+    }
+
+    private static List<CraftingOutcome> BuildOutcomes(
+        CraftingRow row, GearItem item, CraftingSettings s, decimal effectiveLpb, decimal artifactCost)
+    {
+        var mat1Options = SplitQuantity(item.Mat1Qty, effectiveLpb);
+        var mat2Options = item.Mat2Qty > 0 && !string.IsNullOrEmpty(item.Mat2Type)
+            ? SplitQuantity(item.Mat2Qty, effectiveLpb)
+            : [(0, 1m)];
+
+        var revenue = row.SellPrice * (1m - s.MarketTax);
+
+        var outcomes = new List<CraftingOutcome>();
+        foreach (var (q1, p1) in mat1Options)
+        foreach (var (q2, p2) in mat2Options)
+        {
+            var cost = q1 * row.Mat1Price + q2 * row.Mat2Price + artifactCost;
+            outcomes.Add(new CraftingOutcome
+            {
+                Mat1Qty = q1,
+                Mat2Qty = q2,
+                TotalCost = cost,
+                Profit = revenue - cost,
+                Probability = p1 * p2
+            });
+        }
+        return outcomes.OrderByDescending(o => o.Probability).ToList();
+    }
+
+    // Splits fractional expected consumption (base / (1 + LPB)) into the two adjacent
+    // integer outcomes with linear-interpolated probabilities.
+    private static List<(int Qty, decimal Prob)> SplitQuantity(int baseQty, decimal effectiveLpb)
+    {
+        var expected = baseQty / (1m + effectiveLpb);
+        var low = (int)Math.Floor(expected);
+        var high = (int)Math.Ceiling(expected);
+        if (low == high) return [(low, 1m)];
+        var pHigh = expected - low;
+        return [(low, 1m - pHigh), (high, pHigh)];
     }
 
     public static void RecalculateAll(List<CraftingRow> rows, GearItem item, CraftingSettings settings)

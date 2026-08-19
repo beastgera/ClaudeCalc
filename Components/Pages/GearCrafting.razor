@@ -94,6 +94,7 @@
             <div class="gc-field gc-field-narrow">
                 <label class="gc-label">Quantity</label>
                 <input type="number" class="form-control form-control-sm" min="1" max="9999"
+                       disabled="@settings.BlackMarketMode"
                        @bind="settings.Quantity" @bind:after="RecalcAll" />
             </div>
             <div class="gc-field gc-field-check">
@@ -102,6 +103,15 @@
                     <input class="form-check-input" type="checkbox" id="useFocus" @bind="settings.UseFocus" @bind:after="RecalcAll" />
                     <label class="form-check-label gc-label" for="useFocus">Use Focus</label>
                 </div>
+            </div>
+        </div>
+
+        <!-- Black Market mode -->
+        <div class="gc-field gc-field-check">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="blackMarket"
+                       @bind="settings.BlackMarketMode" @bind:after="OnBlackMarketToggle" />
+                <label class="form-check-label gc-label" for="blackMarket">Black Market (single craft outcomes)</label>
             </div>
         </div>
 
@@ -357,6 +367,37 @@
                         </div>
                     </div>
                 </div>
+
+                @if (settings.BlackMarketMode && row.Outcomes.Count > 0)
+                {
+                    var hasMat2 = !string.IsNullOrEmpty(selectedItem.Mat2Type) && selectedItem.Mat2Qty > 0;
+                    <div class="gc-card gc-outcomes-card">
+                        <div class="gc-card-title">Possible Outcomes (1 craft)</div>
+                        <table class="gc-outcomes-table">
+                            <thead>
+                                <tr>
+                                    <th>@selectedItem.Mat1Type</th>
+                                    @if (hasMat2) { <th>@selectedItem.Mat2Type</th> }
+                                    <th class="num">Total Cost</th>
+                                    <th class="num">Profit</th>
+                                    <th class="num">Probability</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var o in row.Outcomes)
+                                {
+                                    <tr>
+                                        <td>×@o.Mat1Qty</td>
+                                        @if (hasMat2) { <td>×@o.Mat2Qty</td> }
+                                        <td class="num cost">@FormatSummary(o.TotalCost)</td>
+                                        <td class="num @(o.Profit >= 0 ? "profit-pos" : "profit-neg")">@FormatSummary(o.Profit)</td>
+                                        <td class="num">@($"{o.Probability * 100:F1}%")</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
             }
         }
     </div>
@@ -457,6 +498,12 @@
     {
         if (selectedItem == null) return;
         GearCraftingCalculator.RecalculateAll(rows, selectedItem, settings);
+    }
+
+    private void OnBlackMarketToggle()
+    {
+        if (settings.BlackMarketMode) settings.Quantity = 1;
+        RecalcAll();
     }
 
     private void OnPrice(CraftingRow row, char field, ChangeEventArgs e)

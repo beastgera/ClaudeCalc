@@ -446,6 +446,45 @@
 }
 
 /* ───────────────────────────────────────────
+   Black Market outcomes table
+─────────────────────────────────────────── */
+.gc-outcomes-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+.gc-outcomes-table thead th {
+    text-align: left;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+    padding: 4px 8px;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.gc-outcomes-table tbody td {
+    padding: 6px 8px;
+    border-bottom: 1px solid #1a1a1a;
+    font-variant-numeric: tabular-nums;
+}
+
+.gc-outcomes-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.gc-outcomes-table .num {
+    text-align: right;
+}
+
+.gc-outcomes-table td.cost {
+    color: #f9e2af;
+    font-weight: 600;
+}
+
+/* ───────────────────────────────────────────
    Profit colours
 ─────────────────────────────────────────── */
 .profit-pos { color: #a6e3a1; }
