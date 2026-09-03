@@ -345,6 +345,341 @@ public static class GearItemDatabase
     // Artifact2 qty is tier-dependent: even tiers (T4,T6,T8) need 2, odd tiers (T5,T7) need 1
     public static int GetArtifact2Qty(int tier) => tier % 2 == 0 ? 2 : 1;
 
+    // Base crafting focus cost per 8 total mats, indexed by "level" = (tier - 4) + enchant.
+    // Values sourced from Resources/first.txt @craftingfocus. Level 0 = T4.0, level 8 = T8.4.
+    // Scaling by mat count: focus ≈ round(FocusPer8Mats[level] * totalMats / 8) — accurate to ±1.
+    private static readonly int[] FocusPer8Mats =
+        [429, 750, 1313, 2298, 4021, 7037, 12315, 21551, 37715];
+
+    public static int GetFocusCost(int totalMats, int tier, int enchant)
+    {
+        var level = (tier - 4) + enchant;
+        if (level < 0 || level >= FocusPer8Mats.Length || totalMats <= 0) return 0;
+        return (int)Math.Round(FocusPer8Mats[level] * totalMats / 8.0);
+    }
+
+    // Crafting category per item — sourced from @craftingcategory in Resources/*.txt.
+    // Used by the spec tree: each category has its own mastery node, and every item's spec
+    // contributes a mutual FCE bonus to siblings in the same category.
+    public static readonly IReadOnlyDictionary<string, string> Categories = new Dictionary<string, string>
+    {
+        ["2H_ARCANE_RINGPAIR_AVALON"] = "arcanestaff",
+        ["2H_ARCANESTAFF_CRYSTAL"] = "arcanestaff",
+        ["2H_ARCANESTAFF_HELL"] = "arcanestaff",
+        ["2H_ARCANESTAFF"] = "arcanestaff",
+        ["2H_AXE_AVALON"] = "axe",
+        ["2H_AXE"] = "axe",
+        ["2H_BOW_AVALON"] = "bow",
+        ["2H_BOW_CRYSTAL"] = "bow",
+        ["2H_BOW_HELL"] = "bow",
+        ["2H_BOW_KEEPER"] = "bow",
+        ["2H_BOW"] = "bow",
+        ["2H_CLAWPAIR"] = "dagger",
+        ["2H_CLAYMORE_AVALON"] = "sword",
+        ["2H_CLAYMORE"] = "sword",
+        ["2H_CLEAVER_HELL"] = "sword",
+        ["2H_COMBATSTAFF_MORGANA"] = "quarterstaff",
+        ["2H_CROSSBOW_CANNON_AVALON"] = "crossbow",
+        ["2H_CROSSBOW"] = "crossbow",
+        ["2H_CROSSBOWLARGE_MORGANA"] = "crossbow",
+        ["2H_CROSSBOWLARGE"] = "crossbow",
+        ["2H_CURSEDSTAFF_MORGANA"] = "cursestaff",
+        ["2H_CURSEDSTAFF"] = "cursestaff",
+        ["2H_DAGGER_KATAR_AVALON"] = "dagger",
+        ["2H_DAGGERPAIR_CRYSTAL"] = "dagger",
+        ["2H_DAGGERPAIR"] = "dagger",
+        ["2H_DEMONICSTAFF"] = "cursestaff",
+        ["2H_DIVINESTAFF"] = "holystaff",
+        ["2H_DOUBLEBLADEDSTAFF_CRYSTAL"] = "quarterstaff",
+        ["2H_DOUBLEBLADEDSTAFF"] = "quarterstaff",
+        ["2H_DUALAXE_KEEPER"] = "axe",
+        ["2H_DUALCROSSBOW_CRYSTAL"] = "crossbow",
+        ["2H_DUALCROSSBOW_HELL"] = "crossbow",
+        ["2H_DUALHAMMER_HELL"] = "hammer",
+        ["2H_DUALMACE_AVALON"] = "mace",
+        ["2H_DUALSCIMITAR_UNDEAD"] = "sword",
+        ["2H_DUALSICKLE_UNDEAD"] = "dagger",
+        ["2H_DUALSWORD"] = "sword",
+        ["2H_ENIGMATICORB_MORGANA"] = "arcanestaff",
+        ["2H_ENIGMATICSTAFF"] = "arcanestaff",
+        ["2H_FIRE_RINGPAIR_AVALON"] = "firestaff",
+        ["2H_FIRESTAFF_HELL"] = "firestaff",
+        ["2H_FIRESTAFF"] = "firestaff",
+        ["2H_FLAIL"] = "mace",
+        ["2H_FROSTSTAFF_CRYSTAL"] = "froststaff",
+        ["2H_FROSTSTAFF"] = "froststaff",
+        ["2H_GLACIALSTAFF"] = "froststaff",
+        ["2H_GLAIVE_CRYSTAL"] = "spear",
+        ["2H_GLAIVE"] = "spear",
+        ["2H_HALBERD_MORGANA"] = "axe",
+        ["2H_HALBERD"] = "axe",
+        ["2H_HAMMER_AVALON"] = "hammer",
+        ["2H_HAMMER_CRYSTAL"] = "hammer",
+        ["2H_HAMMER_UNDEAD"] = "hammer",
+        ["2H_HAMMER"] = "hammer",
+        ["2H_HARPOON_HELL"] = "spear",
+        ["2H_HOLYSTAFF_CRYSTAL"] = "holystaff",
+        ["2H_HOLYSTAFF_HELL"] = "holystaff",
+        ["2H_HOLYSTAFF_UNDEAD"] = "holystaff",
+        ["2H_HOLYSTAFF"] = "holystaff",
+        ["2H_ICECRYSTAL_UNDEAD"] = "froststaff",
+        ["2H_ICEGAUNTLETS_HELL"] = "froststaff",
+        ["2H_INFERNOSTAFF_MORGANA"] = "firestaff",
+        ["2H_INFERNOSTAFF"] = "firestaff",
+        ["2H_IRONCLADEDSTAFF"] = "quarterstaff",
+        ["2H_KNUCKLES_AVALON"] = "knuckles",
+        ["2H_KNUCKLES_CRYSTAL"] = "knuckles",
+        ["2H_KNUCKLES_HELL"] = "knuckles",
+        ["2H_KNUCKLES_KEEPER"] = "knuckles",
+        ["2H_KNUCKLES_MORGANA"] = "knuckles",
+        ["2H_KNUCKLES_SET1"] = "knuckles",
+        ["2H_KNUCKLES_SET2"] = "knuckles",
+        ["2H_KNUCKLES_SET3"] = "knuckles",
+        ["2H_LONGBOW_UNDEAD"] = "bow",
+        ["2H_LONGBOW"] = "bow",
+        ["2H_MACE_MORGANA"] = "mace",
+        ["2H_MACE"] = "mace",
+        ["2H_NATURESTAFF_HELL"] = "naturestaff",
+        ["2H_NATURESTAFF_KEEPER"] = "naturestaff",
+        ["2H_NATURESTAFF"] = "naturestaff",
+        ["2H_POLEHAMMER"] = "hammer",
+        ["2H_QUARTERSTAFF_AVALON"] = "quarterstaff",
+        ["2H_QUARTERSTAFF"] = "quarterstaff",
+        ["2H_RAM_KEEPER"] = "hammer",
+        ["2H_REPEATINGCROSSBOW_UNDEAD"] = "crossbow",
+        ["2H_ROCKSTAFF_KEEPER"] = "quarterstaff",
+        ["2H_SCYTHE_CRYSTAL"] = "axe",
+        ["2H_SCYTHE_HELL"] = "axe",
+        ["2H_SHAPESHIFTER_AVALON"] = "shapeshifterstaff",
+        ["2H_SHAPESHIFTER_CRYSTAL"] = "shapeshifterstaff",
+        ["2H_SHAPESHIFTER_HELL"] = "shapeshifterstaff",
+        ["2H_SHAPESHIFTER_KEEPER"] = "shapeshifterstaff",
+        ["2H_SHAPESHIFTER_MORGANA"] = "shapeshifterstaff",
+        ["2H_SHAPESHIFTER_SET1"] = "shapeshifterstaff",
+        ["2H_SHAPESHIFTER_SET2"] = "shapeshifterstaff",
+        ["2H_SHAPESHIFTER_SET3"] = "shapeshifterstaff",
+        ["2H_SKULLORB_HELL"] = "cursestaff",
+        ["2H_SPEAR"] = "spear",
+        ["2H_TOOL_AXE_AVALON"] = "tools",
+        ["2H_TOOL_AXE"] = "tools",
+        ["2H_TOOL_FISHINGROD_AVALON"] = "tools",
+        ["2H_TOOL_FISHINGROD"] = "tools",
+        ["2H_TOOL_HAMMER_AVALON"] = "tools",
+        ["2H_TOOL_HAMMER"] = "tools",
+        ["2H_TOOL_KNIFE_AVALON"] = "tools",
+        ["2H_TOOL_KNIFE"] = "tools",
+        ["2H_TOOL_PICK_AVALON"] = "tools",
+        ["2H_TOOL_PICK"] = "tools",
+        ["2H_TOOL_SICKLE_AVALON"] = "tools",
+        ["2H_TOOL_SICKLE"] = "tools",
+        ["2H_TOOL_SIEGEHAMMER_AVALON"] = "tools",
+        ["2H_TOOL_SIEGEHAMMER"] = "tools",
+        ["2H_TOOL_TRACKING"] = "tools",
+        ["2H_TRIDENT_UNDEAD"] = "spear",
+        ["2H_TWINSCYTHE_HELL"] = "quarterstaff",
+        ["2H_WARBOW"] = "bow",
+        ["2H_WILDSTAFF"] = "naturestaff",
+        ["ARMOR_CLOTH_AVALON"] = "cloth_armor",
+        ["ARMOR_CLOTH_FEY"] = "cloth_armor",
+        ["ARMOR_CLOTH_HELL"] = "cloth_armor",
+        ["ARMOR_CLOTH_KEEPER"] = "cloth_armor",
+        ["ARMOR_CLOTH_MORGANA"] = "cloth_armor",
+        ["ARMOR_CLOTH_SET1"] = "cloth_armor",
+        ["ARMOR_CLOTH_SET2"] = "cloth_armor",
+        ["ARMOR_CLOTH_SET3"] = "cloth_armor",
+        ["ARMOR_GATHERER_FIBER"] = "gatherergear",
+        ["ARMOR_GATHERER_FISH"] = "gatherergear",
+        ["ARMOR_GATHERER_HIDE"] = "gatherergear",
+        ["ARMOR_GATHERER_ORE"] = "gatherergear",
+        ["ARMOR_GATHERER_ROCK"] = "gatherergear",
+        ["ARMOR_GATHERER_WOOD"] = "gatherergear",
+        ["ARMOR_LEATHER_AVALON"] = "leather_armor",
+        ["ARMOR_LEATHER_DRAGON"] = "leather_armor",
+        ["ARMOR_LEATHER_FEY"] = "leather_armor",
+        ["ARMOR_LEATHER_HELL"] = "leather_armor",
+        ["ARMOR_LEATHER_MORGANA"] = "leather_armor",
+        ["ARMOR_LEATHER_SET1"] = "leather_armor",
+        ["ARMOR_LEATHER_SET2"] = "leather_armor",
+        ["ARMOR_LEATHER_SET3"] = "leather_armor",
+        ["ARMOR_LEATHER_UNDEAD"] = "leather_armor",
+        ["ARMOR_PLATE_AVALON"] = "plate_armor",
+        ["ARMOR_PLATE_FEY"] = "plate_armor",
+        ["ARMOR_PLATE_HELL"] = "plate_armor",
+        ["ARMOR_PLATE_KEEPER"] = "plate_armor",
+        ["ARMOR_PLATE_SET1"] = "plate_armor",
+        ["ARMOR_PLATE_SET2"] = "plate_armor",
+        ["ARMOR_PLATE_SET3"] = "plate_armor",
+        ["ARMOR_PLATE_UNDEAD"] = "plate_armor",
+        ["BACKPACK_GATHERER_FIBER"] = "gatherergear",
+        ["BACKPACK_GATHERER_FISH"] = "gatherergear",
+        ["BACKPACK_GATHERER_HIDE"] = "gatherergear",
+        ["BACKPACK_GATHERER_ORE"] = "gatherergear",
+        ["BACKPACK_GATHERER_ROCK"] = "gatherergear",
+        ["BACKPACK_GATHERER_WOOD"] = "gatherergear",
+        ["BAG_INSIGHT"] = "bag",
+        ["BAG"] = "bag",
+        ["CAPE"] = "cape",
+        ["HEAD_CLOTH_AVALON"] = "cloth_helmet",
+        ["HEAD_CLOTH_FEY"] = "cloth_helmet",
+        ["HEAD_CLOTH_HELL"] = "cloth_helmet",
+        ["HEAD_CLOTH_KEEPER"] = "cloth_helmet",
+        ["HEAD_CLOTH_MORGANA"] = "cloth_helmet",
+        ["HEAD_CLOTH_SET1"] = "cloth_helmet",
+        ["HEAD_CLOTH_SET2"] = "cloth_helmet",
+        ["HEAD_CLOTH_SET3"] = "cloth_helmet",
+        ["HEAD_GATHERER_FIBER"] = "gatherergear",
+        ["HEAD_GATHERER_FISH"] = "gatherergear",
+        ["HEAD_GATHERER_HIDE"] = "gatherergear",
+        ["HEAD_GATHERER_ORE"] = "gatherergear",
+        ["HEAD_GATHERER_ROCK"] = "gatherergear",
+        ["HEAD_GATHERER_WOOD"] = "gatherergear",
+        ["HEAD_LEATHER_AVALON"] = "leather_helmet",
+        ["HEAD_LEATHER_DRAGON"] = "leather_helmet",
+        ["HEAD_LEATHER_FEY"] = "leather_helmet",
+        ["HEAD_LEATHER_HELL"] = "leather_helmet",
+        ["HEAD_LEATHER_MORGANA"] = "leather_helmet",
+        ["HEAD_LEATHER_SET1"] = "leather_helmet",
+        ["HEAD_LEATHER_SET2"] = "leather_helmet",
+        ["HEAD_LEATHER_SET3"] = "leather_helmet",
+        ["HEAD_LEATHER_UNDEAD"] = "leather_helmet",
+        ["HEAD_PLATE_AVALON"] = "plate_helmet",
+        ["HEAD_PLATE_FEY"] = "plate_helmet",
+        ["HEAD_PLATE_HELL"] = "plate_helmet",
+        ["HEAD_PLATE_KEEPER"] = "plate_helmet",
+        ["HEAD_PLATE_SET1"] = "plate_helmet",
+        ["HEAD_PLATE_SET2"] = "plate_helmet",
+        ["HEAD_PLATE_SET3"] = "plate_helmet",
+        ["HEAD_PLATE_UNDEAD"] = "plate_helmet",
+        ["MAIN_1HCROSSBOW"] = "crossbow",
+        ["MAIN_ARCANESTAFF_UNDEAD"] = "arcanestaff",
+        ["MAIN_ARCANESTAFF"] = "arcanestaff",
+        ["MAIN_AXE"] = "axe",
+        ["MAIN_CURSEDSTAFF_AVALON"] = "cursestaff",
+        ["MAIN_CURSEDSTAFF_CRYSTAL"] = "cursestaff",
+        ["MAIN_CURSEDSTAFF_UNDEAD"] = "cursestaff",
+        ["MAIN_CURSEDSTAFF"] = "cursestaff",
+        ["MAIN_DAGGER_HELL"] = "dagger",
+        ["MAIN_DAGGER"] = "dagger",
+        ["MAIN_FIRESTAFF_CRYSTAL"] = "firestaff",
+        ["MAIN_FIRESTAFF_KEEPER"] = "firestaff",
+        ["MAIN_FIRESTAFF"] = "firestaff",
+        ["MAIN_FROSTSTAFF_AVALON"] = "froststaff",
+        ["MAIN_FROSTSTAFF_KEEPER"] = "froststaff",
+        ["MAIN_FROSTSTAFF"] = "froststaff",
+        ["MAIN_HAMMER"] = "hammer",
+        ["MAIN_HOLYSTAFF_AVALON"] = "holystaff",
+        ["MAIN_HOLYSTAFF_MORGANA"] = "holystaff",
+        ["MAIN_HOLYSTAFF"] = "holystaff",
+        ["MAIN_MACE_CRYSTAL"] = "mace",
+        ["MAIN_MACE_HELL"] = "mace",
+        ["MAIN_MACE"] = "mace",
+        ["MAIN_NATURESTAFF_AVALON"] = "naturestaff",
+        ["MAIN_NATURESTAFF_CRYSTAL"] = "naturestaff",
+        ["MAIN_NATURESTAFF_KEEPER"] = "naturestaff",
+        ["MAIN_NATURESTAFF"] = "naturestaff",
+        ["MAIN_RAPIER_MORGANA"] = "dagger",
+        ["MAIN_ROCKMACE_KEEPER"] = "mace",
+        ["MAIN_SCIMITAR_MORGANA"] = "sword",
+        ["MAIN_SPEAR_KEEPER"] = "spear",
+        ["MAIN_SPEAR_LANCE_AVALON"] = "spear",
+        ["MAIN_SPEAR"] = "spear",
+        ["MAIN_SWORD_CRYSTAL"] = "sword",
+        ["MAIN_SWORD"] = "sword",
+        ["OFF_BOOK"] = "offhand",
+        ["OFF_CENSER_AVALON"] = "offhand",
+        ["OFF_DEMONSKULL_HELL"] = "offhand",
+        ["OFF_HORN_KEEPER"] = "offhand",
+        ["OFF_JESTERCANE_HELL"] = "offhand",
+        ["OFF_LAMP_UNDEAD"] = "offhand",
+        ["OFF_ORB_MORGANA"] = "offhand",
+        ["OFF_SHIELD_AVALON"] = "offhand",
+        ["OFF_SHIELD_CRYSTAL"] = "offhand",
+        ["OFF_SHIELD_HELL"] = "offhand",
+        ["OFF_SHIELD"] = "offhand",
+        ["OFF_SPIKEDSHIELD_MORGANA"] = "offhand",
+        ["OFF_TALISMAN_AVALON"] = "offhand",
+        ["OFF_TOME_CRYSTAL"] = "offhand",
+        ["OFF_TORCH_CRYSTAL"] = "offhand",
+        ["OFF_TORCH"] = "offhand",
+        ["OFF_TOTEM_KEEPER"] = "offhand",
+        ["OFF_TOWERSHIELD_UNDEAD"] = "offhand",
+        ["SHOES_CLOTH_AVALON"] = "cloth_shoes",
+        ["SHOES_CLOTH_FEY"] = "cloth_shoes",
+        ["SHOES_CLOTH_HELL"] = "cloth_shoes",
+        ["SHOES_CLOTH_KEEPER"] = "cloth_shoes",
+        ["SHOES_CLOTH_MORGANA"] = "cloth_shoes",
+        ["SHOES_CLOTH_SET1"] = "cloth_shoes",
+        ["SHOES_CLOTH_SET2"] = "cloth_shoes",
+        ["SHOES_CLOTH_SET3"] = "cloth_shoes",
+        ["SHOES_GATHERER_FIBER"] = "gatherergear",
+        ["SHOES_GATHERER_FISH"] = "gatherergear",
+        ["SHOES_GATHERER_HIDE"] = "gatherergear",
+        ["SHOES_GATHERER_ORE"] = "gatherergear",
+        ["SHOES_GATHERER_ROCK"] = "gatherergear",
+        ["SHOES_GATHERER_WOOD"] = "gatherergear",
+        ["SHOES_LEATHER_AVALON"] = "leather_shoes",
+        ["SHOES_LEATHER_DRAGON"] = "leather_shoes",
+        ["SHOES_LEATHER_FEY"] = "leather_shoes",
+        ["SHOES_LEATHER_HELL"] = "leather_shoes",
+        ["SHOES_LEATHER_MORGANA"] = "leather_shoes",
+        ["SHOES_LEATHER_SET1"] = "leather_shoes",
+        ["SHOES_LEATHER_SET2"] = "leather_shoes",
+        ["SHOES_LEATHER_SET3"] = "leather_shoes",
+        ["SHOES_LEATHER_UNDEAD"] = "leather_shoes",
+        ["SHOES_PLATE_AVALON"] = "plate_shoes",
+        ["SHOES_PLATE_FEY"] = "plate_shoes",
+        ["SHOES_PLATE_HELL"] = "plate_shoes",
+        ["SHOES_PLATE_KEEPER"] = "plate_shoes",
+        ["SHOES_PLATE_SET1"] = "plate_shoes",
+        ["SHOES_PLATE_SET2"] = "plate_shoes",
+        ["SHOES_PLATE_SET3"] = "plate_shoes",
+        ["SHOES_PLATE_UNDEAD"] = "plate_shoes",
+    };
+
+    public static string GetCategory(string itemId) =>
+        Categories.TryGetValue(itemId, out var c) ? c : "other";
+
+    /// <summary>
+    /// Classifies an item by its crafting "class" — determines mutual FCE rate its spec contributes.
+    /// Base = 30 FCE/lvl mutual; Artifact = 15; Crystal = 2.15 (per user-supplied values).
+    /// </summary>
+    public enum ItemClass { Base, Artifact, Crystal }
+
+    private static readonly string[] ArtifactSuffixes =
+        ["_AVALON", "_FEY", "_HELL", "_UNDEAD", "_MORGANA", "_KEEPER", "_DRAGON"];
+
+    public static ItemClass GetItemClass(string itemId)
+    {
+        if (itemId.EndsWith("_CRYSTAL", StringComparison.Ordinal)) return ItemClass.Crystal;
+        foreach (var suffix in ArtifactSuffixes)
+            if (itemId.EndsWith(suffix, StringComparison.Ordinal)) return ItemClass.Artifact;
+        return ItemClass.Base;
+    }
+
+    /// <summary>All distinct crafting categories present in the DB, alphabetical.</summary>
+    public static readonly IReadOnlyList<string> AllCategories =
+        Items.Select(i => GetCategory(i.Id)).Distinct().OrderBy(c => c).ToList();
+
+    /// <summary>All items in the DB that share the given category.</summary>
+    public static IReadOnlyList<GearItem> GetSiblings(string category) =>
+        Items.Where(i => GetCategory(i.Id) == category).ToList();
+
+    /// <summary>User-friendly display name for a category, e.g. "leather_helmet" → "Leather Helmets".</summary>
+    public static string FormatCategory(string category)
+    {
+        if (string.IsNullOrEmpty(category)) return "Other";
+        var parts = category.Split('_');
+        for (var i = 0; i < parts.Length; i++)
+            parts[i] = char.ToUpperInvariant(parts[i][0]) + parts[i][1..];
+        var s = string.Join(' ', parts);
+        // Pluralize common suffixes
+        return s.EndsWith("Helmet") ? s + "s"
+             : s.EndsWith("Armor") ? s + "s"
+             : s.EndsWith("Shoes") ? s
+             : s.EndsWith("staff", StringComparison.OrdinalIgnoreCase) ? s.Substring(0, s.Length - 5) + "Staves"
+             : s + "s";
+    }
+
     public static readonly string[] Cities =
         ["Thetford", "Fort Sterling", "Bridgewatch", "Lymhurst", "Martlock", "Caerleon", "Brecilien", "Black Market"];
 

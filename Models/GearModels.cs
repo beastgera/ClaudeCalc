@@ -76,6 +76,13 @@ public class CraftingRow
     public int Mat1Required { get; set; }
     public int Mat2Required { get; set; }
 
+    // Focus consumption (base per craft, and total for Quantity — only when UseFocus is on)
+    public int FocusPerCraft { get; set; }        // after spec reduction
+    public int FocusPerCraftBase { get; set; }    // before spec reduction
+    public int FocusRequired { get; set; }
+    public decimal SilverPerFocus { get; set; }
+    public decimal SpecReduction { get; set; }    // 0.0 to 0.475
+
     public decimal ApiSellPrice { get; set; }
     public decimal ApiMat1Price { get; set; }
     public decimal ApiMat2Price { get; set; }

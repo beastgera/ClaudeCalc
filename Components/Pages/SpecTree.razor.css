@@ -1,0 +1,246 @@
+.st-layout {
+    padding: 1rem 1.25rem;
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+    color: #e8eaf6;
+}
+
+.st-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #252525;
+    margin-bottom: 1rem;
+}
+
+.st-title {
+    font-size: 1.25rem;
+    margin: 0;
+    color: #e8eaf6;
+    font-weight: 600;
+}
+
+.st-subtitle {
+    font-size: 0.78rem;
+    margin: 4px 0 0;
+    color: #888;
+    max-width: 720px;
+    line-height: 1.5;
+}
+
+.st-subtitle b {
+    color: #89b4fa;
+    font-weight: 600;
+}
+
+.st-header-controls {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.st-search {
+    width: 240px;
+    background: #111;
+    border: 1px solid #2a2a2a;
+    color: #e8eaf6;
+}
+
+.st-summary {
+    font-size: 0.78rem;
+    color: #89b4fa;
+    padding: 0 0.5rem;
+    white-space: nowrap;
+}
+
+.st-journal-title {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #f9e2af;
+    margin: 1.25rem 0 0.75rem;
+    font-weight: 700;
+}
+
+.st-category {
+    background: #141414;
+    border: 1px solid #252525;
+    border-radius: 8px;
+    padding: 0.6rem 0.85rem;
+    margin-bottom: 0.75rem;
+}
+
+.st-category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #252525;
+    margin-bottom: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.st-category-title {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.st-category-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #cba6f7;
+}
+
+.st-category-count {
+    font-size: 0.72rem;
+    color: #555;
+}
+
+.st-mastery-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 320px;
+}
+
+.st-mastery-label {
+    font-size: 0.72rem;
+    color: #888;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.st-mastery-range {
+    flex: 1;
+    min-width: 100px;
+    max-width: 180px;
+}
+
+.st-category-fce {
+    font-size: 0.72rem;
+    color: #89b4fa;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.st-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.5rem;
+}
+
+.st-card {
+    display: flex;
+    gap: 0.6rem;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    padding: 6px 8px;
+    align-items: center;
+}
+
+.st-card-active {
+    border-color: #3a4a6a;
+    background: #141a24;
+}
+
+.st-card-img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    flex-shrink: 0;
+}
+
+.st-card-body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.st-card-name {
+    font-size: 0.8rem;
+    color: #e8eaf6;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.st-class-badge {
+    display: inline-block;
+    font-size: 0.6rem;
+    padding: 1px 5px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.st-class-artifact {
+    background: #2d1f36;
+    color: #cba6f7;
+    border: 1px solid #5a3a70;
+}
+
+.st-class-crystal {
+    background: #1a2a36;
+    color: #74c7ec;
+    border: 1px solid #3a5a70;
+}
+
+.st-card-row {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.st-range {
+    flex: 1;
+    min-width: 0;
+}
+
+.st-num {
+    width: 52px;
+    flex: 0 0 52px;
+    text-align: center;
+    background: #111;
+    border-color: #2a2a2a;
+    color: #e8eaf6;
+    padding: 2px 4px;
+    font-size: 0.78rem;
+}
+
+.st-card-fce {
+    font-size: 0.7rem;
+    color: #666;
+    display: flex;
+    gap: 4px;
+    align-items: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.st-fce-total {
+    color: #89b4fa;
+    font-weight: 600;
+}
+
+.st-fce-sep {
+    color: #333;
+}
+
+.st-fce-mult {
+    color: #a6e3a1;
+}

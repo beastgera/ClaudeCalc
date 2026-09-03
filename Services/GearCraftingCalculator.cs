@@ -23,7 +23,7 @@ public static class GearCraftingCalculator
         return rows;
     }
 
-    public static void Calculate(CraftingRow row, GearItem item, CraftingSettings s)
+    public static void Calculate(CraftingRow row, GearItem item, CraftingSettings s, decimal specReduction = 0m)
     {
         var tierMult = GearItemDatabase.TierQtyMultiplier[row.Tier];
 
@@ -65,6 +65,14 @@ public static class GearCraftingCalculator
         // Net mats consumed (purchased qty minus what gets returned)
         row.Mat1Required = (int)Math.Ceiling(mat1BaseQty * s.Quantity / (1m + effectiveLpb));
         row.Mat2Required = (int)Math.Ceiling(mat2BaseQty * s.Quantity / (1m + effectiveLpb));
+
+        // Focus consumption — only tallied when Use Focus is enabled.
+        // specReduction is 0..0.9999 sourced from SpecTreeService (FCE-based exponential).
+        row.FocusPerCraftBase = GearItemDatabase.GetFocusCost(mat1BaseQty + mat2BaseQty, row.Tier, row.Enchant);
+        row.SpecReduction = Math.Clamp(specReduction, 0m, 0.9999m);
+        row.FocusPerCraft = (int)Math.Round(row.FocusPerCraftBase * (1m - row.SpecReduction));
+        row.FocusRequired = s.UseFocus ? row.FocusPerCraft * s.Quantity : 0;
+        row.SilverPerFocus = row.FocusRequired > 0 ? row.Profit / row.FocusRequired : 0m;
 
         row.Outcomes = s.BlackMarketMode
             ? BuildOutcomes(row, item, s, effectiveLpb, artifactCost)
@@ -110,10 +118,10 @@ public static class GearCraftingCalculator
         return [(low, 1m - pHigh), (high, pHigh)];
     }
 
-    public static void RecalculateAll(List<CraftingRow> rows, GearItem item, CraftingSettings settings)
+    public static void RecalculateAll(List<CraftingRow> rows, GearItem item, CraftingSettings settings, decimal specReduction = 0m)
     {
         foreach (var row in rows)
-            Calculate(row, item, settings);
+            Calculate(row, item, settings, specReduction);
     }
 
     /// <summary>Returns all item IDs needed for API price fetch (materials + item).</summary>

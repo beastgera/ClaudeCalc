@@ -1,0 +1,179 @@
+@page "/specs"
+@rendermode InteractiveServer
+@inject SpecTreeService Specs
+@inject IJSRuntime JS
+@using CraftingCalc.Models
+@using CraftingCalc.Services
+
+<PageTitle>Spec Tree</PageTitle>
+
+<div class="st-layout">
+    <header class="st-header">
+        <div>
+            <h1 class="st-title">Crafting Spec Tree</h1>
+            <p class="st-subtitle">
+                Focus cost = base × 0.5<sup>(FCE / 10,000)</sup>. Every 10k FCE halves the focus cost.
+                Item spec = <b>@SpecTreeService.SpecUniqueFcePerLevel</b> FCE/lvl unique + mutual to siblings
+                (<b>30</b> from base items, <b>15</b> from artifacts, <b>2.15</b> from crystal artifacts).
+                Category mastery = <b>@SpecTreeService.MasteryFcePerLevel</b> FCE/lvl across the category.
+            </p>
+        </div>
+        <div class="st-header-controls">
+            <input type="text" class="form-control form-control-sm st-search"
+                   placeholder="Filter items or categories..."
+                   @bind="filter" @bind:event="oninput" />
+            <div class="st-summary">
+                @Specs.ItemSpecCount items · @Specs.CategoryMasteryCount categories
+            </div>
+            <button class="btn btn-sm btn-outline-danger" @onclick="ResetAll">Reset all</button>
+        </div>
+    </header>
+
+    @foreach (var journal in JournalOrder)
+    {
+        var categoriesInJournal = GearItemDatabase.Items
+            .Where(i => i.JournalType == journal)
+            .Select(i => GearItemDatabase.GetCategory(i.Id))
+            .Distinct()
+            .OrderBy(c => c)
+            .ToList();
+
+        var visibleCategories = categoriesInJournal
+            .Where(c => AnyMatchInCategory(c, journal))
+            .ToList();
+
+        if (visibleCategories.Count == 0) continue;
+
+        <h2 class="st-journal-title">@JournalName(journal)</h2>
+
+        @foreach (var category in visibleCategories)
+        {
+            var items = FilteredItemsFor(journal, category).ToList();
+            if (items.Count == 0) continue;
+
+            var masteryLvl = Specs.GetCategoryMastery(category);
+            var categoryFce = masteryLvl * SpecTreeService.MasteryFcePerLevel
+                            + Specs.GetCategoryMutualFce(category);
+
+            <section class="st-category">
+                <div class="st-category-header">
+                    <div class="st-category-title">
+                        <span class="st-category-name">@GearItemDatabase.FormatCategory(category)</span>
+                        <span class="st-category-count">@GearItemDatabase.GetSiblings(category).Count items</span>
+                    </div>
+                    <div class="st-mastery-controls">
+                        <label class="st-mastery-label">Category Mastery</label>
+                        <input type="range" min="0" max="100" step="1" class="form-range st-mastery-range"
+                               value="@masteryLvl"
+                               @onchange="e => OnMasteryChanged(category, e)" />
+                        <input type="number" min="0" max="100" class="form-control form-control-sm st-num"
+                               value="@masteryLvl"
+                               @onchange="e => OnMasteryChanged(category, e)" />
+                        <div class="st-category-fce" title="FCE contributed to every item in this category">
+                            +@categoryFce.ToString("N0") FCE
+                        </div>
+                    </div>
+                </div>
+
+                <div class="st-grid">
+                    @foreach (var item in items)
+                    {
+                        var lvl = Specs.GetItemSpec(item.Id);
+                        var thumbId = $"T4_{item.Id}";
+                        var itemFce = Specs.GetFce(item.Id);
+                        var mult = Specs.GetFocusMultiplier(item.Id);
+                        var cls = GearItemDatabase.GetItemClass(item.Id);
+                        var mutualRate = SpecTreeService.MutualFceForClass(cls)
+                            .ToString("0.##", System.Globalization.CultureInfo.InvariantCulture);
+                        <div class="st-card @(lvl > 0 ? "st-card-active" : "")">
+                            <img src="https://render.albiononline.com/v1/item/@thumbId" alt="@item.Name" class="st-card-img" />
+                            <div class="st-card-body">
+                                <div class="st-card-name">
+                                    @item.Name
+                                    @if (cls != GearItemDatabase.ItemClass.Base)
+                                    {
+                                        <span class="st-class-badge st-class-@cls.ToString().ToLower()" title="Mutual FCE / level: @mutualRate">@cls</span>
+                                    }
+                                </div>
+                                <div class="st-card-row">
+                                    <input type="range" min="0" max="100" step="1" class="form-range st-range"
+                                           value="@lvl"
+                                           @onchange="e => OnItemSpecChanged(item.Id, e)" />
+                                    <input type="number" min="0" max="100" class="form-control form-control-sm st-num"
+                                           value="@lvl"
+                                           @onchange="e => OnItemSpecChanged(item.Id, e)" />
+                                </div>
+                                <div class="st-card-fce">
+                                    <span class="st-fce-total">@itemFce.ToString("N0") FCE</span>
+                                    <span class="st-fce-sep">·</span>
+                                    <span class="st-fce-mult">×@($"{mult:F3}") focus</span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
+        }
+    }
+</div>
+
+@code {
+    private string filter = "";
+
+    // Journal display order — Warrior, Hunter, Mage, Toolmaker/Royal
+    private static readonly int[] JournalOrder = [3, 2, 1, 4];
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Specs.LoadAsync(JS);
+            StateHasChanged();
+        }
+    }
+
+    private bool AnyMatchInCategory(string category, int journal) =>
+        FilteredItemsFor(journal, category).Any();
+
+    private IEnumerable<GearItem> FilteredItemsFor(int journal, string category)
+    {
+        var q = GearItemDatabase.Items
+            .Where(i => i.JournalType == journal && GearItemDatabase.GetCategory(i.Id) == category);
+        if (!string.IsNullOrWhiteSpace(filter))
+        {
+            var f = filter;
+            q = q.Where(i =>
+                i.Name.Contains(f, StringComparison.OrdinalIgnoreCase) ||
+                i.Id.Contains(f, StringComparison.OrdinalIgnoreCase) ||
+                GearItemDatabase.FormatCategory(category).Contains(f, StringComparison.OrdinalIgnoreCase));
+        }
+        return q.OrderBy(i => i.Name);
+    }
+
+    private async Task OnItemSpecChanged(string itemId, ChangeEventArgs e)
+    {
+        if (!int.TryParse(e.Value?.ToString() ?? "0", out var lvl)) return;
+        await Specs.SetItemSpecAsync(JS, itemId, lvl);
+    }
+
+    private async Task OnMasteryChanged(string category, ChangeEventArgs e)
+    {
+        if (!int.TryParse(e.Value?.ToString() ?? "0", out var lvl)) return;
+        await Specs.SetCategoryMasteryAsync(JS, category, lvl);
+    }
+
+    private async Task ResetAll()
+    {
+        var ok = await JS.InvokeAsync<bool>("confirm", "Reset every mastery and spec to 0?");
+        if (ok) await Specs.ResetAsync(JS);
+    }
+
+    private static string JournalName(int j) => j switch
+    {
+        GearItemDatabase.Mage => "Mage",
+        GearItemDatabase.Hunter => "Hunter",
+        GearItemDatabase.Warrior => "Warrior",
+        GearItemDatabase.Royal => "Toolmaker / Royal",
+        _ => "Other"
+    };
+}

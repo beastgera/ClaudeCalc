@@ -185304,6 +185304,2876 @@
       }
     },
     {
+        "@uniquename": "T4_HEAD_LEATHER_DRAGON",
+        "@facestate": "HALF",
+        "@beardstate": "HALF",
+        "@slottype": "head",
+        "@shopcategory": "head",
+        "@shopsubcategory1": "leather_helmet",
+        "@tier": "4",
+        "@maxqualitylevel": "5",
+        "@itempower": "800",
+        "@weight": "1.7",
+        "@activespellslots": "1",
+        "@passivespellslots": "1",
+        "@hitpointsmax": "0",
+        "@hitpointsregenerationbonus": "0",
+        "@energymax": "0",
+        "@energyregenerationbonus": "0",
+        "@movespeed": "0",
+        "@maxload": "0",
+        "@magiccooldownreduction": "0",
+        "@physicalarmor": "0",
+        "@magicresistance": "0",
+        "@crowdcontrolresistance": "0",
+        "@physicalspelldamagebonus": "0",
+        "@magicspelldamagebonus": "0",
+        "@abilitypower": "100",
+        "@healbonus": "0",
+        "@physicalattackdamagebonus": "0",
+        "@magicattackdamagebonus": "0",
+        "@bonusccdurationvsplayers": "0",
+        "@bonusccdurationvsmobs": "0",
+        "@durability": "24300",
+        "@durabilityloss_attack": "1",
+        "@durabilityloss_spelluse": "1",
+        "@durabilityloss_receivedattack": "1",
+        "@durabilityloss_receivedspell": "1",
+        "@unlockedtocraft": "false",
+        "@unlockedtoequip": "false",
+        "@threatbonus": "0",
+        "@itempowerprogressiontype": "head",
+        "@bonusdefensevsplayers": "0",
+        "@bonusdefensevsmobs": "0",
+        "@magiccasttimereduction": "0",
+        "@attackspeedbonus": "0",
+        "@movespeedbonus": "0",
+        "@showinmarketplace": "true",
+        "@uicraftsoundstart": "Play_ui_action_craft_leather_start",
+        "@uicraftsoundfinish": "Play_ui_action_craft_leather_finish",
+        "@healmodifier": "0",
+        "@craftingcategory": "leather_helmet",
+        "@canbeovercharged": "true",
+        "@energycostreduction": "0",
+        "@masterymodifier": "0",
+        "@descriptionlocatag": "@ITEMS_GENERAL_EQUIPMENT_ITEM_DESC",
+        "@destinyandjournalcraftfamefactor": "1.4",
+        "@combatspecachievement": "COMBAT_LEATHER_HEADS_AVALON",
+        "@shopsubcategory2": "head_leather_dragon",
+        "craftingrequirements": {
+          "@silver": "0",
+          "@time": "0.333",
+          "@craftingfocus": "429",
+          "craftresource": [
+            {
+              "@uniquename": "T4_LEATHER",
+              "@count": "8"
+            },
+            {
+              "@uniquename": "T4_ARTEFACT_HEAD_LEATHER_DRAGON",
+              "@count": "1",
+              "@maxreturnamount": "0"
+            }
+          ]
+        },
+        "craftingspelllist": {
+          "craftspell": [
+            {
+              "@uniquename": "ENERGY_BARRIER"
+            },
+            {
+              "@uniquename": "SELF_CLEANSE"
+            },
+            {
+              "@uniquename": "FLARE"
+            },
+            {
+              "@uniquename": "PASSIVE_BALANCE"
+            },
+            {
+              "@uniquename": "PASSIVE_INCREASED_AASPEED"
+            },
+            {
+              "@uniquename": "PASSIVE_CD_REDUCTION"
+            }
+          ]
+        },
+        "enchantments": {
+          "enchantment": [
+            {
+              "@enchantmentlevel": "1",
+              "@itempower": "900",
+              "@durability": "36450",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "0.5",
+                "@craftingfocus": "750",
+                "craftresource": [
+                  {
+                    "@uniquename": "T4_LEATHER_LEVEL1",
+                    "@enchantmentlevel": "1",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T4_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T4_RUNE",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "2",
+              "@itempower": "1000",
+              "@durability": "54675",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "0.667",
+                "@craftingfocus": "1313",
+                "craftresource": [
+                  {
+                    "@uniquename": "T4_LEATHER_LEVEL2",
+                    "@enchantmentlevel": "2",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T4_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T4_SOUL",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "3",
+              "@itempower": "1100",
+              "@durability": "82013",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "0.833",
+                "@craftingfocus": "2298",
+                "craftresource": [
+                  {
+                    "@uniquename": "T4_LEATHER_LEVEL3",
+                    "@enchantmentlevel": "3",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T4_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T4_RELIC",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "4",
+              "@itempower": "1200",
+              "@durability": "123019",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.25",
+                "@craftingfocus": "4021",
+                "craftresource": [
+                  {
+                    "@uniquename": "T4_LEATHER_LEVEL4",
+                    "@enchantmentlevel": "4",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T4_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@uniquename": "T5_HEAD_LEATHER_DRAGON",
+        "@facestate": "HALF",
+        "@beardstate": "HALF",
+        "@slottype": "head",
+        "@shopcategory": "head",
+        "@shopsubcategory1": "leather_helmet",
+        "@tier": "5",
+        "@maxqualitylevel": "5",
+        "@itempower": "900",
+        "@weight": "2.5",
+        "@activespellslots": "1",
+        "@passivespellslots": "1",
+        "@hitpointsmax": "0",
+        "@hitpointsregenerationbonus": "0",
+        "@energymax": "0",
+        "@energyregenerationbonus": "0",
+        "@movespeed": "0",
+        "@maxload": "0",
+        "@magiccooldownreduction": "0",
+        "@physicalarmor": "0",
+        "@magicresistance": "0",
+        "@crowdcontrolresistance": "0",
+        "@physicalspelldamagebonus": "0",
+        "@magicspelldamagebonus": "0",
+        "@abilitypower": "100",
+        "@healbonus": "0",
+        "@physicalattackdamagebonus": "0",
+        "@magicattackdamagebonus": "0",
+        "@bonusccdurationvsplayers": "0",
+        "@bonusccdurationvsmobs": "0",
+        "@durability": "36450",
+        "@durabilityloss_attack": "1",
+        "@durabilityloss_spelluse": "1",
+        "@durabilityloss_receivedattack": "1",
+        "@durabilityloss_receivedspell": "1",
+        "@unlockedtocraft": "false",
+        "@unlockedtoequip": "false",
+        "@threatbonus": "0",
+        "@itempowerprogressiontype": "head",
+        "@bonusdefensevsplayers": "0",
+        "@bonusdefensevsmobs": "0",
+        "@magiccasttimereduction": "0",
+        "@attackspeedbonus": "0",
+        "@movespeedbonus": "0",
+        "@showinmarketplace": "true",
+        "@uicraftsoundstart": "Play_ui_action_craft_leather_start",
+        "@uicraftsoundfinish": "Play_ui_action_craft_leather_finish",
+        "@healmodifier": "0",
+        "@craftingcategory": "leather_helmet",
+        "@canbeovercharged": "true",
+        "@energycostreduction": "0",
+        "@masterymodifier": "0.05",
+        "@descriptionlocatag": "@ITEMS_GENERAL_EQUIPMENT_ITEM_DESC",
+        "@destinyandjournalcraftfamefactor": "1.4",
+        "@combatspecachievement": "COMBAT_LEATHER_HEADS_AVALON",
+        "@shopsubcategory2": "head_leather_dragon",
+        "craftingrequirements": {
+          "@silver": "0",
+          "@time": "0.5",
+          "@craftingfocus": "750",
+          "craftresource": [
+            {
+              "@uniquename": "T5_LEATHER",
+              "@count": "8"
+            },
+            {
+              "@uniquename": "T5_ARTEFACT_HEAD_LEATHER_DRAGON",
+              "@count": "1",
+              "@maxreturnamount": "0"
+            }
+          ]
+        },
+        "craftingspelllist": {
+          "@reference": "T4_HEAD_LEATHER_DRAGON"
+        },
+        "enchantments": {
+          "enchantment": [
+            {
+              "@enchantmentlevel": "1",
+              "@itempower": "1000",
+              "@durability": "54675",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "0.667",
+                "@craftingfocus": "1313",
+                "craftresource": [
+                  {
+                    "@uniquename": "T5_LEATHER_LEVEL1",
+                    "@enchantmentlevel": "1",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T5_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T5_RUNE",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "2",
+              "@itempower": "1100",
+              "@durability": "82013",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "0.833",
+                "@craftingfocus": "2298",
+                "craftresource": [
+                  {
+                    "@uniquename": "T5_LEATHER_LEVEL2",
+                    "@enchantmentlevel": "2",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T5_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T5_SOUL",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "3",
+              "@itempower": "1200",
+              "@durability": "123019",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.25",
+                "@craftingfocus": "4021",
+                "craftresource": [
+                  {
+                    "@uniquename": "T5_LEATHER_LEVEL3",
+                    "@enchantmentlevel": "3",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T5_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T5_RELIC",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "4",
+              "@itempower": "1300",
+              "@durability": "184528",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.5",
+                "@craftingfocus": "7037",
+                "craftresource": [
+                  {
+                    "@uniquename": "T5_LEATHER_LEVEL4",
+                    "@enchantmentlevel": "4",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T5_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@uniquename": "T6_HEAD_LEATHER_DRAGON",
+        "@facestate": "HALF",
+        "@beardstate": "HALF",
+        "@slottype": "head",
+        "@shopcategory": "head",
+        "@shopsubcategory1": "leather_helmet",
+        "@tier": "6",
+        "@maxqualitylevel": "5",
+        "@itempower": "1000",
+        "@weight": "3.8",
+        "@activespellslots": "1",
+        "@passivespellslots": "1",
+        "@hitpointsmax": "0",
+        "@hitpointsregenerationbonus": "0",
+        "@energymax": "0",
+        "@energyregenerationbonus": "0",
+        "@movespeed": "0",
+        "@maxload": "0",
+        "@magiccooldownreduction": "0",
+        "@physicalarmor": "0",
+        "@magicresistance": "0",
+        "@crowdcontrolresistance": "0",
+        "@physicalspelldamagebonus": "0",
+        "@magicspelldamagebonus": "0",
+        "@abilitypower": "100",
+        "@healbonus": "0",
+        "@physicalattackdamagebonus": "0",
+        "@magicattackdamagebonus": "0",
+        "@bonusccdurationvsplayers": "0",
+        "@bonusccdurationvsmobs": "0",
+        "@durability": "54675",
+        "@durabilityloss_attack": "1",
+        "@durabilityloss_spelluse": "1",
+        "@durabilityloss_receivedattack": "1",
+        "@durabilityloss_receivedspell": "1",
+        "@unlockedtocraft": "false",
+        "@unlockedtoequip": "false",
+        "@threatbonus": "0",
+        "@itempowerprogressiontype": "head",
+        "@bonusdefensevsplayers": "0",
+        "@bonusdefensevsmobs": "0",
+        "@magiccasttimereduction": "0",
+        "@attackspeedbonus": "0",
+        "@movespeedbonus": "0",
+        "@showinmarketplace": "true",
+        "@uicraftsoundstart": "Play_ui_action_craft_leather_start",
+        "@uicraftsoundfinish": "Play_ui_action_craft_leather_finish",
+        "@healmodifier": "0",
+        "@craftingcategory": "leather_helmet",
+        "@canbeovercharged": "true",
+        "@energycostreduction": "0",
+        "@masterymodifier": "0.1",
+        "@descriptionlocatag": "@ITEMS_GENERAL_EQUIPMENT_ITEM_DESC",
+        "@destinyandjournalcraftfamefactor": "1.4",
+        "@combatspecachievement": "COMBAT_LEATHER_HEADS_AVALON",
+        "@shopsubcategory2": "head_leather_dragon",
+        "craftingrequirements": {
+          "@silver": "0",
+          "@time": "0.667",
+          "@craftingfocus": "1313",
+          "craftresource": [
+            {
+              "@uniquename": "T6_LEATHER",
+              "@count": "8"
+            },
+            {
+              "@uniquename": "T6_ARTEFACT_HEAD_LEATHER_DRAGON",
+              "@count": "1",
+              "@maxreturnamount": "0"
+            }
+          ]
+        },
+        "craftingspelllist": {
+          "@reference": "T4_HEAD_LEATHER_DRAGON"
+        },
+        "enchantments": {
+          "enchantment": [
+            {
+              "@enchantmentlevel": "1",
+              "@itempower": "1100",
+              "@durability": "82013",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "0.833",
+                "@craftingfocus": "2298",
+                "craftresource": [
+                  {
+                    "@uniquename": "T6_LEATHER_LEVEL1",
+                    "@enchantmentlevel": "1",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T6_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T6_RUNE",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "2",
+              "@itempower": "1200",
+              "@durability": "123019",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.25",
+                "@craftingfocus": "4021",
+                "craftresource": [
+                  {
+                    "@uniquename": "T6_LEATHER_LEVEL2",
+                    "@enchantmentlevel": "2",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T6_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T6_SOUL",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "3",
+              "@itempower": "1300",
+              "@durability": "184528",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.5",
+                "@craftingfocus": "7037",
+                "craftresource": [
+                  {
+                    "@uniquename": "T6_LEATHER_LEVEL3",
+                    "@enchantmentlevel": "3",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T6_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T6_RELIC",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "4",
+              "@itempower": "1400",
+              "@durability": "276792",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.8",
+                "@craftingfocus": "12315",
+                "craftresource": [
+                  {
+                    "@uniquename": "T6_LEATHER_LEVEL4",
+                    "@enchantmentlevel": "4",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T6_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@uniquename": "T7_HEAD_LEATHER_DRAGON",
+        "@facestate": "HALF",
+        "@beardstate": "HALF",
+        "@slottype": "head",
+        "@shopcategory": "head",
+        "@shopsubcategory1": "leather_helmet",
+        "@tier": "7",
+        "@maxqualitylevel": "5",
+        "@itempower": "1100",
+        "@weight": "5.7",
+        "@activespellslots": "1",
+        "@passivespellslots": "1",
+        "@hitpointsmax": "0",
+        "@hitpointsregenerationbonus": "0",
+        "@energymax": "0",
+        "@energyregenerationbonus": "0",
+        "@movespeed": "0",
+        "@maxload": "0",
+        "@magiccooldownreduction": "0",
+        "@physicalarmor": "0",
+        "@magicresistance": "0",
+        "@crowdcontrolresistance": "0",
+        "@physicalspelldamagebonus": "0",
+        "@magicspelldamagebonus": "0",
+        "@abilitypower": "100",
+        "@healbonus": "0",
+        "@physicalattackdamagebonus": "0",
+        "@magicattackdamagebonus": "0",
+        "@bonusccdurationvsplayers": "0",
+        "@bonusccdurationvsmobs": "0",
+        "@durability": "82013",
+        "@durabilityloss_attack": "1",
+        "@durabilityloss_spelluse": "1",
+        "@durabilityloss_receivedattack": "1",
+        "@durabilityloss_receivedspell": "1",
+        "@unlockedtocraft": "false",
+        "@unlockedtoequip": "false",
+        "@threatbonus": "0",
+        "@itempowerprogressiontype": "head",
+        "@bonusdefensevsplayers": "0",
+        "@bonusdefensevsmobs": "0",
+        "@magiccasttimereduction": "0",
+        "@attackspeedbonus": "0",
+        "@movespeedbonus": "0",
+        "@showinmarketplace": "true",
+        "@uicraftsoundstart": "Play_ui_action_craft_leather_start",
+        "@uicraftsoundfinish": "Play_ui_action_craft_leather_finish",
+        "@healmodifier": "0",
+        "@craftingcategory": "leather_helmet",
+        "@canbeovercharged": "true",
+        "@energycostreduction": "0",
+        "@masterymodifier": "0.15",
+        "@descriptionlocatag": "@ITEMS_GENERAL_EQUIPMENT_ITEM_DESC",
+        "@destinyandjournalcraftfamefactor": "1.4",
+        "@combatspecachievement": "COMBAT_LEATHER_HEADS_AVALON",
+        "@shopsubcategory2": "head_leather_dragon",
+        "craftingrequirements": {
+          "@silver": "0",
+          "@time": "0.833",
+          "@craftingfocus": "2298",
+          "craftresource": [
+            {
+              "@uniquename": "T7_LEATHER",
+              "@count": "8"
+            },
+            {
+              "@uniquename": "T7_ARTEFACT_HEAD_LEATHER_DRAGON",
+              "@count": "1",
+              "@maxreturnamount": "0"
+            }
+          ]
+        },
+        "craftingspelllist": {
+          "@reference": "T4_HEAD_LEATHER_DRAGON"
+        },
+        "enchantments": {
+          "enchantment": [
+            {
+              "@enchantmentlevel": "1",
+              "@itempower": "1200",
+              "@durability": "123020",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.25",
+                "@craftingfocus": "4021",
+                "craftresource": [
+                  {
+                    "@uniquename": "T7_LEATHER_LEVEL1",
+                    "@enchantmentlevel": "1",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T7_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T7_RUNE",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "2",
+              "@itempower": "1300",
+              "@durability": "184529",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.5",
+                "@craftingfocus": "7037",
+                "craftresource": [
+                  {
+                    "@uniquename": "T7_LEATHER_LEVEL2",
+                    "@enchantmentlevel": "2",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T7_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T7_SOUL",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "3",
+              "@itempower": "1400",
+              "@durability": "276794",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.8",
+                "@craftingfocus": "12315",
+                "craftresource": [
+                  {
+                    "@uniquename": "T7_LEATHER_LEVEL3",
+                    "@enchantmentlevel": "3",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T7_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T7_RELIC",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "4",
+              "@itempower": "1500",
+              "@durability": "415191",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "2.16",
+                "@craftingfocus": "21551",
+                "craftresource": [
+                  {
+                    "@uniquename": "T7_LEATHER_LEVEL4",
+                    "@enchantmentlevel": "4",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T7_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@uniquename": "T8_HEAD_LEATHER_DRAGON",
+        "@facestate": "HALF",
+        "@beardstate": "HALF",
+        "@slottype": "head",
+        "@shopcategory": "head",
+        "@shopsubcategory1": "leather_helmet",
+        "@tier": "8",
+        "@maxqualitylevel": "5",
+        "@itempower": "1200",
+        "@weight": "8.5",
+        "@activespellslots": "1",
+        "@passivespellslots": "1",
+        "@hitpointsmax": "0",
+        "@hitpointsregenerationbonus": "0",
+        "@energymax": "0",
+        "@energyregenerationbonus": "0",
+        "@movespeed": "0",
+        "@maxload": "0",
+        "@magiccooldownreduction": "0",
+        "@physicalarmor": "0",
+        "@magicresistance": "0",
+        "@crowdcontrolresistance": "0",
+        "@physicalspelldamagebonus": "0",
+        "@magicspelldamagebonus": "0",
+        "@abilitypower": "100",
+        "@healbonus": "0",
+        "@physicalattackdamagebonus": "0",
+        "@magicattackdamagebonus": "0",
+        "@bonusccdurationvsplayers": "0",
+        "@bonusccdurationvsmobs": "0",
+        "@durability": "123019",
+        "@durabilityloss_attack": "1",
+        "@durabilityloss_spelluse": "1",
+        "@durabilityloss_receivedattack": "1",
+        "@durabilityloss_receivedspell": "1",
+        "@unlockedtocraft": "false",
+        "@unlockedtoequip": "false",
+        "@threatbonus": "0",
+        "@itempowerprogressiontype": "head",
+        "@bonusdefensevsplayers": "0",
+        "@bonusdefensevsmobs": "0",
+        "@magiccasttimereduction": "0",
+        "@attackspeedbonus": "0",
+        "@movespeedbonus": "0",
+        "@showinmarketplace": "true",
+        "@uicraftsoundstart": "Play_ui_action_craft_leather_start",
+        "@uicraftsoundfinish": "Play_ui_action_craft_leather_finish",
+        "@healmodifier": "0",
+        "@craftingcategory": "leather_helmet",
+        "@canbeovercharged": "true",
+        "@energycostreduction": "0",
+        "@masterymodifier": "0.2",
+        "@descriptionlocatag": "@ITEMS_GENERAL_EQUIPMENT_ITEM_DESC",
+        "@destinyandjournalcraftfamefactor": "1.4",
+        "@combatspecachievement": "COMBAT_LEATHER_HEADS_AVALON",
+        "@shopsubcategory2": "head_leather_dragon",
+        "craftingrequirements": {
+          "@silver": "0",
+          "@time": "1.25",
+          "@craftingfocus": "4021",
+          "craftresource": [
+            {
+              "@uniquename": "T8_LEATHER",
+              "@count": "8"
+            },
+            {
+              "@uniquename": "T8_ARTEFACT_HEAD_LEATHER_DRAGON",
+              "@count": "1",
+              "@maxreturnamount": "0"
+            }
+          ]
+        },
+        "craftingspelllist": {
+          "@reference": "T4_HEAD_LEATHER_DRAGON"
+        },
+        "enchantments": {
+          "enchantment": [
+            {
+              "@enchantmentlevel": "1",
+              "@itempower": "1300",
+              "@durability": "184529",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.5",
+                "@craftingfocus": "7037",
+                "craftresource": [
+                  {
+                    "@uniquename": "T8_LEATHER_LEVEL1",
+                    "@enchantmentlevel": "1",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T8_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T8_RUNE",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "2",
+              "@itempower": "1400",
+              "@durability": "276793",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.8",
+                "@craftingfocus": "12315",
+                "craftresource": [
+                  {
+                    "@uniquename": "T8_LEATHER_LEVEL2",
+                    "@enchantmentlevel": "2",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T8_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T8_SOUL",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "3",
+              "@itempower": "1500",
+              "@durability": "415189",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "2.16",
+                "@craftingfocus": "21551",
+                "craftresource": [
+                  {
+                    "@uniquename": "T8_LEATHER_LEVEL3",
+                    "@enchantmentlevel": "3",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T8_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T8_RELIC",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "4",
+              "@itempower": "1600",
+              "@durability": "622784",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "2.52",
+                "@craftingfocus": "37715",
+                "craftresource": [
+                  {
+                    "@uniquename": "T8_LEATHER_LEVEL4",
+                    "@enchantmentlevel": "4",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T8_ARTEFACT_HEAD_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@uniquename": "T4_ARMOR_LEATHER_DRAGON",
+        "@slottype": "armor",
+        "@shopcategory": "armors",
+        "@shopsubcategory1": "leather_armor",
+        "@tier": "4",
+        "@maxqualitylevel": "5",
+        "@itempower": "800",
+        "@weight": "3.4",
+        "@activespellslots": "1",
+        "@passivespellslots": "1",
+        "@abilitypower": "100",
+        "@physicalspelldamagebonus": "0.3",
+        "@magicspelldamagebonus": "0.3",
+        "@healbonus": "0.3",
+        "@physicalattackdamagebonus": "0.3",
+        "@magicattackdamagebonus": "0.3",
+        "@bonusccdurationvsplayers": "0.1",
+        "@bonusccdurationvsmobs": "0.1",
+        "@hitpointsmax": "0",
+        "@hitpointsregenerationbonus": "1.5",
+        "@energymax": "0",
+        "@energyregenerationbonus": "0.1",
+        "@movespeed": "0",
+        "@maxload": "0",
+        "@magiccooldownreduction": "0",
+        "@physicalarmor": "92",
+        "@magicresistance": "92",
+        "@crowdcontrolresistance": "26",
+        "@durability": "36450",
+        "@durabilityloss_attack": "1",
+        "@durabilityloss_spelluse": "1",
+        "@durabilityloss_receivedattack": "1",
+        "@durabilityloss_receivedspell": "1",
+        "@unlockedtocraft": "false",
+        "@unlockedtoequip": "false",
+        "@threatbonus": "0",
+        "@itempowerprogressiontype": "armor",
+        "@bonusdefensevsplayers": "0",
+        "@bonusdefensevsmobs": "0",
+        "@magiccasttimereduction": "0",
+        "@attackspeedbonus": "0",
+        "@movespeedbonus": "0",
+        "@showinmarketplace": "true",
+        "@uicraftsoundstart": "Play_ui_action_craft_leather_start",
+        "@uicraftsoundfinish": "Play_ui_action_craft_leather_finish",
+        "@healmodifier": "0",
+        "@craftingcategory": "leather_armor",
+        "@scalemodifier": "1.1",
+        "@canbeovercharged": "true",
+        "@energycostreduction": "0",
+        "@masterymodifier": "0",
+        "@descriptionlocatag": "@ITEMS_T1_ARMOR_LEATHER_SET1_DESC",
+        "@destinyandjournalcraftfamefactor": "1.4",
+        "@combatspecachievement": "COMBAT_LEATHER_ARMORS_AVALON",
+        "@shopsubcategory2": "armors_leather_dragon",
+        "craftingspelllist": {
+          "craftspell": [
+            {
+              "@uniquename": "OUTOFCOMBATHEAL"
+            },
+            {
+              "@uniquename": "FLAMESHIELD"
+            },
+            {
+              "@uniquename": "IMMUNEAREA"
+            },
+            {
+              "@uniquename": "PASSIVE_ARMOR_BALANCE"
+            },
+            {
+              "@uniquename": "PASSIVE_ARMOR_INCREASED_AASPEED"
+            },
+            {
+              "@uniquename": "PASSIVE_ARMOR_CD_REDUCTION"
+            }
+          ]
+        },
+        "craftingrequirements": {
+          "@silver": "0",
+          "@time": "0.667",
+          "@craftingfocus": "858",
+          "craftresource": [
+            {
+              "@uniquename": "T4_LEATHER",
+              "@count": "16"
+            },
+            {
+              "@uniquename": "T4_ARTEFACT_ARMOR_LEATHER_DRAGON",
+              "@count": "1",
+              "@maxreturnamount": "0"
+            }
+          ]
+        },
+        "AudioInfo": {
+          "@name": "LEATHER_ARMOR"
+        },
+        "enchantments": {
+          "enchantment": [
+            {
+              "@enchantmentlevel": "1",
+              "@itempower": "900",
+              "@durability": "54675",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1",
+                "@craftingfocus": "1501",
+                "craftresource": [
+                  {
+                    "@uniquename": "T4_LEATHER_LEVEL1",
+                    "@enchantmentlevel": "1",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T4_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T4_RUNE",
+                  "@count": "192"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "2",
+              "@itempower": "1000",
+              "@durability": "82013",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.333",
+                "@craftingfocus": "2626",
+                "craftresource": [
+                  {
+                    "@uniquename": "T4_LEATHER_LEVEL2",
+                    "@enchantmentlevel": "2",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T4_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T4_SOUL",
+                  "@count": "192"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "3",
+              "@itempower": "1100",
+              "@durability": "123019",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.667",
+                "@craftingfocus": "4596",
+                "craftresource": [
+                  {
+                    "@uniquename": "T4_LEATHER_LEVEL3",
+                    "@enchantmentlevel": "3",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T4_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T4_RELIC",
+                  "@count": "192"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "4",
+              "@itempower": "1200",
+              "@durability": "184528",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "2.5",
+                "@craftingfocus": "8042",
+                "craftresource": [
+                  {
+                    "@uniquename": "T4_LEATHER_LEVEL4",
+                    "@enchantmentlevel": "4",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T4_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@uniquename": "T5_ARMOR_LEATHER_DRAGON",
+        "@slottype": "armor",
+        "@shopcategory": "armors",
+        "@shopsubcategory1": "leather_armor",
+        "@tier": "5",
+        "@maxqualitylevel": "5",
+        "@itempower": "900",
+        "@weight": "5.1",
+        "@activespellslots": "1",
+        "@passivespellslots": "1",
+        "@abilitypower": "100",
+        "@physicalspelldamagebonus": "0.3",
+        "@magicspelldamagebonus": "0.3",
+        "@healbonus": "0.3",
+        "@physicalattackdamagebonus": "0.3",
+        "@magicattackdamagebonus": "0.3",
+        "@bonusccdurationvsplayers": "0.1",
+        "@bonusccdurationvsmobs": "0.1",
+        "@hitpointsmax": "0",
+        "@hitpointsregenerationbonus": "1.5",
+        "@energymax": "0",
+        "@energyregenerationbonus": "0.1",
+        "@movespeed": "0",
+        "@maxload": "0",
+        "@magiccooldownreduction": "0",
+        "@physicalarmor": "92",
+        "@magicresistance": "92",
+        "@crowdcontrolresistance": "26",
+        "@durability": "54675",
+        "@durabilityloss_attack": "1",
+        "@durabilityloss_spelluse": "1",
+        "@durabilityloss_receivedattack": "1",
+        "@durabilityloss_receivedspell": "1",
+        "@unlockedtocraft": "false",
+        "@unlockedtoequip": "false",
+        "@threatbonus": "0",
+        "@itempowerprogressiontype": "armor",
+        "@bonusdefensevsplayers": "0",
+        "@bonusdefensevsmobs": "0",
+        "@magiccasttimereduction": "0",
+        "@attackspeedbonus": "0",
+        "@movespeedbonus": "0",
+        "@showinmarketplace": "true",
+        "@uicraftsoundstart": "Play_ui_action_craft_leather_start",
+        "@uicraftsoundfinish": "Play_ui_action_craft_leather_finish",
+        "@healmodifier": "0",
+        "@craftingcategory": "leather_armor",
+        "@scalemodifier": "1.1",
+        "@canbeovercharged": "true",
+        "@energycostreduction": "0",
+        "@masterymodifier": "0.05",
+        "@descriptionlocatag": "@ITEMS_T1_ARMOR_LEATHER_SET1_DESC",
+        "@destinyandjournalcraftfamefactor": "1.4",
+        "@combatspecachievement": "COMBAT_LEATHER_ARMORS_AVALON",
+        "@shopsubcategory2": "armors_leather_dragon",
+        "craftingspelllist": {
+          "@reference": "T4_ARMOR_LEATHER_DRAGON"
+        },
+        "craftingrequirements": {
+          "@silver": "0",
+          "@time": "1",
+          "@craftingfocus": "1501",
+          "craftresource": [
+            {
+              "@uniquename": "T5_LEATHER",
+              "@count": "16"
+            },
+            {
+              "@uniquename": "T5_ARTEFACT_ARMOR_LEATHER_DRAGON",
+              "@count": "1",
+              "@maxreturnamount": "0"
+            }
+          ]
+        },
+        "AudioInfo": {
+          "@name": "LEATHER_ARMOR"
+        },
+        "enchantments": {
+          "enchantment": [
+            {
+              "@enchantmentlevel": "1",
+              "@itempower": "1000",
+              "@durability": "82013",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.333",
+                "@craftingfocus": "2626",
+                "craftresource": [
+                  {
+                    "@uniquename": "T5_LEATHER_LEVEL1",
+                    "@enchantmentlevel": "1",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T5_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T5_RUNE",
+                  "@count": "192"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "2",
+              "@itempower": "1100",
+              "@durability": "123019",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.667",
+                "@craftingfocus": "4596",
+                "craftresource": [
+                  {
+                    "@uniquename": "T5_LEATHER_LEVEL2",
+                    "@enchantmentlevel": "2",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T5_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T5_SOUL",
+                  "@count": "192"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "3",
+              "@itempower": "1200",
+              "@durability": "184528",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "2.5",
+                "@craftingfocus": "8042",
+                "craftresource": [
+                  {
+                    "@uniquename": "T5_LEATHER_LEVEL3",
+                    "@enchantmentlevel": "3",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T5_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T5_RELIC",
+                  "@count": "192"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "4",
+              "@itempower": "1300",
+              "@durability": "276792",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "3",
+                "@craftingfocus": "14074",
+                "craftresource": [
+                  {
+                    "@uniquename": "T5_LEATHER_LEVEL4",
+                    "@enchantmentlevel": "4",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T5_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@uniquename": "T6_ARMOR_LEATHER_DRAGON",
+        "@slottype": "armor",
+        "@shopcategory": "armors",
+        "@shopsubcategory1": "leather_armor",
+        "@tier": "6",
+        "@maxqualitylevel": "5",
+        "@itempower": "1000",
+        "@weight": "7.6",
+        "@activespellslots": "1",
+        "@passivespellslots": "1",
+        "@abilitypower": "100",
+        "@physicalspelldamagebonus": "0.3",
+        "@magicspelldamagebonus": "0.3",
+        "@healbonus": "0.3",
+        "@physicalattackdamagebonus": "0.3",
+        "@magicattackdamagebonus": "0.3",
+        "@bonusccdurationvsplayers": "0.1",
+        "@bonusccdurationvsmobs": "0.1",
+        "@hitpointsmax": "0",
+        "@hitpointsregenerationbonus": "1.5",
+        "@energymax": "0",
+        "@energyregenerationbonus": "0.1",
+        "@movespeed": "0",
+        "@maxload": "0",
+        "@magiccooldownreduction": "0",
+        "@physicalarmor": "92",
+        "@magicresistance": "92",
+        "@crowdcontrolresistance": "26",
+        "@durability": "82013",
+        "@durabilityloss_attack": "1",
+        "@durabilityloss_spelluse": "1",
+        "@durabilityloss_receivedattack": "1",
+        "@durabilityloss_receivedspell": "1",
+        "@unlockedtocraft": "false",
+        "@unlockedtoequip": "false",
+        "@threatbonus": "0",
+        "@itempowerprogressiontype": "armor",
+        "@bonusdefensevsplayers": "0",
+        "@bonusdefensevsmobs": "0",
+        "@magiccasttimereduction": "0",
+        "@attackspeedbonus": "0",
+        "@movespeedbonus": "0",
+        "@showinmarketplace": "true",
+        "@uicraftsoundstart": "Play_ui_action_craft_leather_start",
+        "@uicraftsoundfinish": "Play_ui_action_craft_leather_finish",
+        "@healmodifier": "0",
+        "@craftingcategory": "leather_armor",
+        "@scalemodifier": "1.1",
+        "@canbeovercharged": "true",
+        "@energycostreduction": "0",
+        "@masterymodifier": "0.1",
+        "@descriptionlocatag": "@ITEMS_T1_ARMOR_LEATHER_SET1_DESC",
+        "@destinyandjournalcraftfamefactor": "1.4",
+        "@combatspecachievement": "COMBAT_LEATHER_ARMORS_AVALON",
+        "@shopsubcategory2": "armors_leather_dragon",
+        "craftingspelllist": {
+          "@reference": "T4_ARMOR_LEATHER_DRAGON"
+        },
+        "craftingrequirements": {
+          "@silver": "0",
+          "@time": "1.333",
+          "@craftingfocus": "2626",
+          "craftresource": [
+            {
+              "@uniquename": "T6_LEATHER",
+              "@count": "16"
+            },
+            {
+              "@uniquename": "T6_ARTEFACT_ARMOR_LEATHER_DRAGON",
+              "@count": "1",
+              "@maxreturnamount": "0"
+            }
+          ]
+        },
+        "AudioInfo": {
+          "@name": "LEATHER_ARMOR"
+        },
+        "enchantments": {
+          "enchantment": [
+            {
+              "@enchantmentlevel": "1",
+              "@itempower": "1100",
+              "@durability": "123020",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.667",
+                "@craftingfocus": "4596",
+                "craftresource": [
+                  {
+                    "@uniquename": "T6_LEATHER_LEVEL1",
+                    "@enchantmentlevel": "1",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T6_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T6_RUNE",
+                  "@count": "192"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "2",
+              "@itempower": "1200",
+              "@durability": "184529",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "2.5",
+                "@craftingfocus": "8042",
+                "craftresource": [
+                  {
+                    "@uniquename": "T6_LEATHER_LEVEL2",
+                    "@enchantmentlevel": "2",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T6_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T6_SOUL",
+                  "@count": "192"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "3",
+              "@itempower": "1300",
+              "@durability": "276794",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "3",
+                "@craftingfocus": "14074",
+                "craftresource": [
+                  {
+                    "@uniquename": "T6_LEATHER_LEVEL3",
+                    "@enchantmentlevel": "3",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T6_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T6_RELIC",
+                  "@count": "192"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "4",
+              "@itempower": "1400",
+              "@durability": "415191",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "3.6",
+                "@craftingfocus": "24630",
+                "craftresource": [
+                  {
+                    "@uniquename": "T6_LEATHER_LEVEL4",
+                    "@enchantmentlevel": "4",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T6_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@uniquename": "T7_ARMOR_LEATHER_DRAGON",
+        "@slottype": "armor",
+        "@shopcategory": "armors",
+        "@shopsubcategory1": "leather_armor",
+        "@tier": "7",
+        "@maxqualitylevel": "5",
+        "@itempower": "1100",
+        "@weight": "11.4",
+        "@activespellslots": "1",
+        "@passivespellslots": "1",
+        "@abilitypower": "100",
+        "@physicalspelldamagebonus": "0.3",
+        "@magicspelldamagebonus": "0.3",
+        "@healbonus": "0.3",
+        "@physicalattackdamagebonus": "0.3",
+        "@magicattackdamagebonus": "0.3",
+        "@bonusccdurationvsplayers": "0.1",
+        "@bonusccdurationvsmobs": "0.1",
+        "@hitpointsmax": "0",
+        "@hitpointsregenerationbonus": "1.5",
+        "@energymax": "0",
+        "@energyregenerationbonus": "0.1",
+        "@movespeed": "0",
+        "@maxload": "0",
+        "@magiccooldownreduction": "0",
+        "@physicalarmor": "92",
+        "@magicresistance": "92",
+        "@crowdcontrolresistance": "26",
+        "@durability": "123019",
+        "@durabilityloss_attack": "1",
+        "@durabilityloss_spelluse": "1",
+        "@durabilityloss_receivedattack": "1",
+        "@durabilityloss_receivedspell": "1",
+        "@unlockedtocraft": "false",
+        "@unlockedtoequip": "false",
+        "@threatbonus": "0",
+        "@itempowerprogressiontype": "armor",
+        "@bonusdefensevsplayers": "0",
+        "@bonusdefensevsmobs": "0",
+        "@magiccasttimereduction": "0",
+        "@attackspeedbonus": "0",
+        "@movespeedbonus": "0",
+        "@showinmarketplace": "true",
+        "@uicraftsoundstart": "Play_ui_action_craft_leather_start",
+        "@uicraftsoundfinish": "Play_ui_action_craft_leather_finish",
+        "@healmodifier": "0",
+        "@craftingcategory": "leather_armor",
+        "@scalemodifier": "1.1",
+        "@canbeovercharged": "true",
+        "@energycostreduction": "0",
+        "@masterymodifier": "0.15",
+        "@descriptionlocatag": "@ITEMS_T1_ARMOR_LEATHER_SET1_DESC",
+        "@destinyandjournalcraftfamefactor": "1.4",
+        "@combatspecachievement": "COMBAT_LEATHER_ARMORS_AVALON",
+        "@shopsubcategory2": "armors_leather_dragon",
+        "craftingspelllist": {
+          "@reference": "T4_ARMOR_LEATHER_DRAGON"
+        },
+        "craftingrequirements": {
+          "@silver": "0",
+          "@time": "1.667",
+          "@craftingfocus": "4596",
+          "craftresource": [
+            {
+              "@uniquename": "T7_LEATHER",
+              "@count": "16"
+            },
+            {
+              "@uniquename": "T7_ARTEFACT_ARMOR_LEATHER_DRAGON",
+              "@count": "1",
+              "@maxreturnamount": "0"
+            }
+          ]
+        },
+        "AudioInfo": {
+          "@name": "LEATHER_ARMOR"
+        },
+        "enchantments": {
+          "enchantment": [
+            {
+              "@enchantmentlevel": "1",
+              "@itempower": "1200",
+              "@durability": "184529",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "2.5",
+                "@craftingfocus": "8042",
+                "craftresource": [
+                  {
+                    "@uniquename": "T7_LEATHER_LEVEL1",
+                    "@enchantmentlevel": "1",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T7_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T7_RUNE",
+                  "@count": "192"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "2",
+              "@itempower": "1300",
+              "@durability": "276793",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "3",
+                "@craftingfocus": "14074",
+                "craftresource": [
+                  {
+                    "@uniquename": "T7_LEATHER_LEVEL2",
+                    "@enchantmentlevel": "2",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T7_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T7_SOUL",
+                  "@count": "192"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "3",
+              "@itempower": "1400",
+              "@durability": "415189",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "3.6",
+                "@craftingfocus": "24630",
+                "craftresource": [
+                  {
+                    "@uniquename": "T7_LEATHER_LEVEL3",
+                    "@enchantmentlevel": "3",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T7_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T7_RELIC",
+                  "@count": "192"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "4",
+              "@itempower": "1500",
+              "@durability": "622784",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "4.32",
+                "@craftingfocus": "43102",
+                "craftresource": [
+                  {
+                    "@uniquename": "T7_LEATHER_LEVEL4",
+                    "@enchantmentlevel": "4",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T7_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@uniquename": "T8_ARMOR_LEATHER_DRAGON",
+        "@slottype": "armor",
+        "@shopcategory": "armors",
+        "@shopsubcategory1": "leather_armor",
+        "@tier": "8",
+        "@maxqualitylevel": "5",
+        "@itempower": "1200",
+        "@weight": "17.1",
+        "@activespellslots": "1",
+        "@passivespellslots": "1",
+        "@abilitypower": "100",
+        "@physicalspelldamagebonus": "0.3",
+        "@magicspelldamagebonus": "0.3",
+        "@healbonus": "0.3",
+        "@physicalattackdamagebonus": "0.3",
+        "@magicattackdamagebonus": "0.3",
+        "@bonusccdurationvsplayers": "0.1",
+        "@bonusccdurationvsmobs": "0.1",
+        "@hitpointsmax": "0",
+        "@hitpointsregenerationbonus": "1.5",
+        "@energymax": "0",
+        "@energyregenerationbonus": "0.1",
+        "@movespeed": "0",
+        "@maxload": "0",
+        "@magiccooldownreduction": "0",
+        "@physicalarmor": "92",
+        "@magicresistance": "92",
+        "@crowdcontrolresistance": "26",
+        "@durability": "184528",
+        "@durabilityloss_attack": "1",
+        "@durabilityloss_spelluse": "1",
+        "@durabilityloss_receivedattack": "1",
+        "@durabilityloss_receivedspell": "1",
+        "@unlockedtocraft": "false",
+        "@unlockedtoequip": "false",
+        "@threatbonus": "0",
+        "@itempowerprogressiontype": "armor",
+        "@bonusdefensevsplayers": "0",
+        "@bonusdefensevsmobs": "0",
+        "@magiccasttimereduction": "0",
+        "@attackspeedbonus": "0",
+        "@movespeedbonus": "0",
+        "@showinmarketplace": "true",
+        "@uicraftsoundstart": "Play_ui_action_craft_leather_start",
+        "@uicraftsoundfinish": "Play_ui_action_craft_leather_finish",
+        "@healmodifier": "0",
+        "@craftingcategory": "leather_armor",
+        "@scalemodifier": "1.1",
+        "@canbeovercharged": "true",
+        "@energycostreduction": "0",
+        "@masterymodifier": "0.2",
+        "@descriptionlocatag": "@ITEMS_T1_ARMOR_LEATHER_SET1_DESC",
+        "@destinyandjournalcraftfamefactor": "1.4",
+        "@combatspecachievement": "COMBAT_LEATHER_ARMORS_AVALON",
+        "@shopsubcategory2": "armors_leather_dragon",
+        "craftingspelllist": {
+          "@reference": "T4_ARMOR_LEATHER_DRAGON"
+        },
+        "craftingrequirements": {
+          "@silver": "0",
+          "@time": "2.5",
+          "@craftingfocus": "8042",
+          "craftresource": [
+            {
+              "@uniquename": "T8_LEATHER",
+              "@count": "16"
+            },
+            {
+              "@uniquename": "T8_ARTEFACT_ARMOR_LEATHER_DRAGON",
+              "@count": "1",
+              "@maxreturnamount": "0"
+            }
+          ]
+        },
+        "AudioInfo": {
+          "@name": "LEATHER_ARMOR"
+        },
+        "enchantments": {
+          "enchantment": [
+            {
+              "@enchantmentlevel": "1",
+              "@itempower": "1300",
+              "@durability": "276792",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "3",
+                "@craftingfocus": "14074",
+                "craftresource": [
+                  {
+                    "@uniquename": "T8_LEATHER_LEVEL1",
+                    "@enchantmentlevel": "1",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T8_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T8_RUNE",
+                  "@count": "192"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "2",
+              "@itempower": "1400",
+              "@durability": "415188",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "3.6",
+                "@craftingfocus": "24630",
+                "craftresource": [
+                  {
+                    "@uniquename": "T8_LEATHER_LEVEL2",
+                    "@enchantmentlevel": "2",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T8_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T8_SOUL",
+                  "@count": "192"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "3",
+              "@itempower": "1500",
+              "@durability": "622782",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "4.32",
+                "@craftingfocus": "43102",
+                "craftresource": [
+                  {
+                    "@uniquename": "T8_LEATHER_LEVEL3",
+                    "@enchantmentlevel": "3",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T8_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T8_RELIC",
+                  "@count": "192"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "4",
+              "@itempower": "1600",
+              "@durability": "934173",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "5.04",
+                "@craftingfocus": "75429",
+                "craftresource": [
+                  {
+                    "@uniquename": "T8_LEATHER_LEVEL4",
+                    "@enchantmentlevel": "4",
+                    "@count": "16"
+                  },
+                  {
+                    "@uniquename": "T8_ARTEFACT_ARMOR_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@uniquename": "T4_SHOES_LEATHER_DRAGON",
+        "@maxqualitylevel": "5",
+        "@abilitypower": "100",
+        "@slottype": "shoes",
+        "@shopcategory": "shoes",
+        "@shopsubcategory1": "leather_shoes",
+        "@tier": "4",
+        "@skincount": "2",
+        "@weight": "1.7",
+        "@activespellslots": "1",
+        "@passivespellslots": "1",
+        "@hitpointsmax": "0",
+        "@hitpointsregenerationbonus": "0",
+        "@energymax": "0",
+        "@energyregenerationbonus": "0",
+        "@movespeed": "0",
+        "@maxload": "0",
+        "@magiccooldownreduction": "0",
+        "@physicalarmor": "0",
+        "@magicresistance": "0",
+        "@crowdcontrolresistance": "0",
+        "@durability": "30375",
+        "@durabilityloss_attack": "1",
+        "@durabilityloss_spelluse": "1",
+        "@durabilityloss_receivedattack": "1",
+        "@durabilityloss_receivedspell": "1",
+        "@unlockedtocraft": "false",
+        "@unlockedtoequip": "false",
+        "@physicalspelldamagebonus": "0",
+        "@magicspelldamagebonus": "0",
+        "@healbonus": "0",
+        "@itempower": "800",
+        "@physicalattackdamagebonus": "0",
+        "@magicattackdamagebonus": "0",
+        "@bonusccdurationvsplayers": "0",
+        "@bonusccdurationvsmobs": "0",
+        "@threatbonus": "0",
+        "@itempowerprogressiontype": "shoes",
+        "@bonusdefensevsplayers": "0",
+        "@bonusdefensevsmobs": "0",
+        "@magiccasttimereduction": "0",
+        "@attackspeedbonus": "0",
+        "@movespeedbonus": "0",
+        "@showinmarketplace": "true",
+        "@uicraftsoundstart": "Play_ui_action_craft_leather_start",
+        "@uicraftsoundfinish": "Play_ui_action_craft_leather_finish",
+        "@healmodifier": "0",
+        "@craftingcategory": "leather_shoes",
+        "@canbeovercharged": "true",
+        "@energycostreduction": "0",
+        "@masterymodifier": "0",
+        "@descriptionlocatag": "@ITEMS_GENERAL_EQUIPMENT_ITEM_DESC",
+        "@destinyandjournalcraftfamefactor": "1.4",
+        "@combatspecachievement": "COMBAT_LEATHER_SHOES_AVALON",
+        "@shopsubcategory2": "shoes_leather_dragon",
+        "craftingspelllist": {
+          "craftspell": [
+            {
+              "@uniquename": "DODGE"
+            },
+            {
+              "@uniquename": "SPRINT_CD_REDUCTION"
+            },
+            {
+              "@uniquename": "WEAPON_SPRINT"
+            },
+            {
+              "@uniquename": "PASSIVE_MAXLOAD_SHOES"
+            },
+            {
+              "@uniquename": "PASSIVE_BALANCE"
+            },
+            {
+              "@uniquename": "PASSIVE_INCREASED_AASPEED"
+            },
+            {
+              "@uniquename": "PASSIVE_CD_REDUCTION"
+            }
+          ]
+        },
+        "craftingrequirements": {
+          "@silver": "0",
+          "@time": "0.333",
+          "@craftingfocus": "429",
+          "craftresource": [
+            {
+              "@uniquename": "T4_LEATHER",
+              "@count": "8"
+            },
+            {
+              "@uniquename": "T4_ARTEFACT_SHOES_LEATHER_DRAGON",
+              "@count": "1",
+              "@maxreturnamount": "0"
+            }
+          ]
+        },
+        "enchantments": {
+          "enchantment": [
+            {
+              "@enchantmentlevel": "1",
+              "@itempower": "900",
+              "@durability": "45563",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "0.5",
+                "@craftingfocus": "750",
+                "craftresource": [
+                  {
+                    "@uniquename": "T4_LEATHER_LEVEL1",
+                    "@enchantmentlevel": "1",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T4_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T4_RUNE",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "2",
+              "@itempower": "1000",
+              "@durability": "68344",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "0.667",
+                "@craftingfocus": "1313",
+                "craftresource": [
+                  {
+                    "@uniquename": "T4_LEATHER_LEVEL2",
+                    "@enchantmentlevel": "2",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T4_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T4_SOUL",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "3",
+              "@itempower": "1100",
+              "@durability": "102516",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "0.833",
+                "@craftingfocus": "2298",
+                "craftresource": [
+                  {
+                    "@uniquename": "T4_LEATHER_LEVEL3",
+                    "@enchantmentlevel": "3",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T4_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T4_RELIC",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "4",
+              "@itempower": "1200",
+              "@durability": "153773",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.25",
+                "@craftingfocus": "4021",
+                "craftresource": [
+                  {
+                    "@uniquename": "T4_LEATHER_LEVEL4",
+                    "@enchantmentlevel": "4",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T4_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@uniquename": "T5_SHOES_LEATHER_DRAGON",
+        "@maxqualitylevel": "5",
+        "@abilitypower": "100",
+        "@slottype": "shoes",
+        "@shopcategory": "shoes",
+        "@shopsubcategory1": "leather_shoes",
+        "@tier": "5",
+        "@skincount": "2",
+        "@weight": "2.5",
+        "@activespellslots": "1",
+        "@passivespellslots": "1",
+        "@hitpointsmax": "0",
+        "@hitpointsregenerationbonus": "0",
+        "@energymax": "0",
+        "@energyregenerationbonus": "0",
+        "@movespeed": "0",
+        "@maxload": "0",
+        "@magiccooldownreduction": "0",
+        "@physicalarmor": "0",
+        "@magicresistance": "0",
+        "@crowdcontrolresistance": "0",
+        "@durability": "45563",
+        "@durabilityloss_attack": "1",
+        "@durabilityloss_spelluse": "1",
+        "@durabilityloss_receivedattack": "1",
+        "@durabilityloss_receivedspell": "1",
+        "@unlockedtocraft": "false",
+        "@unlockedtoequip": "false",
+        "@physicalspelldamagebonus": "0",
+        "@magicspelldamagebonus": "0",
+        "@healbonus": "0",
+        "@itempower": "900",
+        "@physicalattackdamagebonus": "0",
+        "@magicattackdamagebonus": "0",
+        "@bonusccdurationvsplayers": "0",
+        "@bonusccdurationvsmobs": "0",
+        "@threatbonus": "0",
+        "@itempowerprogressiontype": "shoes",
+        "@bonusdefensevsplayers": "0",
+        "@bonusdefensevsmobs": "0",
+        "@magiccasttimereduction": "0",
+        "@attackspeedbonus": "0",
+        "@movespeedbonus": "0",
+        "@showinmarketplace": "true",
+        "@uicraftsoundstart": "Play_ui_action_craft_leather_start",
+        "@uicraftsoundfinish": "Play_ui_action_craft_leather_finish",
+        "@healmodifier": "0",
+        "@craftingcategory": "leather_shoes",
+        "@canbeovercharged": "true",
+        "@energycostreduction": "0",
+        "@masterymodifier": "0.05",
+        "@descriptionlocatag": "@ITEMS_GENERAL_EQUIPMENT_ITEM_DESC",
+        "@destinyandjournalcraftfamefactor": "1.4",
+        "@combatspecachievement": "COMBAT_LEATHER_SHOES_AVALON",
+        "@shopsubcategory2": "shoes_leather_dragon",
+        "craftingspelllist": {
+          "@reference": "T4_SHOES_LEATHER_DRAGON"
+        },
+        "craftingrequirements": {
+          "@silver": "0",
+          "@time": "0.5",
+          "@craftingfocus": "750",
+          "craftresource": [
+            {
+              "@uniquename": "T5_LEATHER",
+              "@count": "8"
+            },
+            {
+              "@uniquename": "T5_ARTEFACT_SHOES_LEATHER_DRAGON",
+              "@count": "1",
+              "@maxreturnamount": "0"
+            }
+          ]
+        },
+        "enchantments": {
+          "enchantment": [
+            {
+              "@enchantmentlevel": "1",
+              "@itempower": "1000",
+              "@durability": "68345",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "0.667",
+                "@craftingfocus": "1313",
+                "craftresource": [
+                  {
+                    "@uniquename": "T5_LEATHER_LEVEL1",
+                    "@enchantmentlevel": "1",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T5_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T5_RUNE",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "2",
+              "@itempower": "1100",
+              "@durability": "102517",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "0.833",
+                "@craftingfocus": "2298",
+                "craftresource": [
+                  {
+                    "@uniquename": "T5_LEATHER_LEVEL2",
+                    "@enchantmentlevel": "2",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T5_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T5_SOUL",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "3",
+              "@itempower": "1200",
+              "@durability": "153775",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.25",
+                "@craftingfocus": "4021",
+                "craftresource": [
+                  {
+                    "@uniquename": "T5_LEATHER_LEVEL3",
+                    "@enchantmentlevel": "3",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T5_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T5_RELIC",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "4",
+              "@itempower": "1300",
+              "@durability": "230663",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.5",
+                "@craftingfocus": "7037",
+                "craftresource": [
+                  {
+                    "@uniquename": "T5_LEATHER_LEVEL4",
+                    "@enchantmentlevel": "4",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T5_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@uniquename": "T6_SHOES_LEATHER_DRAGON",
+        "@maxqualitylevel": "5",
+        "@abilitypower": "100",
+        "@slottype": "shoes",
+        "@shopcategory": "shoes",
+        "@shopsubcategory1": "leather_shoes",
+        "@tier": "6",
+        "@skincount": "2",
+        "@weight": "3.8",
+        "@activespellslots": "1",
+        "@passivespellslots": "1",
+        "@hitpointsmax": "0",
+        "@hitpointsregenerationbonus": "0",
+        "@energymax": "0",
+        "@energyregenerationbonus": "0",
+        "@movespeed": "0",
+        "@maxload": "0",
+        "@magiccooldownreduction": "0",
+        "@physicalarmor": "0",
+        "@magicresistance": "0",
+        "@crowdcontrolresistance": "0",
+        "@durability": "68344",
+        "@durabilityloss_attack": "1",
+        "@durabilityloss_spelluse": "1",
+        "@durabilityloss_receivedattack": "1",
+        "@durabilityloss_receivedspell": "1",
+        "@unlockedtocraft": "false",
+        "@unlockedtoequip": "false",
+        "@physicalspelldamagebonus": "0",
+        "@magicspelldamagebonus": "0",
+        "@healbonus": "0",
+        "@itempower": "1000",
+        "@physicalattackdamagebonus": "0",
+        "@magicattackdamagebonus": "0",
+        "@bonusccdurationvsplayers": "0",
+        "@bonusccdurationvsmobs": "0",
+        "@threatbonus": "0",
+        "@itempowerprogressiontype": "shoes",
+        "@bonusdefensevsplayers": "0",
+        "@bonusdefensevsmobs": "0",
+        "@magiccasttimereduction": "0",
+        "@attackspeedbonus": "0",
+        "@movespeedbonus": "0",
+        "@showinmarketplace": "true",
+        "@uicraftsoundstart": "Play_ui_action_craft_leather_start",
+        "@uicraftsoundfinish": "Play_ui_action_craft_leather_finish",
+        "@healmodifier": "0",
+        "@craftingcategory": "leather_shoes",
+        "@canbeovercharged": "true",
+        "@energycostreduction": "0",
+        "@masterymodifier": "0.1",
+        "@descriptionlocatag": "@ITEMS_GENERAL_EQUIPMENT_ITEM_DESC",
+        "@destinyandjournalcraftfamefactor": "1.4",
+        "@combatspecachievement": "COMBAT_LEATHER_SHOES_AVALON",
+        "@shopsubcategory2": "shoes_leather_dragon",
+        "craftingspelllist": {
+          "@reference": "T4_SHOES_LEATHER_DRAGON"
+        },
+        "craftingrequirements": {
+          "@silver": "0",
+          "@time": "0.667",
+          "@craftingfocus": "1313",
+          "craftresource": [
+            {
+              "@uniquename": "T6_LEATHER",
+              "@count": "8"
+            },
+            {
+              "@uniquename": "T6_ARTEFACT_SHOES_LEATHER_DRAGON",
+              "@count": "1",
+              "@maxreturnamount": "0"
+            }
+          ]
+        },
+        "enchantments": {
+          "enchantment": [
+            {
+              "@enchantmentlevel": "1",
+              "@itempower": "1100",
+              "@durability": "102516",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "0.833",
+                "@craftingfocus": "2298",
+                "craftresource": [
+                  {
+                    "@uniquename": "T6_LEATHER_LEVEL1",
+                    "@enchantmentlevel": "1",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T6_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T6_RUNE",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "2",
+              "@itempower": "1200",
+              "@durability": "153774",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.25",
+                "@craftingfocus": "4021",
+                "craftresource": [
+                  {
+                    "@uniquename": "T6_LEATHER_LEVEL2",
+                    "@enchantmentlevel": "2",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T6_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T6_SOUL",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "3",
+              "@itempower": "1300",
+              "@durability": "230661",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.5",
+                "@craftingfocus": "7037",
+                "craftresource": [
+                  {
+                    "@uniquename": "T6_LEATHER_LEVEL3",
+                    "@enchantmentlevel": "3",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T6_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T6_RELIC",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "4",
+              "@itempower": "1400",
+              "@durability": "345992",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.8",
+                "@craftingfocus": "12315",
+                "craftresource": [
+                  {
+                    "@uniquename": "T6_LEATHER_LEVEL4",
+                    "@enchantmentlevel": "4",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T6_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@uniquename": "T7_SHOES_LEATHER_DRAGON",
+        "@maxqualitylevel": "5",
+        "@abilitypower": "100",
+        "@slottype": "shoes",
+        "@shopcategory": "shoes",
+        "@shopsubcategory1": "leather_shoes",
+        "@tier": "7",
+        "@skincount": "2",
+        "@weight": "5.7",
+        "@activespellslots": "1",
+        "@passivespellslots": "1",
+        "@hitpointsmax": "0",
+        "@hitpointsregenerationbonus": "0",
+        "@energymax": "0",
+        "@energyregenerationbonus": "0",
+        "@movespeed": "0",
+        "@maxload": "0",
+        "@magiccooldownreduction": "0",
+        "@physicalarmor": "0",
+        "@magicresistance": "0",
+        "@crowdcontrolresistance": "0",
+        "@durability": "102516",
+        "@durabilityloss_attack": "1",
+        "@durabilityloss_spelluse": "1",
+        "@durabilityloss_receivedattack": "1",
+        "@durabilityloss_receivedspell": "1",
+        "@unlockedtocraft": "false",
+        "@unlockedtoequip": "false",
+        "@physicalspelldamagebonus": "0",
+        "@magicspelldamagebonus": "0",
+        "@healbonus": "0",
+        "@itempower": "1100",
+        "@physicalattackdamagebonus": "0",
+        "@magicattackdamagebonus": "0",
+        "@bonusccdurationvsplayers": "0",
+        "@bonusccdurationvsmobs": "0",
+        "@threatbonus": "0",
+        "@itempowerprogressiontype": "shoes",
+        "@bonusdefensevsplayers": "0",
+        "@bonusdefensevsmobs": "0",
+        "@magiccasttimereduction": "0",
+        "@attackspeedbonus": "0",
+        "@movespeedbonus": "0",
+        "@showinmarketplace": "true",
+        "@uicraftsoundstart": "Play_ui_action_craft_leather_start",
+        "@uicraftsoundfinish": "Play_ui_action_craft_leather_finish",
+        "@healmodifier": "0",
+        "@craftingcategory": "leather_shoes",
+        "@canbeovercharged": "true",
+        "@energycostreduction": "0",
+        "@masterymodifier": "0.15",
+        "@descriptionlocatag": "@ITEMS_GENERAL_EQUIPMENT_ITEM_DESC",
+        "@destinyandjournalcraftfamefactor": "1.4",
+        "@combatspecachievement": "COMBAT_LEATHER_SHOES_AVALON",
+        "@shopsubcategory2": "shoes_leather_dragon",
+        "craftingspelllist": {
+          "@reference": "T4_SHOES_LEATHER_DRAGON"
+        },
+        "craftingrequirements": {
+          "@silver": "0",
+          "@time": "0.833",
+          "@craftingfocus": "2298",
+          "craftresource": [
+            {
+              "@uniquename": "T7_LEATHER",
+              "@count": "8"
+            },
+            {
+              "@uniquename": "T7_ARTEFACT_SHOES_LEATHER_DRAGON",
+              "@count": "1",
+              "@maxreturnamount": "0"
+            }
+          ]
+        },
+        "enchantments": {
+          "enchantment": [
+            {
+              "@enchantmentlevel": "1",
+              "@itempower": "1200",
+              "@durability": "153774",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.25",
+                "@craftingfocus": "4021",
+                "craftresource": [
+                  {
+                    "@uniquename": "T7_LEATHER_LEVEL1",
+                    "@enchantmentlevel": "1",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T7_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T7_RUNE",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "2",
+              "@itempower": "1300",
+              "@durability": "230661",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.5",
+                "@craftingfocus": "7037",
+                "craftresource": [
+                  {
+                    "@uniquename": "T7_LEATHER_LEVEL2",
+                    "@enchantmentlevel": "2",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T7_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T7_SOUL",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "3",
+              "@itempower": "1400",
+              "@durability": "345992",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.8",
+                "@craftingfocus": "12315",
+                "craftresource": [
+                  {
+                    "@uniquename": "T7_LEATHER_LEVEL3",
+                    "@enchantmentlevel": "3",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T7_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T7_RELIC",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "4",
+              "@itempower": "1500",
+              "@durability": "518987",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "2.16",
+                "@craftingfocus": "21551",
+                "craftresource": [
+                  {
+                    "@uniquename": "T7_LEATHER_LEVEL4",
+                    "@enchantmentlevel": "4",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T7_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@uniquename": "T8_SHOES_LEATHER_DRAGON",
+        "@maxqualitylevel": "5",
+        "@abilitypower": "100",
+        "@slottype": "shoes",
+        "@shopcategory": "shoes",
+        "@shopsubcategory1": "leather_shoes",
+        "@tier": "8",
+        "@skincount": "2",
+        "@weight": "8.5",
+        "@activespellslots": "1",
+        "@passivespellslots": "1",
+        "@hitpointsmax": "0",
+        "@hitpointsregenerationbonus": "0",
+        "@energymax": "0",
+        "@energyregenerationbonus": "0",
+        "@movespeed": "0",
+        "@maxload": "0",
+        "@magiccooldownreduction": "0",
+        "@physicalarmor": "0",
+        "@magicresistance": "0",
+        "@crowdcontrolresistance": "0",
+        "@durability": "153773",
+        "@durabilityloss_attack": "1",
+        "@durabilityloss_spelluse": "1",
+        "@durabilityloss_receivedattack": "1",
+        "@durabilityloss_receivedspell": "1",
+        "@unlockedtocraft": "false",
+        "@unlockedtoequip": "false",
+        "@physicalspelldamagebonus": "0",
+        "@magicspelldamagebonus": "0",
+        "@healbonus": "0",
+        "@itempower": "1200",
+        "@physicalattackdamagebonus": "0",
+        "@magicattackdamagebonus": "0",
+        "@bonusccdurationvsplayers": "0",
+        "@bonusccdurationvsmobs": "0",
+        "@threatbonus": "0",
+        "@itempowerprogressiontype": "shoes",
+        "@bonusdefensevsplayers": "0",
+        "@bonusdefensevsmobs": "0",
+        "@magiccasttimereduction": "0",
+        "@attackspeedbonus": "0",
+        "@movespeedbonus": "0",
+        "@showinmarketplace": "true",
+        "@uicraftsoundstart": "Play_ui_action_craft_leather_start",
+        "@uicraftsoundfinish": "Play_ui_action_craft_leather_finish",
+        "@healmodifier": "0",
+        "@craftingcategory": "leather_shoes",
+        "@canbeovercharged": "true",
+        "@energycostreduction": "0",
+        "@masterymodifier": "0.2",
+        "@descriptionlocatag": "@ITEMS_GENERAL_EQUIPMENT_ITEM_DESC",
+        "@destinyandjournalcraftfamefactor": "1.4",
+        "@combatspecachievement": "COMBAT_LEATHER_SHOES_AVALON",
+        "@shopsubcategory2": "shoes_leather_dragon",
+        "craftingspelllist": {
+          "@reference": "T4_SHOES_LEATHER_DRAGON"
+        },
+        "craftingrequirements": {
+          "@silver": "0",
+          "@time": "1.25",
+          "@craftingfocus": "4021",
+          "craftresource": [
+            {
+              "@uniquename": "T8_LEATHER",
+              "@count": "8"
+            },
+            {
+              "@uniquename": "T8_ARTEFACT_SHOES_LEATHER_DRAGON",
+              "@count": "1",
+              "@maxreturnamount": "0"
+            }
+          ]
+        },
+        "enchantments": {
+          "enchantment": [
+            {
+              "@enchantmentlevel": "1",
+              "@itempower": "1300",
+              "@durability": "230660",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.5",
+                "@craftingfocus": "7037",
+                "craftresource": [
+                  {
+                    "@uniquename": "T8_LEATHER_LEVEL1",
+                    "@enchantmentlevel": "1",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T8_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T8_RUNE",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "2",
+              "@itempower": "1400",
+              "@durability": "345989",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "1.8",
+                "@craftingfocus": "12315",
+                "craftresource": [
+                  {
+                    "@uniquename": "T8_LEATHER_LEVEL2",
+                    "@enchantmentlevel": "2",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T8_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T8_SOUL",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "3",
+              "@itempower": "1500",
+              "@durability": "518984",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "2.16",
+                "@craftingfocus": "21551",
+                "craftresource": [
+                  {
+                    "@uniquename": "T8_LEATHER_LEVEL3",
+                    "@enchantmentlevel": "3",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T8_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              },
+              "upgraderequirements": {
+                "upgraderesource": {
+                  "@uniquename": "T8_RELIC",
+                  "@count": "96"
+                }
+              }
+            },
+            {
+              "@enchantmentlevel": "4",
+              "@itempower": "1600",
+              "@durability": "778476",
+              "craftingrequirements": {
+                "@silver": "0",
+                "@time": "2.52",
+                "@craftingfocus": "37715",
+                "craftresource": [
+                  {
+                    "@uniquename": "T8_LEATHER_LEVEL4",
+                    "@enchantmentlevel": "4",
+                    "@count": "8"
+                  },
+                  {
+                    "@uniquename": "T8_ARTEFACT_SHOES_LEATHER_DRAGON",
+                    "@count": "1",
+                    "@maxreturnamount": "0"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+    {
       "@uniquename": "T8_SHOES_PLATE_PROTOTYPE",
       "@mesh": "T8_SHOES_PLATE_SET1",
       "@uisprite": "SHOES_PLATE_LEVEL1",

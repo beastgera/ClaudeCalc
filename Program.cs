@@ -9,6 +9,7 @@ builder.Services.AddHttpClient<AlbionPriceService>(client =>
 });
 
 builder.Services.AddScoped<CraftingCartService>();
+builder.Services.AddScoped<SpecTreeService>();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()

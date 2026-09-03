@@ -2,6 +2,9 @@
 @rendermode InteractiveServer
 @inject AlbionPriceService PriceService
 @inject CraftingCartService Cart
+@inject SpecTreeService Specs
+@inject IJSRuntime JS
+@implements IDisposable
 @using CraftingCalc.Models
 @using CraftingCalc.Services
 
@@ -105,6 +108,42 @@
                 </div>
             </div>
         </div>
+
+        @if (settings.UseFocus && selectedItem != null)
+        {
+            var breakdown = Specs.GetBreakdown(selectedItem.Id);
+            var mult = Specs.GetFocusMultiplier(selectedItem.Id);
+            var reductionPct = (1m - mult) * 100m;
+            var ownMutualRate = SpecTreeService.MutualFceForClass(breakdown.ItemClass)
+                .ToString("0.##", System.Globalization.CultureInfo.InvariantCulture);
+            <div class="gc-field">
+                <label class="gc-label">
+                    Item Spec (0-100)
+                    @if (breakdown.ItemClass != GearItemDatabase.ItemClass.Base)
+                    {
+                        <span class="gc-class-badge gc-class-@breakdown.ItemClass.ToString().ToLower()" title="Mutual FCE / lvl: @ownMutualRate">@breakdown.ItemClass</span>
+                    }
+                    <a href="specs" class="gc-spec-link">edit tree →</a>
+                </label>
+                <div class="gc-spec-row">
+                    <input type="range" min="0" max="100" step="1" class="form-range gc-spec-range"
+                           value="@breakdown.OwnSpec" @onchange="OnSpecLevelChanged" />
+                    <input type="number" min="0" max="100" class="form-control form-control-sm gc-spec-num"
+                           value="@breakdown.OwnSpec" @onchange="OnSpecLevelChanged" />
+                </div>
+                <div class="gc-fce-breakdown" title="Focus Cost Efficiency breakdown">
+                    <div class="gc-fce-row"><span>Unique (@breakdown.OwnSpec × 250)</span><span>@breakdown.UniqueFce.ToString("N0")</span></div>
+                    <div class="gc-fce-row" title="Sum of every sibling spec × its class rate (base 30 / artifact 15 / crystal 2.15)">
+                        <span>Mutual (@breakdown.SiblingLevelSum sibling lvls)</span><span>@breakdown.MutualFce.ToString("N0")</span>
+                    </div>
+                    <div class="gc-fce-row"><span>Mastery (@breakdown.CategoryMastery × 30)</span><span>@breakdown.MasteryFce.ToString("N0")</span></div>
+                    <div class="gc-fce-row gc-fce-total-row">
+                        <span>Total FCE</span><span>@breakdown.TotalFce.ToString("N0")</span>
+                    </div>
+                    <div class="gc-spec-reduction">-@($"{reductionPct:F1}")% focus (× @($"{mult:F3}"))</div>
+                </div>
+            </div>
+        }
 
         <!-- Black Market mode -->
         <div class="gc-field gc-field-check">
@@ -365,6 +404,30 @@
                             <div class="gc-summary-label">Gain</div>
                             <div class="gc-summary-value @(row.Gain >= 0 ? "profit-pos" : "profit-neg")">@($"{row.Gain * 100:F1}%")</div>
                         </div>
+                        @if (settings.UseFocus)
+                        {
+                            <div class="gc-summary-tile">
+                                <div class="gc-summary-label">
+                                    Focus
+                                    <span class="gc-info-icon" tabindex="0">
+                                        &#x24D8;
+                                        <span class="gc-info-tooltip">
+                                            @row.FocusPerCraft.ToString("N0") focus/craft × @settings.Quantity
+                                            @if (row.SpecReduction > 0)
+                                            {
+                                                <br/>
+                                                <text>Base: @row.FocusPerCraftBase.ToString("N0") — spec -@($"{row.SpecReduction * 100:F1}")%</text>
+                                            }
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="gc-summary-value focus">@FormatSummary(row.FocusRequired)</div>
+                            </div>
+                            <div class="gc-summary-tile">
+                                <div class="gc-summary-label">Silver / Focus</div>
+                                <div class="gc-summary-value @(row.SilverPerFocus >= 0 ? "profit-pos" : "profit-neg")">@FormatSilverPerFocus(row.SilverPerFocus)</div>
+                            </div>
+                        }
                     </div>
                 </div>
 
@@ -497,7 +560,40 @@
     private void RecalcAll()
     {
         if (selectedItem == null) return;
-        GearCraftingCalculator.RecalculateAll(rows, selectedItem, settings);
+        var reduction = Specs.GetFocusReduction(selectedItem.Id);
+        GearCraftingCalculator.RecalculateAll(rows, selectedItem, settings, reduction);
+    }
+
+    // Cap at 0.9999 so the display formula never divides by zero elsewhere
+
+    protected override void OnInitialized()
+    {
+        Specs.OnChange += HandleSpecsChanged;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Specs.LoadAsync(JS);
+            if (selectedItem != null) { RecalcAll(); StateHasChanged(); }
+        }
+    }
+
+    private void HandleSpecsChanged()
+    {
+        RecalcAll();
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose() => Specs.OnChange -= HandleSpecsChanged;
+
+    private async Task OnSpecLevelChanged(ChangeEventArgs e)
+    {
+        if (selectedItem == null) return;
+        var raw = e.Value?.ToString() ?? "0";
+        if (!int.TryParse(raw, out var lvl)) return;
+        await Specs.SetItemSpecAsync(JS, selectedItem.Id, lvl);
     }
 
     private void OnBlackMarketToggle()
@@ -649,5 +745,15 @@
         if (v == 0) return "—";
         var sign = v < 0 ? "-" : "";
         return $"{sign}{Math.Abs(v):N0}";
+    }
+
+    private static string FormatSilverPerFocus(decimal v)
+    {
+        if (v == 0) return "—";
+        var sign = v < 0 ? "-" : "";
+        var abs = Math.Abs(v);
+        return abs >= 100 ? $"{sign}{abs:N0}"
+             : abs >= 1   ? $"{sign}{abs:N1}"
+                          : $"{sign}{abs:F2}";
     }
 }
